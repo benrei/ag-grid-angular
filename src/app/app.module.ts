@@ -6,10 +6,17 @@ import { AppComponent } from "./app.component";
 import { HelloComponent } from "./hello.component";
 import { SidenavService } from "./sidenav.service";
 import { AllMaterialModules } from "./material/material.module";
-import { ToolbarComponent } from "./toolbar/toolbar.component";
+import { ToolbarModule } from "./toolbar/toolbar.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, AllMaterialModules, ToolbarComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    AllMaterialModules,
+    ToolbarModule
+  ],
   declarations: [AppComponent, HelloComponent],
   bootstrap: [AppComponent],
   providers: [SidenavService]
