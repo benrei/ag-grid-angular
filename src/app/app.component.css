@@ -1,3 +1,6 @@
 p {
   font-family: Lato;
 }
+.left-menu {
+  height: calc(100vh - 80px);
+}
