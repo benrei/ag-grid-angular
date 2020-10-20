@@ -1,12 +1,8 @@
-<mat-toolbar color="primary">
-	<button mat-icon-button (click)="drawer.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-	<span>My App</span>
-</mat-toolbar>
-<app-toolbar [toogle]="drawer.toggle()"></app-toolbar>
+<app-toolbar [drawer]="drawer"></app-toolbar>
 <mat-drawer-container>
-	<mat-drawer #drawer mode="side">I'm a drawer</mat-drawer>
+	<mat-drawer #drawer mode="side">
+		<app-menu></app-menu>
+	</mat-drawer>
 	<mat-drawer-content class="left-menu">
 		Content
 	</mat-drawer-content>

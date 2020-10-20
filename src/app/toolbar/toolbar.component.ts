@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { SidenavService } from "../sidenav.service";
+import { MatDrawer } from "@angular/material/sidenav";
 
 @Component({
   selector: "app-toolbar",
@@ -7,11 +7,13 @@ import { SidenavService } from "../sidenav.service";
   styleUrls: ["./toolbar.component.css"]
 })
 export class ToolbarComponent implements OnInit {
-  constructor(private sidenavService: SidenavService) {}
+  @Input() drawer: MatDrawer;
+  constructor() // private sidenavService: SidenavService
+  {}
 
-  toogle() {
-    this.sidenavService.sideNav.toggle();
-  }
+  // toggle() {
+  //   this.sidenavService.sideNav.toggle();
+  // }
 
   ngOnInit() {}
 }
