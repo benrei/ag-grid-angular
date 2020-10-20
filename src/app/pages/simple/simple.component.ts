@@ -3,7 +3,6 @@ import { HttpClient } from "@angular/common/http";
 import "ag-grid-enterprise";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
-import { CwGridHeaderComponent } from "../../cw-grid/cw-grid-header/cw-grid-header.component";
 
 @Component({
   selector: "app-simple",

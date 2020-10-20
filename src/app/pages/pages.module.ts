@@ -8,11 +8,7 @@ import { RowGroupComponent } from "./row-group/row-group.component";
 import { CwGridModule } from "../cw-grid/cw-grid.module";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    AgGridModule.withComponents([SimpleComponent]),
-    CwGridModule
-  ],
+  imports: [CommonModule, AgGridModule.withComponents([]), CwGridModule],
   declarations: [SimpleComponent, RowGroupComponent],
   exports: [SimpleComponent]
 })
