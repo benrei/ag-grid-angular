@@ -23,6 +23,9 @@ export class SimpleComponent implements AfterViewInit {
 
   constructor(private http: HttpClient) {}
 
+  addFn() {
+    console.log("addFn");
+  }
 
   onGridReady(params) {
     this.gridApi = params.api;
