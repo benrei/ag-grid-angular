@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./menu.component.css"]
 })
 export class MenuComponent implements OnInit {
-  list: object[] = [{ title: "Simple", path: "simple" }];
+  menuItems = [{ title: "Simple", path: "simple" }];
 
   constructor() {}
 
