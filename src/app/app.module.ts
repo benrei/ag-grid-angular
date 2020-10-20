@@ -8,13 +8,9 @@ import { ToolbarModule } from "./toolbar/toolbar.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MenuComponent } from "./menu/menu.component";
 import { Routes, RouterModule } from "@angular/router";
+import { SimpleComponent } from "./pages/simple/simple.component";
 
-const appRoutes: Routes = [
-  { path: "", component: null },
-  { path: "test", component: null },
-  { path: "test2", component: null },
-  { path: "test3", component: null }
-];
+const appRoutes: Routes = [{ path: "simple", component: SimpleComponent }];
 
 @NgModule({
   imports: [
@@ -25,7 +21,7 @@ const appRoutes: Routes = [
     AllMaterialModules,
     ToolbarModule
   ],
-  declarations: [AppComponent, MenuComponent],
+  declarations: [AppComponent, MenuComponent, SimpleComponent],
   bootstrap: [AppComponent],
   providers: []
 })

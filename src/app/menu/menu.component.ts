@@ -6,13 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./menu.component.css"]
 })
 export class MenuComponent implements OnInit {
-  typesOfShoes: string[] = [
-    "Boots",
-    "Clogs",
-    "Loafers",
-    "Moccasins",
-    "Sneakers"
-  ];
+  list: object[] = [{ title: "Simple", path: "simple" }];
 
   constructor() {}
 
