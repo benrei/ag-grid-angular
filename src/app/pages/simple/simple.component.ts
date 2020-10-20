@@ -14,7 +14,7 @@ export class SimpleComponent {
   private gridColumnApi;
 
   private columnDefs;
-  private defaultColDef;
+  defaultColDef;
   private autoGroupColumnDef;
   private rowData: [];
 
