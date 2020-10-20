@@ -14,21 +14,17 @@ export class SimpleComponent {
   private gridColumnApi;
 
   private columnDefs;
-  defaultColDef;
+  private defaultColDef;
   private autoGroupColumnDef;
   private rowData: [];
 
   constructor(private http: HttpClient) {
     this.columnDefs = [
       {
-        field: "country",
-        rowGroup: true,
-        hide: true
+        field: "country"
       },
       {
-        field: "year",
-        rowGroup: true,
-        hide: true
+        field: "year"
       },
       {
         field: "sport",
@@ -49,13 +45,16 @@ export class SimpleComponent {
       }
     ];
     this.defaultColDef = {
+      enableRowGroup: true,
       flex: 1,
       minWidth: 100,
       filter: true,
       sortable: true,
       resizable: true
     };
-    this.autoGroupColumnDef = { minWidth: 200 };
+    this.autoGroupColumnDef = {
+      minWidth: 150
+    };
   }
 
   onGridReady(params) {
