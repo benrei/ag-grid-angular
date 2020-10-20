@@ -9,6 +9,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MenuComponent } from "./menu/menu.component";
 import { Routes, RouterModule } from "@angular/router";
 import { SimpleComponent } from "./pages/simple/simple.component";
+import { HttpClientModule } from "@angular/common/http";
+
+import { AgGridModule } from "ag-grid-angular";
+import { PagesModule } from "./pages/pages.module";
 
 const appRoutes: Routes = [{ path: "simple", component: SimpleComponent }];
 
@@ -17,11 +21,14 @@ const appRoutes: Routes = [{ path: "simple", component: SimpleComponent }];
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
+    AgGridModule.withComponents([]),
+    PagesModule,
     AllMaterialModules,
     ToolbarModule
   ],
-  declarations: [AppComponent, MenuComponent, SimpleComponent],
+  declarations: [AppComponent, MenuComponent],
   bootstrap: [AppComponent],
   providers: []
 })

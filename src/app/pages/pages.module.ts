@@ -7,6 +7,7 @@ import { AgGridModule } from "ag-grid-angular";
 
 @NgModule({
   imports: [CommonModule, AgGridModule.withComponents([SimpleComponent])],
-  declarations: [SimpleComponent]
+  declarations: [SimpleComponent],
+  exports: [SimpleComponent]
 })
 export class PagesModule {}
