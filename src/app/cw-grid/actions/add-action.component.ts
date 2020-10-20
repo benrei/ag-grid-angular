@@ -3,12 +3,7 @@ import { Component, Input } from "@angular/core";
 @Component({
   selector: "app-add-action",
   template: `
-    <button
-      *ngIf="addFn"
-      mat-icon-button
-      (click)="addFn()"
-      [disabled]="isDisabled"
-    >
+    <button *ngIf="addFn" mat-icon-button (click)="addFn()">
       <mat-icon>add</mat-icon>
     </button>
   `

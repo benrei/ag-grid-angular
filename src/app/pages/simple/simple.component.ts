@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import "ag-grid-enterprise";
 import "ag-grid-community/dist/styles/ag-grid.css";
@@ -10,25 +10,33 @@ import { CwGridHeaderComponent } from "../../cw-grid/cw-grid-header/cw-grid-head
   templateUrl: "./simple.component.html",
   styleUrls: ["./simple.component.css"]
 })
-export class SimpleComponent implements AfterViewInit {
-  @ViewChild(CwGridHeaderComponent) toolbar;
+export class SimpleComponent {
   gridApi;
   gridColumnApi;
-  columnDefs = [
-    { field: "make", sortable: true, filter: true },
-    { field: "model", sortable: true, filter: true },
-    { field: "price", sortable: true, filter: true }
-  ];
+  defaultColDef;
+  columnDefs;
+
   rowData: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.defaultColDef = { resizable: true };
+    this.columnDefs = [
+      { field: "make", sortable: true, filter: true },
+      { field: "model", sortable: true, filter: true },
+      { field: "price", sortable: true, filter: true }
+    ];
+  }
 
   addFn() {
     console.log("addFn");
   }
+  sizeToFit() {
+    this.gridApi.sizeColumnsToFit();
+  }
 
   onGridReady(params) {
     this.gridApi = params.api;
+    console.log(params);
     this.gridColumnApi = params.columnApi;
 
     this.http
@@ -38,8 +46,5 @@ export class SimpleComponent implements AfterViewInit {
       .subscribe(data => {
         this.rowData = data;
       });
-  }
-  ngAfterViewInit() {
-    console.log(this.toolbar);
   }
 }

@@ -7,13 +7,13 @@ import { Component, Input, HostBinding } from '@angular/core';
       mat-icon-button 
       (click)="editFn()"
       [disabled]="isDisabled">
-        <mat-icon>add</mat-icon>
+        <mat-icon>edit</mat-icon>
     </button>
   `,
 })
 export class EditActionComponent {
-  @Input() gridApi;
   @Input() editFn;
+  @Input() gridApi;
   @HostBinding("class.disabled") get isDisabled() {
     return !(this.gridApi?.getSelectedRows()?.[0]);
   }
