@@ -10,7 +10,6 @@ import { MenuComponent } from "./menu/menu.component";
 import { Routes, RouterModule } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 
-import { AgGridModule } from "ag-grid-angular";
 import { PagesModule } from "./pages/pages.module";
 import { SimpleComponent } from "./pages/simple/simple.component";
 import { RowGroupComponent } from "./pages/row-group/row-group.component";
@@ -27,7 +26,6 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    AgGridModule.withComponents([]),
     PagesModule,
     AllMaterialModules,
     ToolbarModule
