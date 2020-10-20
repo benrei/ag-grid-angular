@@ -8,13 +8,17 @@ import { ToolbarModule } from "./toolbar/toolbar.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MenuComponent } from "./menu/menu.component";
 import { Routes, RouterModule } from "@angular/router";
-import { SimpleComponent } from "./pages/simple/simple.component";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AgGridModule } from "ag-grid-angular";
 import { PagesModule } from "./pages/pages.module";
+import { SimpleComponent } from "./pages/simple/simple.component";
+import { RowGroupComponent } from "./pages/row-group/row-group.component";
 
-const appRoutes: Routes = [{ path: "simple", component: SimpleComponent }];
+const appRoutes: Routes = [
+  { path: "simple", component: SimpleComponent },
+  { path: "row-group", component: RowGroupComponent }
+];
 
 @NgModule({
   imports: [
@@ -30,6 +34,7 @@ const appRoutes: Routes = [{ path: "simple", component: SimpleComponent }];
   ],
   declarations: [AppComponent, MenuComponent],
   bootstrap: [AppComponent],
-  providers: []
+  providers: [],
+  exports: []
 })
 export class AppModule {}

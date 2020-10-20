@@ -1,61 +1,28 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, AfterViewInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import "ag-grid-enterprise";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+import { CwGridHeaderComponent } from "../../cw-grid/cw-grid-header/cw-grid-header.component";
 
 @Component({
   selector: "app-simple",
   templateUrl: "./simple.component.html",
   styleUrls: ["./simple.component.css"]
 })
-export class SimpleComponent {
-  private gridApi;
-  private gridColumnApi;
+export class SimpleComponent implements AfterViewInit {
+  @ViewChild(CwGridHeaderComponent) toolbar;
+  gridApi;
+  gridColumnApi;
+  columnDefs = [
+    { field: "make", sortable: true, filter: true },
+    { field: "model", sortable: true, filter: true },
+    { field: "price", sortable: true, filter: true }
+  ];
+  rowData: any;
 
-  private columnDefs;
-  private defaultColDef;
-  private autoGroupColumnDef;
-  private rowData: [];
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) {
-    this.columnDefs = [
-      {
-        field: "country"
-      },
-      {
-        field: "year"
-      },
-      {
-        field: "sport",
-        minWidth: 200
-      },
-      {
-        field: "athlete",
-        minWidth: 200
-      },
-      { field: "gold" },
-      { field: "silver" },
-      { field: "bronze" },
-      { field: "total" },
-      { field: "age" },
-      {
-        field: "date",
-        minWidth: 140
-      }
-    ];
-    this.defaultColDef = {
-      enableRowGroup: true,
-      flex: 1,
-      minWidth: 100,
-      filter: true,
-      sortable: true,
-      resizable: true
-    };
-    this.autoGroupColumnDef = {
-      minWidth: 150
-    };
-  }
 
   onGridReady(params) {
     this.gridApi = params.api;
@@ -63,10 +30,13 @@ export class SimpleComponent {
 
     this.http
       .get(
-        "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinnersSmall.json"
+        "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/sample-data/smallRowData.json"
       )
       .subscribe(data => {
         this.rowData = data;
       });
+  }
+  ngAfterViewInit() {
+    console.log(this.toolbar);
   }
 }

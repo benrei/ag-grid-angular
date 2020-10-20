@@ -8,7 +8,8 @@ import { Component, OnInit } from "@angular/core";
 export class MenuComponent implements OnInit {
   menuItems = [
     { title: "Home", path: "" },
-    { title: "Simple", path: "simple" }
+    { title: "Simple", path: "simple" },
+    { title: "Row group", path: "row-group" }
   ];
 
   constructor() {}
