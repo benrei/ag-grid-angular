@@ -11,6 +11,6 @@ import { SizeColumnsToFitComponent } from "./size-columns-to-fit/size-columns-to
 @NgModule({
   imports: [CommonModule, AgGridModule.withComponents([]), CwGridModule],
   declarations: [SimpleComponent, RowGroupComponent, SizeColumnsToFitComponent],
-  exports: [SimpleComponent]
+  exports: [SimpleComponent, SizeColumnsToFitComponent]
 })
 export class PagesModule {}
