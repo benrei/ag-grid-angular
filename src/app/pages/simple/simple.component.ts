@@ -11,6 +11,7 @@ import { PdfIconRenderer } from "../../grid/frameworkComponents/pdf-icon-rendere
 export class SimpleComponent {
   gridApi;
   gridColumnApi;
+  rowData;
   gridOptions = {
     ...defaultGridOptions,
     frameworkComponents: {
@@ -20,25 +21,26 @@ export class SimpleComponent {
   columnDefs = [
     { field: "make", filter: true },
     { field: "model", filter: true },
+    { field: "model", cellRenderer: "pdfIconRenderer" },
     { field: "price", filter: true }
   ];
-  rowData;
 
   constructor(private http: HttpClient) {}
 
   addFn() {
     console.log("addFn");
   }
-  resetFn = () => {
-    // this.gridApi.sizeColumnsToFit();
-    this.gridColumnApi.resetColumnState();
-  };
+  editFn() {
+    console.log("editFn");
+  }
+  deleteFn() {
+    console.log("deleteFn");
+  }
+
+  resetFn = () => this.gridColumnApi.resetColumnState();
   fitColumnsFn = () => this.gridApi.sizeColumnsToFit();
 
-  onGridReady(params) {
-    this.gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
-
+  getData() {
     this.http
       .get(
         "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/sample-data/smallRowData.json"
@@ -46,5 +48,11 @@ export class SimpleComponent {
       .subscribe(data => {
         this.rowData = data;
       });
+  }
+
+  onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+    this.getData();
   }
 }
