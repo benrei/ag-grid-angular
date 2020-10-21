@@ -13,6 +13,7 @@ import { PagesModule } from "./pages/pages.module";
 import { SimpleComponent } from "./pages/simple/simple.component";
 import { RowGroupComponent } from "./pages/row-group/row-group.component";
 import { SizeColumnsToFitComponent } from "./pages/size-columns-to-fit/size-columns-to-fit.component";
+import { MenuModule } from "./menu/menu.module";
 
 const appRoutes: Routes = [
   { path: "simple", component: SimpleComponent },
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     PagesModule,
     AllMaterialModules,
-    ToolbarModule
+    ToolbarModule,
+    MenuModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
