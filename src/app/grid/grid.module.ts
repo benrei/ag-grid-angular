@@ -8,6 +8,7 @@ import { DeleteActionComponent } from "./actions/delete-action.component";
 import { RefreshActionComponent } from "./actions/refresh-action.component";
 import { ResetColumnsActionComponent } from "./actions/reset-columns-action.component";
 import { GridDirective } from "./grid.directive";
+import { FitColumnsActionComponent } from "./actions/fit-columns.component";
 
 @NgModule({
   imports: [CommonModule, AllMaterialModules],
@@ -18,6 +19,7 @@ import { GridDirective } from "./grid.directive";
     DeleteActionComponent,
     RefreshActionComponent,
     ResetColumnsActionComponent,
+    FitColumnsActionComponent,
     GridDirective
   ],
   exports: [
