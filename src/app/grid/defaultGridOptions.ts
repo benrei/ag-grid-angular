@@ -1,4 +1,7 @@
 const gridOptions = {
+  autoGroupColumnDef: {
+    minWidth: 150
+  },
   defaultColDef: {
     enableRowGroup: true,
     width: 100,
@@ -7,6 +10,6 @@ const gridOptions = {
   },
   // frameworkComponents: {},
   rowSelection: "single",
-  rowGroupPanelShow: "onlyWhenGrouping"
+  rowGroupPanelShow: "always"
 };
 export default gridOptions;

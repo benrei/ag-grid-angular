@@ -21,6 +21,7 @@ export class GridDirective {
   @HostListener("sortChanged", ["$event"])
   @HostListener("columnResized", ["$event"])
   onGridEvent(event: AgGridEvent) {
+    console.log(event);
     console.log(event.type);
   }
 }
