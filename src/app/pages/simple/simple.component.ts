@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import defaultGridOptions from "../../grid/defaultGridOptions";
+import { PdfIconRenderer } from "../../grid/frameworkComponents/pdf-icon-renderer.component";
 
 @Component({
   selector: "app-simple",
@@ -13,6 +14,7 @@ export class SimpleComponent {
   gridOptions = {
     ...defaultGridOptions,
     frameworkComponents: {
+      pdfIconRenderer: PdfIconRenderer
     }
   };
   columnDefs = [
