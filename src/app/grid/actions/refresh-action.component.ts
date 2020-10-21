@@ -4,7 +4,7 @@ import { Component, Input } from "@angular/core";
   selector: "app-refresh-action",
   template: `
     <button *ngIf="refreshFn" mat-icon-button (click)="refreshFn()">
-      <mat-icon>refresh</mat-icon>
+      <mat-icon>sync</mat-icon>
     </button>
   `
 })

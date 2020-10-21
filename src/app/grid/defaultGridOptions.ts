@@ -6,6 +6,7 @@ const gridOptions = {
     sortable: true
   },
   frameworkComponents: {},
-  rowSelection: "single"
+  rowSelection: "single",
+  rowGroupPanelShow: "onlyWhenGrouping"
 };
 export default gridOptions;

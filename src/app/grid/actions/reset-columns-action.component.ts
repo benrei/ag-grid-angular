@@ -4,7 +4,7 @@ import { Component, Input } from "@angular/core";
   selector: "app-reset-columns-action",
   template: `
     <button *ngIf="resetFn" mat-icon-button (click)="resetFn()">
-      <mat-icon>view_column</mat-icon>
+      <mat-icon>rotate_left</mat-icon>
     </button>
   `
 })

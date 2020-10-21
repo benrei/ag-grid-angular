@@ -23,8 +23,9 @@ export class SimpleComponent {
   addFn() {
     console.log("addFn");
   }
-  sizeToFit = () => {
-    this.gridApi.sizeColumnsToFit();
+  resetFn = () => {
+    // this.gridApi.sizeColumnsToFit();
+    this.gridColumnApi.resetColumnState();
   };
 
   onSortChanged(event) {}
