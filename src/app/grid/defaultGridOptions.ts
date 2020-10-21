@@ -1,9 +1,9 @@
 const gridOptions = {
-  defaultColDef: {},
-  frameworkComponents: {
+  defaultColDef: {
     sortable: true,
     resizable: true
   },
+  frameworkComponents: {},
   rowSelection: "single"
 };
 export default gridOptions;
