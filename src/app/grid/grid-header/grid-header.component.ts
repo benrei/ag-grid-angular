@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, HostBinding } from "@angular/core";
 
 @Component({
-  selector: "app-cw-grid-header",
-  templateUrl: "./cw-grid-header.component.html",
-  styleUrls: ["./cw-grid-header.component.css"]
+  selector: "app-grid-header",
+  templateUrl: "./grid-header.component.html",
+  styleUrls: ["./grid-header.component.css"]
 })
-export class CwGridHeaderComponent implements OnInit {
+export class GridHeaderComponent implements OnInit {
   @Input() gridApi;
   @Input() addFn;
   @HostBinding("class.disabled") get isDisabled() {

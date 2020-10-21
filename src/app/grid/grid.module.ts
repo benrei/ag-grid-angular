@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { CwGridHeaderComponent } from "./cw-grid-header/cw-grid-header.component";
+import { GridHeaderComponent } from "./grid-header/grid-header.component";
 import { AllMaterialModules } from "../material.module";
 import { AddActionComponent } from "./actions/add-action.component";
 import { EditActionComponent } from "./actions/edit-action.component";
@@ -12,7 +12,7 @@ import { GridDirective } from "./grid.directive";
 @NgModule({
   imports: [CommonModule, AllMaterialModules],
   declarations: [
-    CwGridHeaderComponent,
+    GridHeaderComponent,
     AddActionComponent,
     EditActionComponent,
     DeleteActionComponent,
@@ -21,7 +21,7 @@ import { GridDirective } from "./grid.directive";
     GridDirective
   ],
   exports: [
-    CwGridHeaderComponent,
+    GridHeaderComponent,
     AddActionComponent,
     EditActionComponent,
     DeleteActionComponent,
