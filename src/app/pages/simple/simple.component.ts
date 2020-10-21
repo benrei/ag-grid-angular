@@ -26,6 +26,8 @@ export class SimpleComponent {
     this.gridApi.sizeColumnsToFit();
   };
 
+  onSortChanged(event) {}
+
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
