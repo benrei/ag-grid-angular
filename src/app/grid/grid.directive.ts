@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener } from "@angular/core";
+import { Directive, HostListener } from "@angular/core";
 import { AgGridEvent } from "ag-grid-community/main";
 
 @Directive({
