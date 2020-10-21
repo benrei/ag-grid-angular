@@ -27,6 +27,7 @@ export class SimpleComponent {
     // this.gridApi.sizeColumnsToFit();
     this.gridColumnApi.resetColumnState();
   };
+  fitColumnsFn = () => this.gridApi.sizeColumnsToFit();
 
   onSortChanged(event) {}
 

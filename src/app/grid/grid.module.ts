@@ -29,6 +29,7 @@ import { FitColumnsActionComponent } from "./actions/fit-columns.component";
     DeleteActionComponent,
     RefreshActionComponent,
     ResetColumnsActionComponent,
+    FitColumnsActionComponent,
     GridDirective
   ]
 })
