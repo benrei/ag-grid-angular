@@ -1,8 +1,5 @@
 import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import "ag-grid-enterprise";
-import "ag-grid-community/dist/styles/ag-grid.css";
-import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 @Component({
   selector: "app-simple",
@@ -13,29 +10,24 @@ export class SimpleComponent {
   gridApi;
   gridColumnApi;
   defaultColDef;
-  columnDefs;
+  columnDefs = [
+    { field: "make", sortable: true, filter: true },
+    { field: "model", sortable: true, filter: true },
+    { field: "price", sortable: true, filter: true }
+  ];
+  rowData;
 
-  rowData: any;
-
-  constructor(private http: HttpClient) {
-    this.defaultColDef = { resizable: true };
-    this.columnDefs = [
-      { field: "make", sortable: true, filter: true },
-      { field: "model", sortable: true, filter: true },
-      { field: "price", sortable: true, filter: true }
-    ];
-  }
+  constructor(private http: HttpClient) {}
 
   addFn() {
     console.log("addFn");
   }
-  sizeToFit() {
+  sizeToFit = () => {
     this.gridApi.sizeColumnsToFit();
-  }
+  };
 
   onGridReady(params) {
     this.gridApi = params.api;
-    console.log(params);
     this.gridColumnApi = params.columnApi;
 
     this.http

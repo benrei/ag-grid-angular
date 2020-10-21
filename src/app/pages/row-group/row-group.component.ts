@@ -12,10 +12,10 @@ export class RowGroupComponent {
   private gridApi;
   private gridColumnApi;
 
-  private columnDefs;
-  private defaultColDef;
-  private autoGroupColumnDef;
-  private rowData: [];
+  columnDefs;
+  defaultColDef;
+  autoGroupColumnDef;
+  rowData;
 
   constructor(private http: HttpClient) {
     this.columnDefs = [

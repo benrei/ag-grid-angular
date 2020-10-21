@@ -13,10 +13,12 @@ import { HttpClientModule } from "@angular/common/http";
 import { PagesModule } from "./pages/pages.module";
 import { SimpleComponent } from "./pages/simple/simple.component";
 import { RowGroupComponent } from "./pages/row-group/row-group.component";
+import { SizeColumnsToFitComponent } from "./pages/size-columns-to-fit/size-columns-to-fit.component";
 
 const appRoutes: Routes = [
   { path: "simple", component: SimpleComponent },
-  { path: "row-group", component: RowGroupComponent }
+  { path: "row-group", component: RowGroupComponent },
+  { path: "sizeColumnsToFit", component: SizeColumnsToFitComponent }
 ];
 
 @NgModule({

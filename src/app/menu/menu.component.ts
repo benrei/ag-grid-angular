@@ -9,7 +9,8 @@ export class MenuComponent implements OnInit {
   menuItems = [
     { title: "Home", path: "" },
     { title: "Simple", path: "simple" },
-    { title: "Row group", path: "row-group" }
+    { title: "Row group", path: "row-group" },
+    { title: "sizeColumnsToFit", path: "sizeColumnsToFit" }
   ];
 
   constructor() {}

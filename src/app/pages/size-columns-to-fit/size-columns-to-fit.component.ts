@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./size-columns-to-fit.component.css"]
 })
 export class SizeColumnsToFitComponent {
-  name = "Angular";
+  gridApi;
   columnDefs = [
     { headerName: "Make", field: "make" },
     { headerName: "Model", field: "model" },
@@ -36,14 +36,13 @@ export class SizeColumnsToFitComponent {
     }
   ];
 
-  gridApi;
 
   gridReadyCallback(event) {
     this.gridApi = event.api;
-    this.gridApi.sizeColumnsToFit();
+    //this.gridApi.sizeColumnsToFit();
   }
 
   onclickme(event) {
-    console.log(event);
+    this.gridApi.sizeColumnsToFit();
   }
 }
