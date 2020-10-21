@@ -11,8 +11,8 @@ export class GridDirective {
   @HostListener("gridReady", ["$event"])
   onGridReady(event: AgGridEvent) {
     console.log(event.type);
-    //  Even this works!
-    this.agGrid.api.sizeColumnsToFit();
+    // Even this works!
+    // this.agGrid.api.sizeColumnsToFit();
   }
 
   @HostListener("filterChanged", ["$event"])
