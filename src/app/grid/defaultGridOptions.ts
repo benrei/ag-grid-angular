@@ -1,7 +1,9 @@
 const gridOptions = {
   defaultColDef: {
-    sortable: true,
-    resizable: true
+    enableRowGroup: true,
+    minWidth: 100,
+    resizable: true,
+    sortable: true
   },
   frameworkComponents: {},
   rowSelection: "single"

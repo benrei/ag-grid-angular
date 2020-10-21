@@ -9,7 +9,8 @@ export class GridDirective {
   constructor(@Self() private agGrid: AgGridAngular) {}
 
   @HostListener("gridReady", ["$event"])
-  onGridReady() {
+  onGridReady(event: AgGridEvent) {
+    console.log(event.type);
     //  Even this works!
     this.agGrid.api.sizeColumnsToFit();
   }
