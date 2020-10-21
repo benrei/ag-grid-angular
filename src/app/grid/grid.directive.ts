@@ -1,11 +1,18 @@
-import { Directive, HostListener } from "@angular/core";
+import { Directive, HostListener, Self } from "@angular/core";
 import { AgGridEvent } from "ag-grid-community/main";
+import { AgGridAngular } from "ag-grid-angular";
 
 @Directive({
   selector: "ag-grid-angular"
 })
 export class GridDirective {
-  constructor() {}
+  constructor(@Self() private agGrid: AgGridAngular) {}
+
+  @HostListener("gridReady", ["$event"])
+  onGridReady() {
+    //  Even this works!
+    this.agGrid.api.sizeColumnsToFit();
+  }
 
   @HostListener("filterChanged", ["$event"])
   @HostListener("toolPanelVisibleChanged", ["$event"])
