@@ -1,0 +1,10 @@
+<ag-grid-angular
+    style="width: 200px; height: 100px;"
+    class="ag-theme-balham"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    (gridReady)="gridReadyCallback($event)"
+    >
+</ag-grid-angular>
+
+<button #itsme (click)="onclickme(itsme)">blabla </button>
