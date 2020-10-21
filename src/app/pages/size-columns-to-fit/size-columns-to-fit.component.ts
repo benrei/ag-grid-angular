@@ -36,10 +36,9 @@ export class SizeColumnsToFitComponent {
     }
   ];
 
-
   gridReadyCallback(event) {
     this.gridApi = event.api;
-    //this.gridApi.sizeColumnsToFit();
+    this.gridApi.sizeColumnsToFit();
   }
 
   onclickme(event) {
