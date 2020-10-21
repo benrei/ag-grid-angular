@@ -30,4 +30,4 @@ import { GridDirective } from "./grid.directive";
     GridDirective
   ]
 })
-export class CwGridModule {}
+export class GridModule {}
