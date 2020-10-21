@@ -5,7 +5,7 @@ const gridOptions = {
     resizable: true,
     sortable: true
   },
-  frameworkComponents: {},
+  // frameworkComponents: {},
   rowSelection: "single",
   rowGroupPanelShow: "onlyWhenGrouping"
 };

@@ -10,7 +10,11 @@ import defaultGridOptions from "../../grid/defaultGridOptions";
 export class SimpleComponent {
   gridApi;
   gridColumnApi;
-  gridOptions = defaultGridOptions;
+  gridOptions = {
+    ...defaultGridOptions,
+    frameworkComponents: {
+    }
+  };
   columnDefs = [
     { field: "make", filter: true },
     { field: "model", filter: true },
