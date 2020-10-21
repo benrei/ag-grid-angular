@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import defaultGridOptions from "../../grid/defaultGridOptions";
 
 @Component({
   selector: "app-simple",
@@ -9,7 +10,7 @@ import { HttpClient } from "@angular/common/http";
 export class SimpleComponent {
   gridApi;
   gridColumnApi;
-  defaultColDef;
+  gridOptions = defaultGridOptions;
   columnDefs = [
     { field: "make", sortable: true, filter: true },
     { field: "model", sortable: true, filter: true },
