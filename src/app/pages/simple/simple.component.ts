@@ -36,6 +36,9 @@ export class SimpleComponent {
   deleteFn() {
     console.log("deleteFn");
   }
+  refreshFn() {
+    console.log("refreshFn");
+  }
 
   resetFn = () => this.gridColumnApi.resetColumnState();
   fitColumnsFn = () => this.gridApi.sizeColumnsToFit();
