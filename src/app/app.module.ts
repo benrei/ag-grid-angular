@@ -6,7 +6,6 @@ import { AppComponent } from "./app.component";
 import { AllMaterialModules } from "./material/material.module";
 import { ToolbarModule } from "./toolbar/toolbar.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MenuComponent } from "./menu/menu.component";
 import { Routes, RouterModule } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 
@@ -32,7 +31,7 @@ const appRoutes: Routes = [
     AllMaterialModules,
     ToolbarModule
   ],
-  declarations: [AppComponent, MenuComponent],
+  declarations: [AppComponent],
   bootstrap: [AppComponent],
   providers: [],
   exports: []
