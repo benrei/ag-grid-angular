@@ -7,6 +7,7 @@ import { EditActionComponent } from "./actions/edit-action.component";
 import { DeleteActionComponent } from "./actions/delete-action.component";
 import { RefreshActionComponent } from "./actions/refresh-action.component";
 import { ResetColumnsActionComponent } from "./actions/reset-columns-action.component";
+import { GridDirective } from "./grid.directive";
 
 @NgModule({
   imports: [CommonModule, AllMaterialModules],
@@ -16,7 +17,8 @@ import { ResetColumnsActionComponent } from "./actions/reset-columns-action.comp
     EditActionComponent,
     DeleteActionComponent,
     RefreshActionComponent,
-    ResetColumnsActionComponent
+    ResetColumnsActionComponent,
+    GridDirective
   ],
   exports: [
     CwGridHeaderComponent,
@@ -24,7 +26,8 @@ import { ResetColumnsActionComponent } from "./actions/reset-columns-action.comp
     EditActionComponent,
     DeleteActionComponent,
     RefreshActionComponent,
-    ResetColumnsActionComponent
+    ResetColumnsActionComponent,
+    GridDirective
   ]
 })
 export class CwGridModule {}

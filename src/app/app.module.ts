@@ -14,7 +14,6 @@ import { PagesModule } from "./pages/pages.module";
 import { SimpleComponent } from "./pages/simple/simple.component";
 import { RowGroupComponent } from "./pages/row-group/row-group.component";
 import { SizeColumnsToFitComponent } from "./pages/size-columns-to-fit/size-columns-to-fit.component";
-import { TestDirective } from "./directives/test.directive";
 
 const appRoutes: Routes = [
   { path: "simple", component: SimpleComponent },
@@ -33,9 +32,9 @@ const appRoutes: Routes = [
     AllMaterialModules,
     ToolbarModule
   ],
-  declarations: [AppComponent, MenuComponent, TestDirective],
+  declarations: [AppComponent, MenuComponent],
   bootstrap: [AppComponent],
   providers: [],
-  exports: [TestDirective]
+  exports: []
 })
 export class AppModule {}

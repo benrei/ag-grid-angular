@@ -7,15 +7,9 @@ import { AgGridModule } from "ag-grid-angular";
 import { RowGroupComponent } from "./row-group/row-group.component";
 import { CwGridModule } from "../cw-grid/cw-grid.module";
 import { SizeColumnsToFitComponent } from "./size-columns-to-fit/size-columns-to-fit.component";
-import { TestDirective } from "../directives/test.directive";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    AgGridModule.withComponents([]),
-    CwGridModule,
-    TestDirective
-  ],
+  imports: [CommonModule, AgGridModule.withComponents([]), CwGridModule],
   declarations: [SimpleComponent, RowGroupComponent, SizeColumnsToFitComponent],
   exports: [SimpleComponent, SizeColumnsToFitComponent]
 })
