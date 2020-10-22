@@ -20,6 +20,7 @@ export class GridDirective {
   @HostListener("displayedColumnsChanged", ["$event"])
   @HostListener("sortChanged", ["$event"])
   @HostListener("columnResized", ["$event"])
+  @HostListener("firstDataRendered", ["$event"])
   onGridEvent(event: AgGridEvent) {
     console.log(event.type);
   }

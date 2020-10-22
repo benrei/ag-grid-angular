@@ -2,6 +2,9 @@ const gridOptionsDefaults = {
   autoGroupColumnDef: {
     minWidth: 150
   },
+  enableRangeSelection: true,
+  enableRangeHandle: true,
+  // enableFillHandle: true,
   // frameworkComponents: {},
   rowSelection: "single",
   rowGroupPanelShow: "always"
