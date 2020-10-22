@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostBinding } from "@angular/core";
+import { Component, OnInit, Input, HostBinding, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-grid-header",
@@ -6,12 +6,12 @@ import { Component, OnInit, Input, HostBinding } from "@angular/core";
   styleUrls: ["./grid-header.component.css"]
 })
 export class GridHeaderComponent implements OnInit {
-  @Input() gridApi;
-  @Input() addFn;
-  @HostBinding("class.disabled") get isDisabled() {
-    return !(this.gridApi?.getSelectedRows()?.[0]);
-  }
+  @Output() outputToParent = new EventEmitter<string>();
   constructor() {}
 
+  onKeyup(value) {
+    this.outputToParent.emit(value);
+   // console.log("Clicked");
+  }
   ngOnInit() {}
 }

@@ -1,5 +1,5 @@
 <mat-toolbar>
-	<input />
+	<input (keyup)="onKeyup($event.target.value)" />
 	<span class="example-spacer"></span>
 	<ng-content></ng-content>
 </mat-toolbar>
