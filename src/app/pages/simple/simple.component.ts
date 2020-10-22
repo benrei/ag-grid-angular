@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import defaultGridOptions from "../../grid/defaultGridOptions";
+import { gridOptionsDefaults, colDefDefaults } from "../../grid/gridDefaults";
 import { PdfIconRenderer } from "../../grid/frameworkComponents/pdf-icon-renderer.component";
 
 @Component({
@@ -13,16 +13,36 @@ export class SimpleComponent {
   gridColumnApi;
   rowData;
   gridOptions = {
-    ...defaultGridOptions,
+    ...gridOptionsDefaults,
     frameworkComponents: {
       pdfIconRenderer: PdfIconRenderer
-    }
+    },
+    undoRedoCellEditing: true
+  };
+  defaultColDef = {
+    ...colDefDefaults,
+    editable: true
   };
   columnDefs = [
-    { field: "make", filter: true },
-    { field: "model", filter: true },
-    { field: "model", cellRenderer: "pdfIconRenderer" },
-    { field: "price", filter: true }
+    { field: "country" },
+    { field: "year" },
+    {
+      field: "sport",
+      minWidth: 200
+    },
+    {
+      field: "athlete",
+      minWidth: 200
+    },
+    { field: "gold" },
+    { field: "silver" },
+    { field: "bronze" },
+    { field: "total" },
+    { field: "age" },
+    {
+      field: "date",
+      minWidth: 140
+    }
   ];
 
   constructor(private http: HttpClient) {}
@@ -44,9 +64,10 @@ export class SimpleComponent {
   fitColumnsFn = () => this.gridApi.sizeColumnsToFit();
 
   getData() {
+    // .get("https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/sample-data/smallRowData.json")
     this.http
       .get(
-        "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/sample-data/smallRowData.json"
+        "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinnersSmall.json"
       )
       .subscribe(data => {
         this.rowData = data;
