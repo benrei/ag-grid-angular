@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, HostBinding, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  HostBinding,
+  Output,
+  EventEmitter
+} from "@angular/core";
 
 @Component({
   selector: "app-grid-header",
@@ -6,12 +13,15 @@ import { Component, OnInit, Input, HostBinding, Output, EventEmitter } from "@an
   styleUrls: ["./grid-header.component.css"]
 })
 export class GridHeaderComponent implements OnInit {
-  @Output() outputToParent = new EventEmitter<string>();
+  @Output() quickfilterTextOutput = new EventEmitter<string>();
   constructor() {}
-
-  onKeyup(value) {
-    this.outputToParent.emit(value);
-   // console.log("Clicked");
+  timer;
+  onKeyup(event) {
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => {
+      this.quickfilterTextOutput.emit(event.target.value);
+    }, 500);
   }
+
   ngOnInit() {}
 }

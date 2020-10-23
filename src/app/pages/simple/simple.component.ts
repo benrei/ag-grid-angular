@@ -59,6 +59,9 @@ export class SimpleComponent {
   refreshFn() {
     console.log("refreshFn");
   }
+  setQuickfilterText(text) {
+    this.gridApi.setQuickFilter(text)
+  }
 
   resetFn = () => this.gridColumnApi.resetColumnState();
   fitColumnsFn = () => this.gridApi.sizeColumnsToFit();
