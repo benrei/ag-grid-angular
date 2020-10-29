@@ -16,7 +16,8 @@ export class GridDirective {
   }
 
   @HostListener("cellValueChanged", ["$event"])
-  onCellValueChanged(event: AgGridEvent) {
+  onCellValueChanged(event: any) {
+    const {colId, newValue} = event.column;
     console.log(event);
   }
 
