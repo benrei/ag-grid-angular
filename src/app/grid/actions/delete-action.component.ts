@@ -4,7 +4,8 @@ import { Component, Input, HostBinding } from '@angular/core';
   selector: 'app-delete-action',
   template: `
     <button *ngIf="deleteFn" 
-      mat-icon-button 
+      mat-icon-button
+      matTooltip="Delete"
       (click)="deleteFn()"
       [disabled]="isDisabled">
         <mat-icon>delete</mat-icon>

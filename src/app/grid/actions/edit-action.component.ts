@@ -4,7 +4,8 @@ import { Component, Input, HostBinding } from '@angular/core';
   selector: 'app-edit-action',
   template: `
     <button *ngIf="editFn" 
-      mat-icon-button 
+      mat-icon-button
+      matTooltip="Edit"
       (click)="editFn()"
       [disabled]="isDisabled">
         <mat-icon>edit</mat-icon>
