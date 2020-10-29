@@ -24,25 +24,16 @@ export class SimpleComponent {
     editable: true
   };
   columnDefs = [
-    { field: "country" },
-    { field: "year" },
-    {
-      field: "sport",
-      minWidth: 200
-    },
-    {
-      field: "athlete",
-      minWidth: 200
-    },
-    { field: "gold" },
-    { field: "silver" },
-    { field: "bronze" },
-    { field: "total" },
-    { field: "age" },
-    {
-      field: "date",
-      minWidth: 140
-    }
+    { field: "country", filter: "agTextColumnFilter", minWidth: 150 },
+    { field: "year", filter: "agNumberColumnFilter", minWidth: 150 },
+    { field: "sport", filter: "agTextColumnFilter", minWidth: 150 },
+    { field: "athlete", filter: "agTextColumnFilter", minWidth: 150 },
+    { field: "gold", filter: "agNumberColumnFilter" },
+    { field: "silver", filter: "agNumberColumnFilter" },
+    { field: "bronze", filter: "agNumberColumnFilter" },
+    { field: "total", filter: "agNumberColumnFilter" },
+    { field: "age", filter: "agNumberColumnFilter" },
+    { field: "date", filter: "agDateColumnFilter", minWidth: 140 }
   ];
 
   constructor(private http: HttpClient) {}
