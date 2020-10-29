@@ -60,7 +60,7 @@ export class SimpleComponent {
     console.log("refreshFn");
   }
   setQuickfilterText(text) {
-    this.gridApi.setQuickFilter(text)
+    this.gridApi.setQuickFilter(text);
   }
 
   resetFn = () => this.gridColumnApi.resetColumnState();
