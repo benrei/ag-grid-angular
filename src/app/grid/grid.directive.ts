@@ -15,6 +15,18 @@ export class GridDirective {
     // this.agGrid.api.sizeColumnsToFit();
   }
 
+  @HostListener("cellValueChanged", ["$event"])
+  onCellValueChanged(event: AgGridEvent) {
+    console.log(event);
+  }
+
+  onFlashOneCell(rowNode) {
+    this.agGrid.api.flashCells({
+      rowNodes: [rowNode],
+      columns: ["c"]
+    });
+  }
+
   @HostListener("filterChanged", ["$event"])
   @HostListener("toolPanelVisibleChanged", ["$event"])
   @HostListener("displayedColumnsChanged", ["$event"])
