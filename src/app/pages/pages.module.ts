@@ -7,11 +7,20 @@ import { AgGridModule } from "ag-grid-angular";
 import { RowGroupComponent } from "./row-group/row-group.component";
 import { GridModule } from "../grid/grid.module";
 import { SizeColumnsToFitComponent } from "./size-columns-to-fit/size-columns-to-fit.component";
-import { TimeRegistrationComponent } from './time-registration/time-registration.component';
+import { TimeRegistrationComponent } from "./time-registration/time-registration.component";
 
 @NgModule({
   imports: [CommonModule, AgGridModule.withComponents([]), GridModule],
-  declarations: [SimpleComponent, RowGroupComponent, SizeColumnsToFitComponent, TimeRegistrationComponent],
-  exports: [SimpleComponent, SizeColumnsToFitComponent]
+  declarations: [
+    SimpleComponent,
+    RowGroupComponent,
+    SizeColumnsToFitComponent,
+    TimeRegistrationComponent
+  ],
+  exports: [
+    SimpleComponent,
+    TimeRegistrationComponent,
+    SizeColumnsToFitComponent
+  ]
 })
 export class PagesModule {}
