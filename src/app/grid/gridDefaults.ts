@@ -9,7 +9,10 @@ const gridOptionsDefaults = {
   rowSelection: "single",
   rowGroupPanelShow: "always",
   statusBar: {
-    statusPanels: [{ statusPanel: "agAggregationComponent" }]
+    statusPanels: [
+      { statusPanel: "agTotalAndFilteredRowCountComponent", align: "left" },
+      { statusPanel: "agAggregationComponent" }
+    ]
   }
 };
 const colDefDefaults = {
