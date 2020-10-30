@@ -28,7 +28,7 @@ export class TimeRegistrationComponent {
     onCellValueChanged: this.onCellValueChanged,
     editable: true
   };
-  assignments = assignments;
+  assignments = require('./config.json');;
   wageCodes = wageCodes;
   columnDefs = [
     {
