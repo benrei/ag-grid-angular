@@ -1,5 +1,5 @@
 import { Directive, HostListener, Self } from "@angular/core";
-import { AgGridEvent } from "ag-grid-community/main";
+import { AgGridEvent, CellValueChangedEvent } from "ag-grid-community/main";
 import { AgGridAngular } from "ag-grid-angular";
 
 @Directive({
@@ -16,12 +16,11 @@ export class GridDirective {
   }
 
   @HostListener("cellValueChanged", ["$event"])
-  onCellValueChanged(event: any) {
-    const { column, node } = event;
-    const { colId } = column;
+  onCellValueChanged(event: CellValueChangedEvent) {
+    const { colDef, node } = event;
     event.api.flashCells({
       rowNodes: [node],
-      columns: [colId]
+      columns: [colDef.field]
     });
   }
 
