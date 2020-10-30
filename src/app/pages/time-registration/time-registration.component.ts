@@ -3,6 +3,9 @@ import { HttpClient } from "@angular/common/http";
 import { gridOptionsDefaults, colDefDefaults } from "../../grid/gridDefaults";
 import { PdfIconRenderer } from "../../grid/frameworkComponents/pdf-icon-renderer.component";
 import { CellValueChangedEvent } from "ag-grid-community/main";
+import assignments from "./assignments.json";
+import wageCodes from "./wageCodes.json";
+
 @Component({
   selector: "app-time-registration",
   templateUrl: "./time-registration.component.html",
@@ -25,6 +28,8 @@ export class TimeRegistrationComponent {
     onCellValueChanged: this.onCellValueChanged,
     editable: true
   };
+  assignments = assignments;
+  wageCodes = wageCodes;
   columnDefs = [
     {
       field: "assignment.assignmentNumber",
