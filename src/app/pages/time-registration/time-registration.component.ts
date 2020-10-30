@@ -4,7 +4,7 @@ import { gridOptionsDefaults, colDefDefaults } from "../../grid/gridDefaults";
 import { PdfIconRenderer } from "../../grid/frameworkComponents/pdf-icon-renderer.component";
 import { CellValueChangedEvent } from "ag-grid-community/main";
 import assignments from "./assignments.json";
-import wageCodes from "./wageCodes.json";
+import wageCodes from "./wagecodes.json";
 
 @Component({
   selector: "app-time-registration",
@@ -28,19 +28,29 @@ export class TimeRegistrationComponent {
     onCellValueChanged: this.onCellValueChanged,
     editable: true
   };
-  assignments = require('./config.json');;
+  assignments = assignments;
   wageCodes = wageCodes;
   columnDefs = [
+    { field: "assignment.assignmentNumber" },
+    { field: "startDateTimeUTC" },
+    { field: "wageCode.combined_WageCodeNumber_WageCodeName" },
+    { field: "serviceComment" },
+    { field: "quantity" },
+    { field: "costPrice" },
     {
-      field: "assignment.assignmentNumber",
-      filter: "agTextColumnFilter",
-      cellEditor: "agSelectCellEditor",
-      cellEditorParams: () => {
-        const contries = this.rowData.map(e => e.country);
-        return { values: Array.from(new Set(contries)).sort() };
-      },
-      minWidth: 150
+      headerName: "Beløp",
+      cellRenderer: params => params.data.quantity * params.data.costPrice
     }
+    // {
+    //   field: "assignment.assignmentNumber",
+    //   filter: "agTextColumnFilter",
+    //   cellEditor: "agSelectCellEditor",
+    //   cellEditorParams: () => {
+    //     const contries = this.rowData.map(e => e.country);
+    //     return { values: Array.from(new Set(contries)).sort() };
+    //   },
+    //   minWidth: 150
+    // }
     // { field: "year", filter: "agNumberColumnFilter", minWidth: 150 },
     // { field: "sport", filter: "agTextColumnFilter", minWidth: 150 },
     // { field: "athlete", filter: "agTextColumnFilter", minWidth: 150 },
@@ -81,7 +91,7 @@ export class TimeRegistrationComponent {
   getData() {
     this.http
       .get(
-        "https://raw.githubusercontent.com/benrei/ag-grid-angular/master/src/app/pages/time-registration/assignments.json"
+        "https://raw.githubusercontent.com/benrei/ag-grid-angular/master/src/app/pages/time-registration/services.json"
       )
       .subscribe(data => {
         this.rowData = data;
