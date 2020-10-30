@@ -7,7 +7,10 @@ const gridOptionsDefaults = {
   // enableFillHandle: true,
   // frameworkComponents: {},
   rowSelection: "single",
-  rowGroupPanelShow: "always"
+  rowGroupPanelShow: "always",
+  statusBar: {
+    statusPanels: [{ statusPanel: "agAggregationComponent" }]
+  }
 };
 const colDefDefaults = {
   enableRowGroup: true,

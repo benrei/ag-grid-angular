@@ -1,0 +1,62 @@
+[
+  {
+    "wageCodeId": "766BE465-269D-5453-9726-E156E60723C2",
+    "combined_WageCodeNumber_WageCodeName": "719 Timer til prosjekt"
+  },
+  {
+    "wageCodeId": "F90D9A99-82D2-5629-818F-E1C81542D5C1",
+    "combined_WageCodeNumber_WageCodeName": "32 Teknikkertillegg"
+  },
+  {
+    "wageCodeId": "9E876BDB-A027-51F0-AC4B-E50EAC252D1E",
+    "combined_WageCodeNumber_WageCodeName": "502 Bonus u/feriepenger"
+  },
+  {
+    "wageCodeId": "1FD7A1BA-9F5C-5C69-8CB4-E57F3F838519",
+    "combined_WageCodeNumber_WageCodeName": "704 Prosjektleder Trond"
+  },
+  {
+    "wageCodeId": "CE488AD2-F132-5F0C-80F1-E6479D302E7D",
+    "combined_WageCodeNumber_WageCodeName": "548 Honorar, oppgavepliktig"
+  },
+  {
+    "wageCodeId": "D5659AED-918F-5D30-9054-EBEAB465E580",
+    "combined_WageCodeNumber_WageCodeName": "706 Prosjektleder Ole Christian"
+  },
+  {
+    "wageCodeId": "0F763DE6-766B-52C9-B4AC-ED136D74CB05",
+    "combined_WageCodeNumber_WageCodeName": "42 Kjøring pr. tur"
+  },
+  {
+    "wageCodeId": "F839D9EC-7542-5681-9D58-EF3D5C4C19AC",
+    "combined_WageCodeNumber_WageCodeName": "512 Trekk feriedag"
+  },
+  {
+    "wageCodeId": "37BF02C4-D1CD-5127-9DE2-EF5F2481FB87",
+    "combined_WageCodeNumber_WageCodeName": "25 Smusstillegg"
+  },
+  {
+    "wageCodeId": "52A46975-6A87-5B23-920B-F26E2AD62AE8",
+    "combined_WageCodeNumber_WageCodeName": "30 Fagtillegg"
+  },
+  {
+    "wageCodeId": "AB969D7A-EBB2-561B-B81D-F2C84AE2D149",
+    "combined_WageCodeNumber_WageCodeName": "35 Diett u/overnatting innland"
+  },
+  {
+    "wageCodeId": "84AF2DE6-291E-5173-8EFC-F740EA95F739",
+    "combined_WageCodeNumber_WageCodeName": "54 Vaktutrykkning kveld/helg"
+  },
+  {
+    "wageCodeId": "CE684154-4486-4F04-9744-F8CA5D43300A",
+    "combined_WageCodeNumber_WageCodeName": "874 Dokumentasjon"
+  },
+  {
+    "wageCodeId": "BA10B42C-C31B-5B20-A19D-FF5AE8C062EC",
+    "combined_WageCodeNumber_WageCodeName": "13 Overtidstillegg 40%"
+  },
+  {
+    "wageCodeId": "878F1253-D123-5F2C-948C-FF9CD8E7831F",
+    "combined_WageCodeNumber_WageCodeName": "555 Feriepenger skattefri"
+  }
+]
