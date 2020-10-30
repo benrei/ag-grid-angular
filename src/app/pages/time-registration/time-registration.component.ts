@@ -39,6 +39,8 @@ export class TimeRegistrationComponent {
     { field: "costPrice" },
     {
       headerName: "Beløp",
+      valueGetter: "data.quantity + data.costPrice",
+      editable: false,
       cellRenderer: params => params.data.quantity * params.data.costPrice
     }
     // {
