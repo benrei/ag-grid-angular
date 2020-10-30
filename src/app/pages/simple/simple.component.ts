@@ -33,6 +33,7 @@ export class SimpleComponent {
       cellEditor: "agSelectCellEditor",
       cellEditorParams: () => {
         const contries = this.rowData.map(e => e.country);
+        console.log(Array.from(new Set(contries)).sort());
         return { values: Array.from(new Set(contries)).sort() };
       },
       minWidth: 150
