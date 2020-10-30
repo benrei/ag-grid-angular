@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { gridOptionsDefaults, colDefDefaults } from "../../grid/gridDefaults";
 import { PdfIconRenderer } from "../../grid/frameworkComponents/pdf-icon-renderer.component";
+import { CellValueChangedEvent } from "ag-grid-community/main";
 
 @Component({
   selector: "app-simple",
@@ -22,6 +23,7 @@ export class SimpleComponent {
   defaultColDef = {
     ...colDefDefaults,
     enableCellChangeFlash: true,
+    onCellValueChanged: this.onCellValueChanged,
     editable: true
   };
   columnDefs = [
@@ -47,6 +49,11 @@ export class SimpleComponent {
   ];
 
   constructor(private http: HttpClient) {}
+
+  onCellValueChanged(event: CellValueChangedEvent) {
+    console.log(event);
+    // Save changes
+  }
 
   addFn() {
     console.log("addFn");
