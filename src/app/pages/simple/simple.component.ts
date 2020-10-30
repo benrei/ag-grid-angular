@@ -75,7 +75,6 @@ export class SimpleComponent {
   fitColumnsFn = () => this.gridApi.sizeColumnsToFit();
 
   getData() {
-    // .get("https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/sample-data/smallRowData.json")
     this.http
       .get(
         "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinnersSmall.json"
