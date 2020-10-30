@@ -17,14 +17,11 @@ export class GridDirective {
 
   @HostListener("cellValueChanged", ["$event"])
   onCellValueChanged(event: any) {
-    const {colId, newValue} = event.column;
-    console.log(event);
-  }
-
-  onFlashOneCell(rowNode) {
-    this.agGrid.api.flashCells({
-      rowNodes: [rowNode],
-      columns: ["c"]
+    const { column, node } = event;
+    const { colId } = column;
+    event.api.flashCells({
+      rowNodes: [node],
+      columns: [colId]
     });
   }
 

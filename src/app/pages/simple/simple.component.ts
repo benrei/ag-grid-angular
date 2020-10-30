@@ -21,6 +21,7 @@ export class SimpleComponent {
   };
   defaultColDef = {
     ...colDefDefaults,
+    enableCellChangeFlash: true,
     editable: true
   };
   columnDefs = [
