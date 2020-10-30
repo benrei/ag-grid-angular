@@ -74,9 +74,13 @@ export class TimeRegistrationComponent {
   fitColumnsFn = () => this.gridApi.sizeColumnsToFit();
 
   getData() {
-    this.http.get("./assignments.json").subscribe(data => {
-      this.rowData = data;
-    });
+    this.http
+      .get(
+        "https://raw.githubusercontent.com/benrei/ag-grid-angular/master/src/app/pages/time-registration/assignments.json"
+      )
+      .subscribe(data => {
+        this.rowData = data;
+      });
   }
 
   onGridReady(params) {
