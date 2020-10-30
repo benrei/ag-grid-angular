@@ -31,12 +31,19 @@ export class TimeRegistrationComponent {
   assignments = assignments;
   wageCodes = wageCodes;
   columnDefs = [
-    { field: "assignment.assignmentNumber" },
-    { field: "startDateTimeUTC" },
-    { field: "wageCode.combined_WageCodeNumber_WageCodeName" },
-    { field: "serviceComment" },
-    { field: "quantity" },
-    { field: "costPrice" },
+    {
+      field: "assignment.assignmentNumber",
+      filter: "agNumberColumnFilter",
+      sort: "asc"
+    },
+    { field: "startDateTimeUTC", filter: "agDateColumnFilter" },
+    {
+      field: "wageCode.combined_WageCodeNumber_WageCodeName",
+      filter: "agTextColumnFilter"
+    },
+    { field: "serviceComment", filter: "agTextColumnFilter" },
+    { field: "quantity", filter: "agNumberColumnFilter" },
+    { field: "costPrice", filter: "agNumberColumnFilter" },
     {
       headerName: "Beløp",
       valueGetter: "data.quantity + data.costPrice",
