@@ -25,7 +25,16 @@ export class SimpleComponent {
     editable: true
   };
   columnDefs = [
-    { field: "country", filter: "agTextColumnFilter", minWidth: 150 },
+    {
+      field: "country",
+      filter: "agTextColumnFilter",
+      cellEditor: "agSelectCellEditor",
+      cellEditorParams: () => {
+        const contries = this.rowData.map(e => e.country);
+        return { values: Array.from(new Set(contries)) };
+      },
+      minWidth: 150
+    },
     { field: "year", filter: "agNumberColumnFilter", minWidth: 150 },
     { field: "sport", filter: "agTextColumnFilter", minWidth: 150 },
     { field: "athlete", filter: "agTextColumnFilter", minWidth: 150 },
