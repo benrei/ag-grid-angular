@@ -5,6 +5,7 @@ import { PdfIconRenderer } from "../../grid/frameworkComponents/pdf-icon-rendere
 import { CellValueChangedEvent } from "ag-grid-community/main";
 import assignments from "./assignments.json";
 import wageCodes from "./wagecodes.json";
+import utils from "../../grid/utils";
 
 @Component({
   selector: "app-time-registration",
@@ -20,7 +21,9 @@ export class TimeRegistrationComponent {
     frameworkComponents: {
       pdfIconRenderer: PdfIconRenderer
     },
-    undoRedoCellEditing: true
+    undoRedoCellEditing: true,
+    navigateToNextCell:(params)=>
+      utils.gridOptions.navigateToNextCell.selectionWithArrowKeys(params, this.gridApi)
   };
   defaultColDef = {
     ...colDefDefaults,
