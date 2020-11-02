@@ -23,11 +23,8 @@ export class TimeRegistrationComponent {
       pdfIconRenderer: PdfIconRenderer
     },
     undoRedoCellEditing: true,
-    navigateToNextCell: params =>
-      utils.gridOptions.navigateToNextCell.selectionWithArrowKeys(
-        params,
-        this.gridApi
-      )
+    navigateToNextCell:
+      utils.gridOptions.navigateToNextCell.selectionWithArrowKeys
   };
   defaultColDef = {
     ...colDefDefaults,

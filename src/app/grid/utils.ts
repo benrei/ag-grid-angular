@@ -1,8 +1,10 @@
 const utils = {
   gridOptions: {
     navigateToNextCell: {
-      selectionWithArrowKeys: (params, gridApi) => {
+      selectionWithArrowKeys: params => {
         const { nextCellPosition, previousCellPosition } = params;
+        const { column } = nextCellPosition;
+        const { gridApi } = column;
 
         const KEY_UP = 38;
         const KEY_DOWN = 40;
