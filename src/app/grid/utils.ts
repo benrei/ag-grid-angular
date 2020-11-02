@@ -2,39 +2,33 @@ const utils = {
   gridOptions: {
     navigateToNextCell: {
       selectionWithArrowKeys: (params, gridApi) => {
-        console.log(params);
-        var previousCell = params.previousCellDef;
-        var suggestedNextCell = params.nextCellDef;
+        const { nextCellPosition, previousCellPosition } = params;
 
-        var KEY_UP = 38;
-        var KEY_DOWN = 40;
-        var KEY_LEFT = 37;
-        var KEY_RIGHT = 39;
+        const KEY_UP = 38;
+        const KEY_DOWN = 40;
+        const KEY_LEFT = 37;
+        const KEY_RIGHT = 39;
 
         switch (params.key) {
           case KEY_DOWN:
-            previousCell = params.previousCellDef;
             // set selected cell on current cell + 1
-            // TODO
-            // gridOptions.api.forEachNode(function(node) {
-            //   if (previousCell.rowIndex + 1 === node.rowIndex) {
-            //     node.setSelected(true);
-            //   }
-            // });
-            return suggestedNextCell;
+            gridApi.forEachNode(function(node) {
+              if (previousCellPosition.rowIndex + 1 === node.rowIndex) {
+                node.setSelected(true);
+              }
+            });
+            return nextCellPosition;
           case KEY_UP:
-            previousCell = params.previousCellDef;
             // set selected cell on current cell - 1
-            // TODO
-            // gridOptions.api.forEachNode(function(node) {
-            //   if (previousCell.rowIndex - 1 === node.rowIndex) {
-            //     node.setSelected(true);
-            //   }
-            // });
-            return suggestedNextCell;
+            gridApi.forEachNode(function(node) {
+              if (previousCellPosition.rowIndex - 1 === node.rowIndex) {
+                node.setSelected(true);
+              }
+            });
+            return nextCellPosition;
           case KEY_LEFT:
           case KEY_RIGHT:
-            return suggestedNextCell;
+            return nextCellPosition;
           default:
             throw "this will never happen, navigation is always one of the 4 keys above";
         }

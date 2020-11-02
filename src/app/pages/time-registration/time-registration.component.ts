@@ -13,6 +13,7 @@ import utils from "../../grid/utils";
   styleUrls: ["./time-registration.component.css"]
 })
 export class TimeRegistrationComponent {
+  grid;
   gridApi;
   gridColumnApi;
   rowData;
@@ -22,8 +23,11 @@ export class TimeRegistrationComponent {
       pdfIconRenderer: PdfIconRenderer
     },
     undoRedoCellEditing: true,
-    navigateToNextCell:(params)=>
-      utils.gridOptions.navigateToNextCell.selectionWithArrowKeys(params, this.gridApi)
+    navigateToNextCell: params =>
+      utils.gridOptions.navigateToNextCell.selectionWithArrowKeys(
+        params,
+        this.gridApi
+      )
   };
   defaultColDef = {
     ...colDefDefaults,
@@ -111,6 +115,7 @@ export class TimeRegistrationComponent {
   }
 
   onGridReady(params) {
+    this.grid = params;
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.getData();
