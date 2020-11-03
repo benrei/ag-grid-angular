@@ -50,9 +50,11 @@ export class TimeRegistrationComponent {
     { field: "costPrice", filter: "agNumberColumnFilter" },
     {
       headerName: "Beløp",
-      valueGetter: "data.quantity + data.costPrice",
+      valueGetter: "data.quantity * data.costPrice",
       editable: false,
-      cellRenderer: params => params.data.quantity * params.data.costPrice
+      // cellRenderer: params => params.data.quantity * params.data.costPrice,
+      valueFormatter:
+        'Math.floor(value).toFixed(2).replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, "$1,")'
     }
     // {
     //   field: "assignment.assignmentNumber",
