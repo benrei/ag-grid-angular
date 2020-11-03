@@ -18,7 +18,7 @@ const gridOptionsDefaults = {
 const colDefDefaults = {
   enableRowGroup: true,
   floatingFilter: true,
-  width: 100,
+  width: 150,
   resizable: true,
   sortable: true
 };
