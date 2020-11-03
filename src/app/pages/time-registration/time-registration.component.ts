@@ -65,25 +65,6 @@ export class TimeRegistrationComponent {
       valueFormatter:
         'Math.floor(value).toFixed(2).replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, "$1,")'
     }
-    // {
-    //   field: "assignment.assignmentNumber",
-    //   filter: "agTextColumnFilter",
-    //   cellEditor: "agSelectCellEditor",
-    //   cellEditorParams: () => {
-    //     const contries = this.rowData.map(e => e.country);
-    //     return { values: Array.from(new Set(contries)).sort() };
-    //   },
-    //   minWidth: 150
-    // }
-    // { field: "year", filter: "agNumberColumnFilter", minWidth: 150 },
-    // { field: "sport", filter: "agTextColumnFilter", minWidth: 150 },
-    // { field: "athlete", filter: "agTextColumnFilter", minWidth: 150 },
-    // { field: "gold", filter: "agNumberColumnFilter" },
-    // { field: "silver", filter: "agNumberColumnFilter" },
-    // { field: "bronze", filter: "agNumberColumnFilter" },
-    // { field: "total", filter: "agNumberColumnFilter" },
-    // { field: "age", filter: "agNumberColumnFilter" },
-    // { field: "date", filter: "agDateColumnFilter", minWidth: 140 }
   ];
 
   constructor(private http: HttpClient) {}
