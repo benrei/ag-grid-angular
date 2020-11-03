@@ -46,13 +46,22 @@ export class TimeRegistrationComponent {
       filter: "agTextColumnFilter"
     },
     { field: "serviceComment", filter: "agTextColumnFilter" },
-    { field: "quantity", filter: "agNumberColumnFilter" },
-    { field: "costPrice", filter: "agNumberColumnFilter" },
+    {
+      field: "quantity",
+      filter: "agNumberColumnFilter",
+      type: "numericColumn"
+    },
+    {
+      field: "costPrice",
+      filter: "agNumberColumnFilter",
+      type: "numericColumn"
+    },
     {
       headerName: "Beløp",
       valueGetter: "data.quantity * data.costPrice",
       editable: false,
       // cellRenderer: params => params.data.quantity * params.data.costPrice,
+      type: "numericColumn",
       valueFormatter:
         'Math.floor(value).toFixed(2).replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, "$1,")'
     }
