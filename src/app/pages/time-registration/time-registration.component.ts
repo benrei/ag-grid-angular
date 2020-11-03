@@ -63,7 +63,7 @@ export class TimeRegistrationComponent {
       // cellRenderer: params => params.data.quantity * params.data.costPrice,
       type: "numericColumn",
       valueFormatter:
-        'Math.floor(value).toFixed(2).replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, "$1,")'
+        'Math.floor(value).toFixed(2).replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, "$1 ")'
     }
   ];
 
