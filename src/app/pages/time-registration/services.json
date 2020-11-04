@@ -288,7 +288,7 @@
       "wageCodeId": "AA1E9D3F-378B-59C3-988E-3A52E20EBC93",
       "enum_WageCodeQuantityPriceRuleId": "QuantityAndPrice"
     },
-    "serviceComment": "test",
+    "serviceComment": "test ",
     "quantity": 1,
     "costPrice": 222,
     "wagePeriodId": "47F327AE-587E-488A-9247-8629241F0255",
