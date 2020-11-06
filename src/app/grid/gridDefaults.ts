@@ -15,8 +15,8 @@ const gridOptionsDefaults = {
       { statusPanel: "agAggregationComponent" }
     ]
   },
-  onCellKeyPress: ({ event }) => {
-    console.log(event);
+  onCellKeyPress: e => {
+    console.log(e);
   }
 };
 const colDefDefaults = {
