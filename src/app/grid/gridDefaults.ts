@@ -5,6 +5,7 @@ const gridOptionsDefaults = {
   enableRangeSelection: true,
   enableRangeHandle: true,
   // enableFillHandle: true,
+  enterMovesDown: true,
   // frameworkComponents: {},
   rowSelection: "single",
   rowGroupPanelShow: "always",
@@ -13,6 +14,9 @@ const gridOptionsDefaults = {
       { statusPanel: "agTotalAndFilteredRowCountComponent", align: "left" },
       { statusPanel: "agAggregationComponent" }
     ]
+  },
+  onCellKeyPress: ({ event }) => {
+    console.log(event);
   }
 };
 const colDefDefaults = {
