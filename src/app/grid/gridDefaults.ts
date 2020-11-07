@@ -17,12 +17,8 @@ const gridOptionsDefaults = {
   },
   onCellKeyPress: params => {
     const { key, shiftKey } = params.event;
-    console.log(params);
     console.log(key);
-    if (shiftKey) {
-      if (key === "Enter") params.api.tabToNextCell();
-    } else {
-    }
+    enterToNextCell(params)
   }
 };
 const colDefDefaults = {
@@ -33,4 +29,14 @@ const colDefDefaults = {
   sortable: true,
   suppressKeyboardEvent: ({ event }) => ["Enter"].includes(event.key)
 };
+
+const enterToNextCell = (params)=>{
+    const { key, shiftKey } = params.event;
+    if(shiftKey){
+      if (key === "Enter") params.api.tabToPreviousCell();
+    }else{
+      if (key === "Enter") params.api.tabToNextCell();
+    }
+}
+
 export { gridOptionsDefaults, colDefDefaults };
