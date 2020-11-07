@@ -12,6 +12,7 @@ const utils = {
         const KEY_LEFT = 37;
         const KEY_RIGHT = 39;
 
+        console.log("navigateToNextCell");
         console.log(params);
         switch (params.key) {
           case KEY_DOWN:
