@@ -5,7 +5,7 @@ const gridOptionsDefaults = {
   enableRangeSelection: true,
   enableRangeHandle: true,
   // enableFillHandle: true,
-  enterMovesDown: true,
+  // enterMovesDown: true,
   // frameworkComponents: {},
   rowSelection: "single",
   rowGroupPanelShow: "always",
@@ -18,7 +18,7 @@ const gridOptionsDefaults = {
   onCellKeyPress: params => {
     const { key, shiftKey } = params.event;
     console.log(key);
-    enterToNextCell(params)
+    enterToNextCell(params);
   }
 };
 const colDefDefaults = {
@@ -30,13 +30,13 @@ const colDefDefaults = {
   suppressKeyboardEvent: ({ event }) => ["Enter"].includes(event.key)
 };
 
-const enterToNextCell = (params)=>{
-    const { key, shiftKey } = params.event;
-    if(shiftKey){
-      if (key === "Enter") params.api.tabToPreviousCell();
-    }else{
-      if (key === "Enter") params.api.tabToNextCell();
-    }
-}
+const enterToNextCell = params => {
+  const { key, shiftKey } = params.event;
+  if (shiftKey) {
+    if (key === "Enter") params.api.tabToPreviousCell();
+  } else {
+    if (key === "Enter") params.api.tabToNextCell();
+  }
+};
 
 export { gridOptionsDefaults, colDefDefaults };
