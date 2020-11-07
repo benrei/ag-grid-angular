@@ -17,7 +17,8 @@ const gridOptionsDefaults = {
   },
   onCellKeyPress: params => {
     const { key, shiftKey } = params.event;
-    console.log(key);
+    console.log("onCellKeyPress");
+    console.log(params);
     enterToNextCell(params);
   }
 };
