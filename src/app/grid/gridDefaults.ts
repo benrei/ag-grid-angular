@@ -16,8 +16,13 @@ const gridOptionsDefaults = {
     ]
   },
   onCellKeyPress: params => {
-    const {key} = params.event;
+    const { key, shiftKey } = params.event;
     console.log(params);
+    console.log(key);
+    if (shiftKey) {
+      if (key === "Enter") params.api.tabToNextCell();
+    } else {
+    }
   }
 };
 const colDefDefaults = {
@@ -25,6 +30,7 @@ const colDefDefaults = {
   floatingFilter: true,
   width: 120,
   resizable: true,
-  sortable: true
+  sortable: true,
+  suppressKeyboardEvent: ({ event }) => ["Enter"].includes(event.key)
 };
 export { gridOptionsDefaults, colDefDefaults };
