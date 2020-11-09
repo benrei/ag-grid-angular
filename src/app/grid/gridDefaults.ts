@@ -1,4 +1,4 @@
-import utils from './utils'
+import utils from "./utils";
 const gridOptionsDefaults = {
   autoGroupColumnDef: {
     minWidth: 150
@@ -17,7 +17,7 @@ const gridOptionsDefaults = {
     ]
   },
   onCellKeyPress: params => {
-    utils.gridOptions.enterToNextCell(params);
+    utils.gridOptions.onCellKeyPress.enterToNextCell(params);
   }
 };
 const colDefDefaults = {
