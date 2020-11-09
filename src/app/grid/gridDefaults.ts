@@ -38,13 +38,15 @@ const enterToNextCell = params => {
   } else {
     if (key === "Enter") params.api.tabToNextCell();
   }
-  // Update selected row
   const { rowIndex } = params.api.getFocusedCell();
-  params.api.forEachNode(function(node) {
-    if (rowIndex === node.rowIndex) {
-      node.setSelected(true);
-    }
-  });
+  if (rowIndex !== params.rowIndex) {
+    // Update selected row
+    params.api.forEachNode(function(node) {
+      if (rowIndex === node.rowIndex) {
+        node.setSelected(true);
+      }
+    });
+  }
 };
 
 export { gridOptionsDefaults, colDefDefaults };
