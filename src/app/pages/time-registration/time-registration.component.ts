@@ -1,8 +1,6 @@
 import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { gridOptionsDefaults, colDefDefaults } from "../../grid/gridDefaults";
-import { PdfIconRenderer } from "../../grid/frameworkComponents/pdf-icon-renderer.component";
-import { CellValueChangedEvent } from "ag-grid-community/main";
 import assignments from "./assignments.json";
 import wageCodes from "./wagecodes.json";
 import utils from "../../grid/utils";
@@ -16,16 +14,14 @@ export class TimeRegistrationComponent {
   grid;
   gridApi;
   gridColumnApi;
-  rowData;
+  rowData: Array<any>;
   gridOptions = {
     ...gridOptionsDefaults,
-    undoRedoCellEditing: true,
-    navigateToNextCell:
-      utils.gridOptions.navigateToNextCell.selectionWithArrowKeys
+    undoRedoCellEditing: true
   };
   defaultColDef = {
     ...colDefDefaults,
-    onCellValueChanged: this.onCellValueChanged,
+    onCellValueChanged: this.onCellValueChanged.bind(this),
     editable: true
   };
   assignments = assignments;
@@ -67,13 +63,16 @@ export class TimeRegistrationComponent {
 
   onCellValueChanged(event) {
     console.log(event);
-    // event.api.flashCells({
-    //   rowNodes: [event.node],
-    //   columns: [event.column.colId]
+    // const rows = JSON.parse(JSON.stringify([event.data, event.data]));
+    // const res = event.api.applyTransaction({
+    //   add: rows,
+    //   addIndex: -1
     // });
-    // setTimeout(() => {
+    // console.log(res);
+    // event.api.flashCells({
+    //   rowNodes: res.add
+    // });
 
-    // }, 2500);
     // Save changes
   }
 
@@ -101,7 +100,9 @@ export class TimeRegistrationComponent {
       .get(
         "https://raw.githubusercontent.com/benrei/ag-grid-angular/master/src/app/pages/time-registration/services.json"
       )
-      .subscribe(data => {
+      .toPromise()
+      .then((data: Array<any>) => {
+        console.log(data);
         this.rowData = data;
       });
   }

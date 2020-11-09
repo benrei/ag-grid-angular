@@ -18,10 +18,10 @@ export class GridDirective {
   @HostListener("cellValueChanged", ["$event"])
   onCellValueChanged(event: CellValueChangedEvent) {
     const { colDef, node } = event;
-    event.api.flashCells({
-      rowNodes: [node],
-      columns: [colDef.field]
-    });
+    // event.api.flashCells({
+    //   rowNodes: [node],
+    //   columns: [colDef.field]
+    // });
     // setTimeout(() => {
     // }, 1000);
   }
