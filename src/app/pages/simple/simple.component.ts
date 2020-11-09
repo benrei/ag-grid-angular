@@ -22,7 +22,6 @@ export class SimpleComponent {
   };
   defaultColDef = {
     ...colDefDefaults,
-    enableCellChangeFlash: true,
     onCellValueChanged: this.onCellValueChanged,
     editable: true
   };

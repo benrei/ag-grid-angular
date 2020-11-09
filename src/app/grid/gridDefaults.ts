@@ -21,6 +21,7 @@ const gridOptionsDefaults = {
   }
 };
 const colDefDefaults = {
+  enableCellChangeFlash: true,
   enableRowGroup: true,
   floatingFilter: true,
   width: 120,

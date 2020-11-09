@@ -19,16 +19,12 @@ export class TimeRegistrationComponent {
   rowData;
   gridOptions = {
     ...gridOptionsDefaults,
-    frameworkComponents: {
-      pdfIconRenderer: PdfIconRenderer
-    },
     undoRedoCellEditing: true,
     navigateToNextCell:
       utils.gridOptions.navigateToNextCell.selectionWithArrowKeys
   };
   defaultColDef = {
     ...colDefDefaults,
-    enableCellChangeFlash: true,
     onCellValueChanged: this.onCellValueChanged,
     editable: true
   };
