@@ -38,6 +38,9 @@ const enterToNextCell = params => {
   } else {
     if (key === "Enter") params.api.tabToNextCell();
   }
+  const newCell = params.api.getFocusedCell();
+  console.log(params.rowIndex);
+  console.log(newCell.rowIndex);
 };
 
 export { gridOptionsDefaults, colDefDefaults };
