@@ -65,8 +65,14 @@ export class TimeRegistrationComponent {
 
   constructor(private http: HttpClient) {}
 
-  onCellValueChanged(event: CellValueChangedEvent) {
+  onCellValueChanged(event) {
     console.log(event);
+    setTimeout(() => {
+      event.api.flashCells({
+        rowNodes: [event.node],
+        columns: [event.column.colId]
+      });
+    }, 2500);
     // Save changes
   }
 
