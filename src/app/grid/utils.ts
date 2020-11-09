@@ -32,6 +32,7 @@ const utils = {
             }
           });
         };
+        
         switch (params.key) {
           case KEY_DOWN:
             selectDown(previousCellPosition);
