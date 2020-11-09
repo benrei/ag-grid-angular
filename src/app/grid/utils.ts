@@ -1,3 +1,7 @@
+import {
+  CellKeyDownEvent,
+  CellKeyPressEvent
+} from "ag-grid-community/dist/lib/events";
 const utils = {
   gridOptions: {
     navigateToNextCell: {
@@ -32,7 +36,7 @@ const utils = {
             }
           });
         };
-        
+
         switch (params.key) {
           case KEY_DOWN:
             selectDown(previousCellPosition);
