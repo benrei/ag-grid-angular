@@ -3,7 +3,7 @@ const utils = {
     navigateToNextCell: {
       selectionWithArrowKeys: params => {
         const { nextCellPosition, previousCellPosition } = params;
-        const { column } = nextCellPosition;
+        const { column } = previousCellPosition;
         const { gridApi } = column;
 
         const KEY_UP = 38;
