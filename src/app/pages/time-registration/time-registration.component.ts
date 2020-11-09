@@ -67,12 +67,13 @@ export class TimeRegistrationComponent {
 
   onCellValueChanged(event) {
     console.log(event);
-    setTimeout(() => {
-      event.api.flashCells({
-        rowNodes: [event.node],
-        columns: [event.column.colId]
-      });
-    }, 2500);
+    // event.api.flashCells({
+    //   rowNodes: [event.node],
+    //   columns: [event.column.colId]
+    // });
+    // setTimeout(() => {
+
+    // }, 2500);
     // Save changes
   }
 

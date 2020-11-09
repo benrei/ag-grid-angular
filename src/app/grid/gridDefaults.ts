@@ -8,6 +8,8 @@ const gridOptionsDefaults = {
   // enableFillHandle: true,
   // enterMovesDown: true,
   // frameworkComponents: {},
+  navigateToNextCell:
+    utils.gridOptions.navigateToNextCell.selectionWithArrowKeys,
   rowSelection: "single",
   rowGroupPanelShow: "always",
   statusBar: {
@@ -24,10 +26,10 @@ const colDefDefaults = {
   enableCellChangeFlash: true,
   enableRowGroup: true,
   floatingFilter: true,
-  width: 120,
   resizable: true,
   sortable: true,
-  suppressKeyboardEvent: ({ event }) => ["Enter"].includes(event.key)
+  suppressKeyboardEvent: ({ event }) => ["Enter"].includes(event.key),
+  width: 120
 };
 
 export { gridOptionsDefaults, colDefDefaults };

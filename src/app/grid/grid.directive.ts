@@ -22,6 +22,8 @@ export class GridDirective {
       rowNodes: [node],
       columns: [colDef.field]
     });
+    // setTimeout(() => {
+    // }, 1000);
   }
 
   @HostListener("filterChanged", ["$event"])
