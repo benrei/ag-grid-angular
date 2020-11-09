@@ -1,3 +1,4 @@
+import utils from './utils'
 const gridOptionsDefaults = {
   autoGroupColumnDef: {
     minWidth: 150
@@ -16,7 +17,7 @@ const gridOptionsDefaults = {
     ]
   },
   onCellKeyPress: params => {
-    enterToNextCell(params);
+    utils.gridOptions.enterToNextCell(params);
   }
 };
 const colDefDefaults = {
@@ -26,24 +27,6 @@ const colDefDefaults = {
   resizable: true,
   sortable: true,
   suppressKeyboardEvent: ({ event }) => ["Enter"].includes(event.key)
-};
-
-const enterToNextCell = params => {
-  const { code, shiftKey } = params.event;
-  if (shiftKey) {
-    if (code === "Enter") params.api.tabToPreviousCell();
-  } else {
-    if (code === "Enter") params.api.tabToNextCell();
-  }
-  const { rowIndex } = params.api.getFocusedCell();
-  if (rowIndex !== params.rowIndex) {
-    // Update selected row
-    params.api.forEachNode(function(node) {
-      if (rowIndex === node.rowIndex) {
-        node.setSelected(true);
-      }
-    });
-  }
 };
 
 export { gridOptionsDefaults, colDefDefaults };
