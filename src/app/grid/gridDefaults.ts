@@ -32,11 +32,11 @@ const colDefDefaults = {
 };
 
 const enterToNextCell = params => {
-  const { key, shiftKey } = params.event;
+  const { code, shiftKey } = params.event;
   if (shiftKey) {
-    if (key === "Enter") params.api.tabToPreviousCell();
+    if (code === "Enter") params.api.tabToPreviousCell();
   } else {
-    if (key === "Enter") params.api.tabToNextCell();
+    if (code === "Enter") params.api.tabToNextCell();
   }
   const { rowIndex } = params.api.getFocusedCell();
   if (rowIndex !== params.rowIndex) {
