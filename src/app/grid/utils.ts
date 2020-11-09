@@ -38,11 +38,11 @@ const utils = {
     },
     onCellKeyPress: {
       enterToNextCell: params => {
-        const { code, shiftKey } = params.event;
+        const { code, key, shiftKey } = params.event;
         if (shiftKey) {
-          if (code === "Enter") params.api.tabToPreviousCell();
+          if (code == "Enter" || key == "Enter") params.api.tabToPreviousCell();
         } else {
-          if (code === "Enter") params.api.tabToNextCell();
+          if (code == "Enter" || key == "Enter") params.api.tabToNextCell();
         }
         const { rowIndex } = params.api.getFocusedCell();
         if (rowIndex !== params.rowIndex) {
