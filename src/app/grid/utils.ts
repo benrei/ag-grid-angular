@@ -11,41 +11,44 @@ const utils = {
         const KEY_LEFT = 37;
         const KEY_RIGHT = 39;
 
+        const selectDown = cellPosition => {
+          const { column } = cellPosition;
+          const { gridApi } = column;
+          // set selected cell on current cell + 1
+          gridApi.forEachNode(function(node) {
+            if (previousCellPosition.rowIndex + 1 === node.rowIndex) {
+              node.setSelected(true);
+            }
+          });
+        };
+
+        const selectUp = cellPosition => {
+          const { column } = cellPosition;
+          const { gridApi } = column;
+          // set selected cell on current cell - 1
+          gridApi.forEachNode(function(node) {
+            if (previousCellPosition.rowIndex - 1 === node.rowIndex) {
+              node.setSelected(true);
+            }
+          });
+        };
         switch (params.key) {
           case KEY_DOWN:
-            // set selected cell on current cell + 1
-            gridApi.forEachNode(function(node) {
-              if (previousCellPosition.rowIndex + 1 === node.rowIndex) {
-                node.setSelected(true);
-              }
-            });
+            selectDown(previousCellPosition);
             return nextCellPosition;
           case KEY_UP:
-            // set selected cell on current cell - 1
-            gridApi.forEachNode(function(node) {
-              if (previousCellPosition.rowIndex - 1 === node.rowIndex) {
-                node.setSelected(true);
-              }
-            });
+            selectUp(previousCellPosition);
             return nextCellPosition;
           case KEY_LEFT:
             if (!nextCellPosition) {
               gridApi.tabToPreviousCell();
-              gridApi.forEachNode(function(node) {
-                if (previousCellPosition.rowIndex - 1 === node.rowIndex) {
-                  node.setSelected(true);
-                }
-              });
+              selectUp(previousCellPosition);
             }
             return nextCellPosition;
           case KEY_RIGHT:
             if (!nextCellPosition) {
               gridApi.tabToNextCell();
-              gridApi.forEachNode(function(node) {
-                if (previousCellPosition.rowIndex + 1 === node.rowIndex) {
-                  node.setSelected(true);
-                }
-              });
+              selectDown(previousCellPosition);
             }
             return nextCellPosition;
           default:
