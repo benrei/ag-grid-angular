@@ -4,6 +4,7 @@ import { gridOptionsDefaults, colDefDefaults } from "../../grid/gridDefaults";
 import assignments from "./assignments.json";
 import wageCodes from "./wagecodes.json";
 import utils from "../../grid/utils";
+import helpers from "./helpers";
 
 @Component({
   selector: "app-time-registration",
@@ -49,6 +50,7 @@ export class TimeRegistrationComponent {
       type: "numericColumn"
     },
     {
+      filter: "agNumberColumnFilter",
       headerName: "Beløp",
       valueGetter: "data.quantity * data.costPrice",
       editable: false,
@@ -70,15 +72,26 @@ export class TimeRegistrationComponent {
     // });
     // console.log(res);
     // event.api.flashCells({
-    //   rowNodes: res.add
+    //   rowNodes: res.add,
+    //   flashDelay: 2000,
+    //   fadeDelay: 3000,
     // });
 
     // Save changes
   }
 
-  addFn() {
+  addFn = () => {
     console.log("addFn");
-  }
+    const result = this.gridApi.applyTransaction({
+      add: helpers.createObjects(),
+      addIndex: -1
+    });
+    this.gridApi.flashCells({
+      flashDelay: 2000,
+      fadeDelay: 3000,
+      rowNodes: result.add
+    });
+  };
   editFn() {
     console.log("editFn");
   }
