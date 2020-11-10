@@ -65,18 +65,6 @@ export class TimeRegistrationComponent {
 
   onCellValueChanged(event) {
     console.log(event);
-    // const rows = JSON.parse(JSON.stringify([event.data, event.data]));
-    // const res = event.api.applyTransaction({
-    //   add: rows,
-    //   addIndex: -1
-    // });
-    // console.log(res);
-    // event.api.flashCells({
-    //   rowNodes: res.add,
-    //   flashDelay: 2000,
-    //   fadeDelay: 3000,
-    // });
-
     // Save changes
   }
 
