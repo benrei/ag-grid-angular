@@ -24,10 +24,10 @@ let helpers = {
         },
         startDateTimeUTC: "2020-10-27T00:00:00",
         wageCode: {
-          wageCodeNumber: i * 3,
-          wageCodeName: "wageCodeName " + i,
-          combined_WageCodeNumber_WageCodeName: `${i * 3} wageCodeName ${i}`,
-          wageCodeId: i * 4,
+          wageCodeNumber: 3,
+          wageCodeName: "Timelønn",
+          combined_WageCodeNumber_WageCodeName: "3 Timelønn",
+          wageCodeId: "AA1E9D3F-378B-59C3-988E-3A52E20EBC93",
           enum_WageCodeQuantityPriceRuleId: "QuantityAndPrice"
         },
         serviceComment: `serviceComment ${i}`,
