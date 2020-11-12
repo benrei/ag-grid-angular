@@ -6,8 +6,6 @@ import {
 } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { ICellEditorAngularComp } from "ag-grid-angular";
-import { Observable } from "rxjs";
-import { map, startWith } from "rxjs/operators";
 
 const KEY_BACKSPACE = 8;
 const KEY_DELETE = 46;
@@ -22,16 +20,16 @@ const KEY_TAB = 9;
       #input
       type="text"
       matInput
-      (keydown)="onKeyDown($event)"
+      (keyup)="onKeyUp($event)"
       [matAutocomplete]="auto"
     />
     <mat-autocomplete
       #auto="matAutocomplete"
       [displayWith]="displayFn"
-      (optionSelected)="(onOptionSelected)"
+      (optionSelected)="onOptionSelected($event)"
     >
       <mat-option *ngFor="let option of filteredOptions" [value]="option">
-        {{ option.name }}
+        {{ option }}
       </mat-option>
     </mat-autocomplete>
   `
@@ -40,17 +38,21 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   timerId: number;
   private params: any;
   value: any;
+  gridApi;
 
   searchInput = new FormControl();
-  options: any[] = [{ name: "Mary" }, { name: "Shelley" }, { name: "Igor" }];
+  options: any[];
   filteredOptions: any[];
 
   @ViewChild("input", { read: ViewContainerRef }) public input: any;
 
   agInit(params: any): void {
+    console.log(params);
     this.params = params;
+    this.gridApi = params.api;
     this.setInitialState(this.params);
-    this.filteredOptions = this.options;
+    this.options = params.values;
+    this.filteredOptions = params.values;
   }
 
   setInitialState(params: any) {
@@ -69,7 +71,7 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
       }
     }
 
-    this.value = startValue;
+    // this.value = startValue;
   }
 
   getValue(): any {
@@ -77,7 +79,7 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
     return this.value;
   }
 
-  onKeyDown(event: any): void {
+  onKeyUp(event: any): void {
     if (this.isLeftOrRight(event) || this.deleteOrBackspace(event)) {
       event.stopPropagation();
       return;
@@ -110,10 +112,13 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
 
   onOptionSelected(event) {
     console.log(event);
+    this.value = event.option.value.name;
+    this.gridApi.tabToNextCell();
   }
 
   displayFn(obj: any): string {
-    return obj && obj.name ? obj.name : "";
+    return obj;
+    // return obj && obj.name ? obj.name : "";
   }
 
   private _debounceFunction = (func, delay) => {

@@ -45,7 +45,12 @@ export class SimpleComponent {
       field: "athlete",
       filter: "agTextColumnFilter",
       minWidth: 150,
-      cellEditor: "selectBoxEditor"
+      cellEditor: "selectBoxEditor",
+      cellEditorParams: () => {
+        const contries = this.rowData.map(e => e.country);
+        console.log(Array.from(new Set(contries)).sort());
+        return { values: Array.from(new Set(contries)).sort() };
+      }
     },
     { field: "gold", filter: "agNumberColumnFilter" },
     { field: "silver", filter: "agNumberColumnFilter" },
