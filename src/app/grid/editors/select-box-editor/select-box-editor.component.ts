@@ -19,13 +19,13 @@ const KEY_TAB = 9;
   selector: "numeric-cell",
   template: `
     <input
+      #input
       type="text"
       matInput
       (keydown)="onKeyDown($event)"
       [matAutocomplete]="auto"
-      [value]="value"
     />
-    <mat-autocomplete #auto="matAutocomplete">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
       <mat-option *ngFor="let option of filteredOptions" [value]="option">
         {{ option.name }}
       </mat-option>
@@ -35,7 +35,7 @@ const KEY_TAB = 9;
 export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   timerId: number;
   private params: any;
-  value = "";
+  value: any;
 
   searchInput = new FormControl();
   options: any[] = [{ name: "Mary" }, { name: "Shelley" }, { name: "Igor" }];
@@ -46,6 +46,7 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   agInit(params: any): void {
     this.params = params;
     this.setInitialState(this.params);
+    this.filteredOptions = this.options;
   }
 
   setInitialState(params: any) {
@@ -68,6 +69,7 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   }
 
   getValue(): any {
+    console.log();
     return this.value;
   }
 
@@ -100,6 +102,10 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   private isLeftOrRight(event: any) {
     return [37, 39].indexOf(this.getCharCodeFromEvent(event)) > -1;
   }
+  displayFn(obj: any): string {
+    return obj && obj.name ? obj.name : "";
+  }
+
   private _debounceFunction = (func, delay) => {
     clearTimeout(this.timerId);
     this.timerId = setTimeout(func, delay);
