@@ -35,7 +35,7 @@ const KEY_TAB = 9;
 export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   timerId: number;
   private params: any;
-  public value;
+  value = "";
 
   searchInput = new FormControl();
   options: any[] = [{ name: "Mary" }, { name: "Shelley" }, { name: "Igor" }];
@@ -76,6 +76,7 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
       event.stopPropagation();
       return;
     }
+    this.value = event.target.value;
   }
 
   // dont use afterGuiAttached for post gui events - hook into ngAfterViewInit instead for this
