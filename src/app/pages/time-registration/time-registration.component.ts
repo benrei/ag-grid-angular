@@ -5,6 +5,7 @@ import assignments from "./assignments.json";
 import wageCodes from "./wagecodes.json";
 import utils from "../../grid/utils";
 import helpers from "./helpers";
+import { SelectBoxEditor } from "../../grid/editors/select-box-editor/select-box-editor.component";
 
 @Component({
   selector: "app-time-registration",
@@ -18,6 +19,9 @@ export class TimeRegistrationComponent {
   rowData: Array<any>;
   gridOptions = {
     ...gridOptionsDefaults,
+    frameworkComponents: {
+      numericEditor: SelectBoxEditor
+    },
     undoRedoCellEditing: true
   };
   defaultColDef = {
@@ -47,6 +51,7 @@ export class TimeRegistrationComponent {
     {
       field: "costPrice",
       filter: "agNumberColumnFilter",
+      cellEditor: "numericEditor",
       type: "numericColumn"
     },
     {

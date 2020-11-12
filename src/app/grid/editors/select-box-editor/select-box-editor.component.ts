@@ -15,15 +15,10 @@ const KEY_TAB = 9;
 @Component({
   selector: "numeric-cell",
   template: `
-    <input
-      #input
-      (keydown)="onKeyDown($event)"
-      [(ngModel)]="value"
-      style="width: 100%"
-    />
+    <input #input (keydown)="onKeyDown($event)" style="width: 100%" />
   `
 })
-export class SelectBoxEditorComponent
+export class SelectBoxEditor
   implements ICellEditorAngularComp, AfterViewInit {
   private params: any;
   public value: number;
