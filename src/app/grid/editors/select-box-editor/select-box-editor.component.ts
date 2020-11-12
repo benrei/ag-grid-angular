@@ -23,6 +23,7 @@ const KEY_TAB = 9;
       (keyup)="onKeyUp($event)"
       [matAutocomplete]="auto"
       [value]="value"
+      style="width: 100%; height: 100%"
     />
     <mat-autocomplete
       #auto="matAutocomplete"
@@ -107,11 +108,6 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
     return typeof event.which == "undefined" ? event.keyCode : event.which;
   }
 
-  private deleteOrBackspace(event: any) {
-    return (
-      [KEY_DELETE, KEY_BACKSPACE].indexOf(this.getCharCodeFromEvent(event)) > -1
-    );
-  }
 
   private isLeftOrRight(event: any) {
     return [37, 39].indexOf(this.getCharCodeFromEvent(event)) > -1;
