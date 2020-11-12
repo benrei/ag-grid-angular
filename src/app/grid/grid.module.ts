@@ -10,6 +10,7 @@ import { ResetColumnsActionComponent } from "./actions/reset-columns-action.comp
 import { GridDirective } from "./grid.directive";
 import { FitColumnsActionComponent } from "./actions/fit-columns.component";
 import { PdfIconRenderer } from "./frameworkComponents/pdf-icon-renderer.component";
+import { SelectBoxEditorComponent } from './editors/select-box-editor/select-box-editor.component';
 
 @NgModule({
   imports: [CommonModule, AllMaterialModules],
@@ -22,7 +23,8 @@ import { PdfIconRenderer } from "./frameworkComponents/pdf-icon-renderer.compone
     ResetColumnsActionComponent,
     FitColumnsActionComponent,
     PdfIconRenderer,
-    GridDirective
+    GridDirective,
+    SelectBoxEditorComponent
   ],
   exports: [
     GridHeaderComponent,
