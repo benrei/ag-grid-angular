@@ -25,7 +25,11 @@ const KEY_TAB = 9;
       (keydown)="onKeyDown($event)"
       [matAutocomplete]="auto"
     />
-    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      [displayWith]="displayFn"
+      (optionSelected)="(onOptionSelected)"
+    >
       <mat-option *ngFor="let option of filteredOptions" [value]="option">
         {{ option.name }}
       </mat-option>
@@ -78,6 +82,7 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
       event.stopPropagation();
       return;
     }
+    console.log(event.target.value);
     this.value = event.target.value;
   }
 
@@ -102,6 +107,11 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   private isLeftOrRight(event: any) {
     return [37, 39].indexOf(this.getCharCodeFromEvent(event)) > -1;
   }
+
+  onOptionSelected(event) {
+    console.log(event);
+  }
+
   displayFn(obj: any): string {
     return obj && obj.name ? obj.name : "";
   }
