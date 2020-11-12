@@ -37,10 +37,11 @@ const KEY_TAB = 9;
   `
 })
 export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
-  timerId: number;
-  private params: any;
-  value: any;
   gridApi;
+  initValue: any;
+  private params: any;
+  timerId: number;
+  value: any;
 
   searchInput = new FormControl();
   options: any[];
@@ -50,8 +51,9 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
 
   agInit(params: any): void {
     console.log(params);
-    this.params = params;
     this.gridApi = params.api;
+    this.initValue = params.value;
+    this.params = params;
     this.setInitialState(this.params);
     this.options = params.values;
     this.filteredOptions = params.values;
@@ -63,7 +65,6 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
     if (params.keyPress === KEY_BACKSPACE || params.keyPress === KEY_DELETE) {
       // if backspace or delete pressed, we clear the cell
       startValue = "";
-      console.log(params);
     } else if (params.charPress) {
       // if a letter was pressed, we start with the letter
       startValue = params.charPress;
@@ -82,10 +83,9 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   }
 
   onKeyUp(event: any): void {
-    if (this.isLeftOrRight(event)) {
-      event.stopPropagation();
-      return;
-    }
+    const shouldReturn = this.customKeyHandler(event);
+    if (shouldReturn) return;
+  
     this.value = event.target.value;
     this._debounceFunction(() => {
       if (this.value?.length > 1)
@@ -103,14 +103,19 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
     });
   }
 
-  private getCharCodeFromEvent(event: any): any {
-    event = event || window.event;
-    return typeof event.which == "undefined" ? event.keyCode : event.which;
-  }
-
-
-  private isLeftOrRight(event: any) {
-    return [37, 39].indexOf(this.getCharCodeFromEvent(event)) > -1;
+  private customKeyHandler(event): boolean{
+    const {code,key} = event;
+    switch(code || key){
+      case 'Escape':  
+        this.value = this.initValue;
+        this.gridApi.stopEditing();
+        return true;
+      case 'ArrowLeft':
+      case 'ArrowRight':
+        event.stopPropagation()
+        return true
+    }
+    return false
   }
 
   onOptionSelected(event) {
