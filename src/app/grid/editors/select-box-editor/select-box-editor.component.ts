@@ -77,17 +77,22 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   }
 
   getValue(): any {
-    console.log();
     return this.value;
   }
 
   onKeyUp(event: any): void {
-    if (this.isLeftOrRight(event) || this.deleteOrBackspace(event)) {
+    if (this.isLeftOrRight(event)) {
       event.stopPropagation();
       return;
     }
-    console.log(event.target.value);
     this.value = event.target.value;
+    this._debounceFunction(() => {
+      if (this.value?.length > 1)
+        this.filteredOptions = this.options.filter(o =>
+          o.toLowerCase().includes(this.value)
+        );
+      else this.filteredOptions = this.options;
+    }, 250);
   }
 
   // dont use afterGuiAttached for post gui events - hook into ngAfterViewInit instead for this
@@ -114,7 +119,7 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
 
   onOptionSelected(event) {
     console.log(event);
-    this.value = event.option.value.name;
+    this.value = event.option.value;
     this.gridApi.tabToNextCell();
   }
 
