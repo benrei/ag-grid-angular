@@ -28,21 +28,19 @@ export class SimpleComponent {
     editable: true
   };
   columnDefs = [
+    // {
+    //   field: "country",
+    //   filter: "agTextColumnFilter",
+    //   cellEditor: "agSelectCellEditor",
+    //   cellEditorParams: () => {
+    //     const contries = this.rowData.map(e => e.country);
+    //     console.log(Array.from(new Set(contries)).sort());
+    //     return { values: Array.from(new Set(contries)).sort() };
+    //   },
+    //   minWidth: 150
+    // },
     {
       field: "country",
-      filter: "agTextColumnFilter",
-      cellEditor: "agSelectCellEditor",
-      cellEditorParams: () => {
-        const contries = this.rowData.map(e => e.country);
-        console.log(Array.from(new Set(contries)).sort());
-        return { values: Array.from(new Set(contries)).sort() };
-      },
-      minWidth: 150
-    },
-    { field: "year", filter: "agNumberColumnFilter", minWidth: 150 },
-    { field: "sport", filter: "agTextColumnFilter", minWidth: 150 },
-    {
-      field: "athlete",
       filter: "agTextColumnFilter",
       minWidth: 150,
       cellEditor: "selectBoxEditor",
@@ -51,6 +49,13 @@ export class SimpleComponent {
         console.log(Array.from(new Set(contries)).sort());
         return { values: Array.from(new Set(contries)).sort() };
       }
+    },
+    { field: "year", filter: "agNumberColumnFilter", minWidth: 150 },
+    { field: "sport", filter: "agTextColumnFilter", minWidth: 150 },
+    {
+      field: "athlete",
+      filter: "agTextColumnFilter",
+      minWidth: 150
     },
     { field: "gold", filter: "agNumberColumnFilter" },
     { field: "silver", filter: "agNumberColumnFilter" },
