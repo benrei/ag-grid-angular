@@ -22,6 +22,7 @@ const KEY_TAB = 9;
       matInput
       (keyup)="onKeyUp($event)"
       [matAutocomplete]="auto"
+      [value]="value"
     />
     <mat-autocomplete
       #auto="matAutocomplete"
@@ -61,6 +62,7 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
     if (params.keyPress === KEY_BACKSPACE || params.keyPress === KEY_DELETE) {
       // if backspace or delete pressed, we clear the cell
       startValue = "";
+      console.log(params);
     } else if (params.charPress) {
       // if a letter was pressed, we start with the letter
       startValue = params.charPress;
@@ -71,7 +73,7 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
       }
     }
 
-    // this.value = startValue;
+    this.value = startValue;
   }
 
   getValue(): any {
