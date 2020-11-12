@@ -51,7 +51,6 @@ export class TimeRegistrationComponent {
     {
       field: "costPrice",
       filter: "agNumberColumnFilter",
-      cellEditor: "numericEditor",
       type: "numericColumn"
     },
     {

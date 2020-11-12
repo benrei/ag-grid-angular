@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { gridOptionsDefaults, colDefDefaults } from "../../grid/gridDefaults";
 import { PdfIconRenderer } from "../../grid/frameworkComponents/pdf-icon-renderer.component";
 import { CellValueChangedEvent } from "ag-grid-community/main";
+import { SelectBoxEditor } from "../../grid/editors/select-box-editor/select-box-editor.component";
 
 @Component({
   selector: "app-simple",
@@ -16,7 +17,8 @@ export class SimpleComponent {
   gridOptions = {
     ...gridOptionsDefaults,
     frameworkComponents: {
-      pdfIconRenderer: PdfIconRenderer
+      pdfIconRenderer: PdfIconRenderer,
+      selectBoxEditor: SelectBoxEditor
     },
     undoRedoCellEditing: true
   };
@@ -39,7 +41,12 @@ export class SimpleComponent {
     },
     { field: "year", filter: "agNumberColumnFilter", minWidth: 150 },
     { field: "sport", filter: "agTextColumnFilter", minWidth: 150 },
-    { field: "athlete", filter: "agTextColumnFilter", minWidth: 150 },
+    {
+      field: "athlete",
+      filter: "agTextColumnFilter",
+      minWidth: 150,
+      cellEditor: "selectBoxEditor"
+    },
     { field: "gold", filter: "agNumberColumnFilter" },
     { field: "silver", filter: "agNumberColumnFilter" },
     { field: "bronze", filter: "agNumberColumnFilter" },
