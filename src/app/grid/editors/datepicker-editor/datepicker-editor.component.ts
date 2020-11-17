@@ -44,7 +44,6 @@ export class DatepickerEditor implements ICellEditorAngularComp, AfterViewInit {
   @ViewChild("picker") picker: MatDatepicker<Date>;
 
   agInit(params: any): void {
-    console.log(params);
     this.gridApi = params.api;
     this.initValue = params.value;
     this.params = params;
@@ -52,7 +51,6 @@ export class DatepickerEditor implements ICellEditorAngularComp, AfterViewInit {
   }
 
   setInitialState(params: any) {
-    console.log(params);
     let startValue;
     const { keyPress } = params;
     switch (keyPress) {
