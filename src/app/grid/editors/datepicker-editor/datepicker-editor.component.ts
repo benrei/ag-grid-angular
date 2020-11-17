@@ -37,6 +37,7 @@ const KEY_BACKSPACE = 8;
 })
 export class DatepickerEditor implements ICellEditorAngularComp, AfterViewInit {
   gridApi;
+  initValue: string;
   params: any;
   value: any;
 
@@ -45,6 +46,7 @@ export class DatepickerEditor implements ICellEditorAngularComp, AfterViewInit {
   agInit(params: any): void {
     console.log(params);
     this.gridApi = params.api;
+    this.initValue = params.value;
     this.params = params;
     this.setInitialState(this.params);
   }
@@ -65,7 +67,9 @@ export class DatepickerEditor implements ICellEditorAngularComp, AfterViewInit {
   }
 
   getValue(): any {
-    return moment(this.value).format("DD/MM/YYYY");
+    return moment(this.value).isValid()
+      ? moment(this.value).format("DD/MM/YYYY")
+      : this.initValue;
   }
 
   // dont use afterGuiAttached for post gui events - hook into ngAfterViewInit instead for this
@@ -76,7 +80,7 @@ export class DatepickerEditor implements ICellEditorAngularComp, AfterViewInit {
     });
   }
   onDateChange({ value }) {
-    this.value = moment(value);
+    this.value = moment(value).toDate();
     this.gridApi.tabToNextCell();
     // this.gridApi.stopEditing();
   }
