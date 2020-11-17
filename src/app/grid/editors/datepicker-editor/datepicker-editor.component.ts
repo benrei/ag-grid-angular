@@ -20,19 +20,24 @@ const KEY_BACKSPACE = 8;
       .mat-form-field {
         display: block;
       }
+      input {
+        height: 100%;
+      }
+      mat-datepicker-toggle {
+        position: absolute;
+        right: 0;
+      }
     `
   ],
   template: `
-    <mat-form-field appearance="fill">
-      <input
-        matInput
-        [matDatepicker]="picker"
-        (dateChange)="onDateChange($event)"
-        [value]="value"
-      />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      (dateChange)="onDateChange($event)"
+      [value]="value"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
   `
 })
 export class DatepickerEditor implements ICellEditorAngularComp, AfterViewInit {
