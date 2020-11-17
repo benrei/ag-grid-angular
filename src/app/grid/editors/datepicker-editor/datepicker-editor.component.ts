@@ -18,8 +18,7 @@ import { ICellEditorAngularComp } from "ag-grid-angular";
     </mat-form-field>
   `
 })
-export class DatepickerEditorComponent
-  implements ICellEditorAngularComp, AfterViewInit {
+export class DatepickerEditor implements ICellEditorAngularComp, AfterViewInit {
   gridApi;
   initValue: any;
   private params: any;
