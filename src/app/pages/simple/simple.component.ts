@@ -4,6 +4,7 @@ import { gridOptionsDefaults, colDefDefaults } from "../../grid/gridDefaults";
 import { PdfIconRenderer } from "../../grid/frameworkComponents/pdf-icon-renderer.component";
 import { CellValueChangedEvent } from "ag-grid-community/main";
 import { SelectBoxEditor } from "../../grid/editors/select-box-editor/select-box-editor.component";
+import { DatepickerEditor } from "../../grid/editors/datepicker-editor/datepicker-editor.component";
 
 @Component({
   selector: "app-simple",
@@ -18,7 +19,8 @@ export class SimpleComponent {
     ...gridOptionsDefaults,
     frameworkComponents: {
       pdfIconRenderer: PdfIconRenderer,
-      selectBoxEditor: SelectBoxEditor
+      selectBoxEditor: SelectBoxEditor,
+      datepickerEditor: DatepickerEditor
     },
     undoRedoCellEditing: true
   };
@@ -62,7 +64,12 @@ export class SimpleComponent {
     { field: "bronze", filter: "agNumberColumnFilter" },
     { field: "total", filter: "agNumberColumnFilter" },
     { field: "age", filter: "agNumberColumnFilter" },
-    { field: "date", filter: "agDateColumnFilter", minWidth: 140 }
+    {
+      field: "date",
+      filter: "agDateColumnFilter",
+      minWidth: 140,
+      cellEditor: "datepickerEditor"
+    }
   ];
 
   constructor(private http: HttpClient) {}
