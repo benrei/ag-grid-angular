@@ -72,10 +72,10 @@ export class DatepickerEditor implements ICellEditorAngularComp, AfterViewInit {
 
   // dont use afterGuiAttached for post gui events - hook into ngAfterViewInit instead for this
   ngAfterViewInit() {
-    window.setTimeout(() => {
-      // this.picker.element.nativeElement.focus();
-      this.picker.open();
-    });
+    this.picker.open();
+    // window.setTimeout(() => {
+    //   this.picker.element.nativeElement.focus();
+    // });
   }
   onDateChange({ value }) {
     this.value = moment(value).toDate();
