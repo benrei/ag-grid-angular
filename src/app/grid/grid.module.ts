@@ -11,6 +11,7 @@ import { GridDirective } from "./grid.directive";
 import { FitColumnsActionComponent } from "./actions/fit-columns.component";
 import { PdfIconRenderer } from "./frameworkComponents/pdf-icon-renderer.component";
 import { SelectBoxEditor } from "./editors/select-box-editor/select-box-editor.component";
+import { DatepickerEditorComponent } from './editors/datepicker-editor/datepicker-editor.component';
 
 @NgModule({
   imports: [CommonModule, AllMaterialModules],
@@ -24,7 +25,8 @@ import { SelectBoxEditor } from "./editors/select-box-editor/select-box-editor.c
     FitColumnsActionComponent,
     PdfIconRenderer,
     GridDirective,
-    SelectBoxEditor
+    SelectBoxEditor,
+    DatepickerEditorComponent
   ],
   exports: [
     GridHeaderComponent,
