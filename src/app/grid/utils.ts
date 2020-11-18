@@ -28,21 +28,9 @@ const utils = {
         } else {
           if (code == "Enter" || key == "Enter") params.api.tabToNextCell();
         }
-        // const { rowIndex } = params.api.getFocusedCell();
-        // if (rowIndex !== params.rowIndex) {
-        //   selectRow(params.api, rowIndex);
-        // }
       }
     }
   }
 };
-const selectRow = (api, rowIndex) => {
-  api.forEachNode(function(node) {
-    console.log("forEachNode");
-    if (rowIndex === node.rowIndex) {
-      node.setSelected(true);
-    }
-  });
-};
 
-export default { ...utils, selectRow };
+export default { ...utils };
