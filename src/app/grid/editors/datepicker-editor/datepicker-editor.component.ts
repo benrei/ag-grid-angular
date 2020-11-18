@@ -29,10 +29,9 @@ const KEY_BACKSPACE = 8;
   ],
   template: `
     <input
-      matInput
       [matDatepicker]="picker"
       (dateChange)="onDateChange($event)"
-      (keyup)="onKeyUp($event)"
+      [value]="value"
       #input
     />
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -60,9 +59,8 @@ export class DatepickerEditor implements ICellEditorAngularComp, AfterViewInit {
     console.log(params);
     const { charPress, keyPress } = params;
     this.firstPressIsChar = !!charPress;
-  }
-  onKeyUp(event) {
-    console.log(event);
+    this.value = charPress;
+    console.log(this.value);
   }
 
   getValue(): any {
