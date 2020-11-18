@@ -3,7 +3,6 @@ const utils = {
     navigateToNextCell: {
       arrowKeysLeftRight: params => {
         const { key, nextCellPosition, previousCellPosition } = params;
-
         if (!nextCellPosition) {
           const { column } = previousCellPosition;
           const { gridApi } = column;
