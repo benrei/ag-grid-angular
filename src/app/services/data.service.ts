@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { delay, map } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
+import { DataService, Person } from "@app/services/data.service";
 
 export interface Person {
   id: string;
