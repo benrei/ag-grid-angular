@@ -1,6 +1,7 @@
 import { Directive, HostListener, Self } from "@angular/core";
 import { AgGridEvent, CellValueChangedEvent } from "ag-grid-community/main";
 import { AgGridAngular } from "ag-grid-angular";
+import utils from "./utils";
 
 @Directive({
   selector: "ag-grid-angular"
@@ -15,9 +16,16 @@ export class GridDirective {
     // this.agGrid.api.sizeColumnsToFit();
   }
 
+  @HostListener("cellFocused", ["$event"])
+  onCellFocusedd(event) {
+    const { api, rowIndex } = event;
+    utils.selectRow(api, rowIndex);
+  }
+
   @HostListener("cellValueChanged", ["$event"])
   onCellValueChanged(event: CellValueChangedEvent) {
     const { colDef, node } = event;
+    // console.log(event);
     // event.api.flashCells({
     //   rowNodes: [node],
     //   columns: [colDef.field]

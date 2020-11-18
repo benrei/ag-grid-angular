@@ -65,18 +65,20 @@ const utils = {
         } else {
           if (code == "Enter" || key == "Enter") params.api.tabToNextCell();
         }
-        const { rowIndex } = params.api.getFocusedCell();
-        if (rowIndex !== params.rowIndex) {
-          // Update selected row
-          params.api.forEachNode(function(node) {
-            if (rowIndex === node.rowIndex) {
-              node.setSelected(true);
-            }
-          });
-        }
+        // const { rowIndex } = params.api.getFocusedCell();
+        // if (rowIndex !== params.rowIndex) {
+        //   selectRow(params.api, rowIndex);
+        // }
       }
     }
   }
 };
+const selectRow = (api, rowIndex) => {
+  api.forEachNode(function(node) {
+    if (rowIndex === node.rowIndex) {
+      node.setSelected(true);
+    }
+  });
+};
 
-export default utils;
+export default { ...utils, selectRow };
