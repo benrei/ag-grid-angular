@@ -10,13 +10,15 @@ import { DataService, Person } from "../../../services/data.service";
 
 @Component({
   selector: "app-ng-select-box-editor",
-  styles: [],
+  styleUrls: ["./ng-select-box-editor.component.css"],
   template: `
     <ng-select
+      appendTo="ag-grid-angular"
       [items]="people"
       bindLabel="name"
       [loading]="peopleLoading"
       [searchFn]="customSearchFn"
+      #input
     >
       <ng-template ng-option-tmp let-item="item">
         {{ item.name }}
@@ -31,19 +33,22 @@ export class NgSelectBoxEditor
   people: Person[] = [];
   peopleLoading = false;
   value;
+  style;
 
   constructor(private dataService: DataService) {}
 
   agInit(params: any): void {
+    console.log(params);
+    this.style;
     this.loadPeople();
   }
 
   getValue(): any {
     return this.value;
   }
-  isPopup() {
-    return true;
-  }
+  // isPopup() {
+  //   return true;
+  // }
 
   // dont use afterGuiAttached for post gui events - hook into ngAfterViewInit instead for this
   ngAfterViewInit() {
