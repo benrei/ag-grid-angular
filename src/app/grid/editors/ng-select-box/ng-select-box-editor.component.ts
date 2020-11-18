@@ -31,7 +31,28 @@ import { Component, OnInit } from "@angular/core";
   `
 })
 export class NgSelectBoxEditor implements OnInit {
-  constructor() {}
+  people: Person[] = [];
+  peopleLoading = false;
 
-  ngOnInit() {}
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.loadPeople();
+  }
+
+  private loadPeople() {
+    this.peopleLoading = true;
+    this.dataService.getPeople().subscribe(x => {
+      this.people = x;
+      this.peopleLoading = false;
+    });
+  }
+
+  customSearchFn(term: string, item: Person) {
+    term = term.toLowerCase();
+    return (
+      item.name.toLowerCase().indexOf(term) > -1 ||
+      item.gender.toLowerCase() === term
+    );
+  }
 }
