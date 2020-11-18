@@ -1,4 +1,9 @@
-import { AfterViewInit, Component, ViewChild } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  ViewChild,
+  ViewContainerRef
+} from "@angular/core";
 import { ICellEditorAngularComp } from "ag-grid-angular";
 import moment from "moment";
 import { MatDatepicker } from "@angular/material/datepicker";
@@ -27,7 +32,8 @@ const KEY_BACKSPACE = 8;
       matInput
       [matDatepicker]="picker"
       (dateChange)="onDateChange($event)"
-      [value]="value"
+      (keyup)="onKeyUp($event)"
+      #input
     />
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
@@ -38,8 +44,10 @@ export class DatepickerEditor implements ICellEditorAngularComp, AfterViewInit {
   initValue: string;
   params: any;
   value: any;
+  firstPressIsChar: boolean;
 
   @ViewChild("picker") picker: MatDatepicker<Date>;
+  @ViewChild("input", { read: ViewContainerRef }) public input: any;
 
   agInit(params: any): void {
     this.gridApi = params.api;
@@ -49,17 +57,12 @@ export class DatepickerEditor implements ICellEditorAngularComp, AfterViewInit {
   }
 
   setInitialState(params: any) {
-    let startValue;
-    const { keyPress } = params;
-    switch (keyPress) {
-      case KEY_DELETE:
-      case KEY_BACKSPACE:
-        startValue = "";
-        break;
-      default:
-        startValue = params.value;
-    }
-    this.value = moment(startValue, "DD/MM/YYYY").toDate();
+    console.log(params);
+    const { charPress, keyPress } = params;
+    this.firstPressIsChar = !!charPress;
+  }
+  onKeyUp(event) {
+    console.log(event);
   }
 
   getValue(): any {
@@ -71,9 +74,9 @@ export class DatepickerEditor implements ICellEditorAngularComp, AfterViewInit {
   // dont use afterGuiAttached for post gui events - hook into ngAfterViewInit instead for this
   ngAfterViewInit() {
     this.picker.open();
-    // window.setTimeout(() => {
-    //   this.picker.element.nativeElement.focus();
-    // });
+    window.setTimeout(() => {
+      this.input.element.nativeElement.focus();
+    });
   }
   onDateChange({ value }) {
     this.value = moment(value).toDate();
