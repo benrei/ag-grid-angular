@@ -2,59 +2,22 @@ const utils = {
   gridOptions: {
     navigateToNextCell: {
       selectionWithArrowKeys: params => {
-        const { nextCellPosition, previousCellPosition } = params;
-        const { column } = previousCellPosition;
-        const { gridApi } = column;
+        const { key, nextCellPosition, previousCellPosition } = params;
 
-        const KEY_UP = 38;
-        const KEY_DOWN = 40;
-        const KEY_LEFT = 37;
-        const KEY_RIGHT = 39;
-
-        const selectDown = cellPosition => {
-          const { column } = cellPosition;
+        if (!nextCellPosition) {
+          const { column } = previousCellPosition;
           const { gridApi } = column;
-          // set selected cell on current cell + 1
-          gridApi.forEachNode(function(node) {
-            if (previousCellPosition.rowIndex + 1 === node.rowIndex) {
-              node.setSelected(true);
-            }
-          });
-        };
-
-        const selectUp = cellPosition => {
-          const { column } = cellPosition;
-          const { gridApi } = column;
-          // set selected cell on current cell - 1
-          gridApi.forEachNode(function(node) {
-            if (previousCellPosition.rowIndex - 1 === node.rowIndex) {
-              node.setSelected(true);
-            }
-          });
-        };
-
-        switch (params.key) {
-          case KEY_DOWN:
-            selectDown(previousCellPosition);
-            return nextCellPosition;
-          case KEY_UP:
-            selectUp(previousCellPosition);
-            return nextCellPosition;
-          case KEY_LEFT:
-            if (!nextCellPosition) {
+          const KEY_LEFT = 37;
+          const KEY_RIGHT = 39;
+          switch (key) {
+            case KEY_LEFT:
               gridApi.tabToPreviousCell();
-              selectUp(previousCellPosition);
-            }
-            return nextCellPosition;
-          case KEY_RIGHT:
-            if (!nextCellPosition) {
+              gridApi.tabToPreviousCell();
+            case KEY_RIGHT:
               gridApi.tabToNextCell();
-              selectDown(previousCellPosition);
-            }
-            return nextCellPosition;
-          default:
-            throw "this will never happen, navigation is always one of the 4 keys above";
+          }
         }
+        return nextCellPosition;
       }
     },
     onCellKeyPress: {

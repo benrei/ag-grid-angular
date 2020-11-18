@@ -8,7 +8,8 @@ const gridOptionsDefaults = {
   // enableFillHandle: true,
   // enterMovesDown: true,
   // frameworkComponents: {},
-  // navigateToNextCell:utils.gridOptions.navigateToNextCell.selectionWithArrowKeys,
+  navigateToNextCell:
+    utils.gridOptions.navigateToNextCell.selectionWithArrowKeys,
   rowSelection: "single",
   rowGroupPanelShow: "always",
   statusBar: {
