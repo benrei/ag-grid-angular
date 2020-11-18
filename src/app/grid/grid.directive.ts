@@ -19,18 +19,17 @@ export class GridDirective {
   @HostListener("cellFocused", ["$event"])
   onCellFocusedd(event) {
     const { api, rowIndex } = event;
-    const node = api.getDisplayedRowAtIndex(rowIndex);
-    node.setSelected(true);
+    api.getDisplayedRowAtIndex(rowIndex).setSelected(true);
   }
 
   @HostListener("cellValueChanged", ["$event"])
   onCellValueChanged(event: CellValueChangedEvent) {
     const { colDef, node } = event;
     // console.log(event);
-    // event.api.flashCells({
-    //   rowNodes: [node],
-    //   columns: [colDef.field]
-    // });
+    event.api.flashCells({
+      rowNodes: [node],
+      columns: [colDef.field]
+    });
     // setTimeout(() => {
     // }, 1000);
   }
