@@ -17,9 +17,17 @@ import { Component, OnInit } from "@angular/core";
     `
   ],
   template: `
-    <input matInput [matDatepicker]="picker" />
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
+    <ng-select
+      [items]="people"
+      bindLabel="name"
+      [loading]="peopleLoading"
+      [searchFn]="customSearchFn"
+    >
+      <ng-template ng-option-tmp let-item="item">
+        {{ item.name }} <br />
+        <small>{{ item.gender }}</small>
+      </ng-template>
+    </ng-select>
   `
 })
 export class NgSelectBoxEditor implements OnInit {
