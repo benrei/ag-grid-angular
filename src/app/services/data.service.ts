@@ -46,6 +46,7 @@ export class DataService {
         x => x.name.toLocaleLowerCase().indexOf(term.toLocaleLowerCase()) > -1
       );
     }
+    console.log(items);
     return of(items).pipe(delay(500));
   }
 }

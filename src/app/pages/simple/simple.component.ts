@@ -5,6 +5,7 @@ import { PdfIconRenderer } from "../../grid/frameworkComponents/pdf-icon-rendere
 import { CellValueChangedEvent } from "ag-grid-community/main";
 import { SelectBoxEditor } from "../../grid/editors/select-box-editor/select-box-editor.component";
 import { DatepickerEditor } from "../../grid/editors/datepicker-editor/datepicker-editor.component";
+import { NgSelectBoxEditor } from "../../grid/editors/ng-select-box/ng-select-box-editor.component";
 
 @Component({
   selector: "app-simple",
@@ -19,6 +20,7 @@ export class SimpleComponent {
     ...gridOptionsDefaults,
     frameworkComponents: {
       pdfIconRenderer: PdfIconRenderer,
+      ngSelectBoxEditor: NgSelectBoxEditor,
       selectBoxEditor: SelectBoxEditor,
       datepickerEditor: DatepickerEditor
     },
@@ -57,6 +59,7 @@ export class SimpleComponent {
     {
       field: "athlete",
       filter: "agTextColumnFilter",
+      cellEditor: "ngSelectBoxEditor",
       minWidth: 150
     },
     { field: "gold", filter: "agNumberColumnFilter" },
