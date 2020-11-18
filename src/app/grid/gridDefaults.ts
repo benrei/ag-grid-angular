@@ -3,6 +3,7 @@ const gridOptionsDefaults = {
   autoGroupColumnDef: {
     minWidth: 150
   },
+  enableCharts: true,
   enableRangeSelection: true,
   enableRangeHandle: true,
   // enableFillHandle: true,

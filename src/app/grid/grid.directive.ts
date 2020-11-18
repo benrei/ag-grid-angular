@@ -19,7 +19,7 @@ export class GridDirective {
   @HostListener("cellFocused", ["$event"])
   onCellFocusedd(event) {
     const { api, rowIndex } = event;
-    api.getDisplayedRowAtIndex(rowIndex).setSelected(true);
+    api.getDisplayedRowAtIndex(rowIndex)?.setSelected(true);
   }
 
   @HostListener("cellValueChanged", ["$event"])
