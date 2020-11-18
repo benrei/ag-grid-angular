@@ -75,6 +75,7 @@ const utils = {
 };
 const selectRow = (api, rowIndex) => {
   api.forEachNode(function(node) {
+    console.log("forEachNode");
     if (rowIndex === node.rowIndex) {
       node.setSelected(true);
     }
