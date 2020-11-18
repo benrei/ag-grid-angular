@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { DataService, Person } from "@app/services/data.service";
+import { DataService, Person } from "../../../services/data.service";
 
 @Component({
   selector: "app-ng-select-box-editor",
