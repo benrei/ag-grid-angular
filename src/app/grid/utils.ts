@@ -1,7 +1,7 @@
 const utils = {
   gridOptions: {
     navigateToNextCell: {
-      leftRightArrowKeys: params => {
+      arrowKeysLeftRight: params => {
         const { key, nextCellPosition, previousCellPosition } = params;
 
         if (!nextCellPosition) {
