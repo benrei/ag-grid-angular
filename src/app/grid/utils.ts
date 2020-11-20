@@ -32,4 +32,15 @@ const utils = {
   }
 };
 
-export default { ...utils };
+const addRows = (api, data = [], rowIndex) => {
+  const res = api.applyTransaction({
+    add: [data],
+    addIndex: rowIndex
+  });
+  api.flashCells({
+    flashDelay: 1000,
+    rowNodes: res.add
+  });
+};
+
+export default { addRows, ...utils };
