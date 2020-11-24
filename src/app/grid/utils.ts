@@ -54,10 +54,7 @@ const selectRow = (api, entityId: string, dataId?: string)=>{
       return;
     }
   } else {
-    const firstRowNode = api.getDisplayedRowAtIndex(0);
-    if (firstRowNode) {
-      firstRowNode.setSelected(true);
-    }
+    api.getDisplayedRowAtIndex(0)?.setSelected(true);
   }
 }
 
