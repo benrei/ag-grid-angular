@@ -54,7 +54,7 @@ export class SimpleComponent {
         return { values: Array.from(new Set(contries)).sort() };
       }
     },
-    { field: "year", filter: "agNumberColumnFilter", minWidth: 150 },
+    { field: "year", filter: "agNumberColumnFilter", minWidth: 150, editable: false },
     { field: "sport", filter: "agTextColumnFilter", minWidth: 150 },
     {
       field: "athlete",

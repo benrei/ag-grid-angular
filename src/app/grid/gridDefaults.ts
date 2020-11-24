@@ -47,6 +47,7 @@ const gridOptionsDefaults = {
       { statusPanel: "agAggregationComponent" }
     ]
   },
+  stopEditingWhenGridLosesFocus: true,
   onCellKeyPress: params => {
     utils.gridOptions.onCellKeyPress.enterToNextCell(params);
   }
