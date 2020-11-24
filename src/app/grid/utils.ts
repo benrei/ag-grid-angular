@@ -45,16 +45,16 @@ const addRows = (api, data = [], rowIndex) => {
   });
 };
 
-const selectRow = (api, entityId?: string, dataId?: string)=>{
+const selectRow = (api, entityIdField?: string, entityIdValue?: string)=>{
   api.deselectAll(); 
-  if (dataId && entityId) {
-    getRowNodeByEntityId(api, entityId, dataId)?.setSelected(true);
+  if (entityIdField && entityIdValue) {
+    getRowNodeByEntityId(api, entityIdField, entityIdValue)?.setSelected(true);
   } else {
     api.getDisplayedRowAtIndex(0)?.setSelected(true);
   }
 }
 
-const getRowNodeByEntityId = (api: GridApi, entityIdValue: string, entityIdField: string): RowNode=>{
+const getRowNodeByEntityId = (api: GridApi, entityIdField: string, entityIdValue: string): RowNode=>{
   let rowNode: RowNode = null;
   api.forEachNode((node) => {
     if (node.data?.[entityIdField] === entityIdValue) {
