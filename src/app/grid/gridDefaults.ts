@@ -47,12 +47,15 @@ const gridOptionsDefaults = {
       { statusPanel: "agAggregationComponent" }
     ]
   },
-  stopEditingWhenGridLosesFocus: true,
+  // stopEditingWhenGridLosesFocus: true,
   onCellKeyPress: params => {
     utils.gridOptions.onCellKeyPress.enterToNextCell(params);
   }
 };
 const colDefDefaults = {
+  cellClassRules: {
+    "cell-not-editable": params => !params.colDef.editable
+  },
   enableCellChangeFlash: true,
   enableRowGroup: true,
   floatingFilter: true,

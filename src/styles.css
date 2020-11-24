@@ -14,3 +14,7 @@
 .ag-theme-alpine .ag-ltr .ag-floating-filter-button {
   margin-left: 8px;
 }
+
+.ag-row-selected .cell-not-editable {
+  background: rgb(222 222 222 / 1);
+}

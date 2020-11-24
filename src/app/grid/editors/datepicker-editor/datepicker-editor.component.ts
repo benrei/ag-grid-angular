@@ -59,7 +59,7 @@ export class DatepickerEditor implements ICellEditorAngularComp, AfterViewInit {
     console.log(params);
     const { charPress, keyPress } = params;
     this.firstPressIsChar = !!charPress;
-    this.value = charPress;
+    // this.value = charPress;
     console.log(this.value);
   }
 

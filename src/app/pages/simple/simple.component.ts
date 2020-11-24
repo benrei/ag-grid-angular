@@ -54,7 +54,7 @@ export class SimpleComponent {
         return { values: Array.from(new Set(contries)).sort() };
       }
     },
-    { field: "year", filter: "agNumberColumnFilter", minWidth: 150, editable: false },
+    { field: "year", filter: "agNumberColumnFilter", minWidth: 150 },
     { field: "sport", filter: "agTextColumnFilter", minWidth: 150 },
     {
       field: "athlete",
@@ -65,7 +65,7 @@ export class SimpleComponent {
     { field: "gold", filter: "agNumberColumnFilter" },
     { field: "silver", filter: "agNumberColumnFilter" },
     { field: "bronze", filter: "agNumberColumnFilter" },
-    { field: "total", filter: "agNumberColumnFilter" },
+    { field: "total", filter: "agNumberColumnFilter", editable: false },
     { field: "age", filter: "agNumberColumnFilter" },
     {
       field: "date",
