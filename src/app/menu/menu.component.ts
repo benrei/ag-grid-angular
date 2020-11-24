@@ -11,7 +11,8 @@ export class MenuComponent implements OnInit {
     { title: "Simple", path: "simple" },
     { title: "Time Registration", path: "time-registration" },
     { title: "Row group", path: "row-group" },
-    { title: "sizeColumnsToFit", path: "sizeColumnsToFit" }
+    { title: "sizeColumnsToFit", path: "sizeColumnsToFit" },
+    { title: "Spike Server Side", path: "spikeServerSide" }
   ];
 
   constructor() {}
