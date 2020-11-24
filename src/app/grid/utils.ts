@@ -51,28 +51,14 @@ const selectRow = (api, entityId: string, dataId?: string)=>{
     const node = getRowNodeByEntityId(api, entityId, dataId);
     if (node) {
       node.setSelected(true);
-      focus(api,'', node.rowIndex);
       return;
     }
   } else {
     const firstRowNode = api.getDisplayedRowAtIndex(0);
     if (firstRowNode) {
       firstRowNode.setSelected(true);
-      focus(api,'', 0);
     }
   }
-}
-
-const focus = (api: GridApi, colKey: string, rowIndex?: number)=>{
-  if (!rowIndex) {
-    const row = api.getSelectedNodes();
-    if (row.length === 0) {
-    return;
-    } 
-    rowIndex = row[0].rowIndex; 
-  }
-  api.ensureIndexVisible(rowIndex);
-  api.setFocusedCell(rowIndex, colKey);
 }
 
 const getRowNodeByEntityId = (api: GridApi, entityId: string, entityIdName: string): RowNode=>{
