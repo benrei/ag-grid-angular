@@ -48,7 +48,7 @@ const addRows = (api, data = [], rowIndex) => {
 const selectRow = (api, entityId?: string, dataId?: string)=>{
   api.deselectAll(); 
   if (dataId && entityId) {
-    const node = getRowNodeByEntityId(api, entityId, dataId)?.setSelected(true);
+    getRowNodeByEntityId(api, entityId, dataId)?.setSelected(true);
   } else {
     api.getDisplayedRowAtIndex(0)?.setSelected(true);
   }
