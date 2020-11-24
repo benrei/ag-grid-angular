@@ -26,7 +26,7 @@ export class SpikeServerSideComponent {
       selectBoxEditor: SelectBoxEditor,
       datepickerEditor: DatepickerEditor
     },
-    undoRedoCellEditing: true
+    // undoRedoCellEditing: true
   };
   defaultColDef = {
     ...colDefDefaults,

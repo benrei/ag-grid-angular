@@ -20,10 +20,12 @@ const gridOptionsDefaults = {
     ]
   },
   // stopEditingWhenGridLosesFocus: true,
+  undoRedoCellEditing: true,
   onCellKeyPress: params => {
     utils.gridOptions.onCellKeyPress.enterToNextCell(params);
   }
 };
+
 const colDefDefaults = {
   cellClassRules: {
     "cell-not-editable": params => !params.colDef.editable
