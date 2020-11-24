@@ -54,10 +54,10 @@ const selectRow = (api, entityId?: string, dataId?: string)=>{
   }
 }
 
-const getRowNodeByEntityId = (api: GridApi, entityIdValue: string, entityIdName: string): RowNode=>{
+const getRowNodeByEntityId = (api: GridApi, entityIdValue: string, entityIdField: string): RowNode=>{
   let rowNode: RowNode = null;
   api.forEachNode((node) => {
-    if (node.data?.[entityIdName] === entityIdValue) {
+    if (node.data?.[entityIdField] === entityIdValue) {
       rowNode = node;
       return;
     }
