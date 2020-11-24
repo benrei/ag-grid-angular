@@ -1,3 +1,5 @@
+import { GridApi, RowNode } from "ag-grid-community";
+
 const utils = {
   gridOptions: {
     navigateToNextCell: {
@@ -43,10 +45,51 @@ const addRows = (api, data = [], rowIndex) => {
   });
 };
 
+const selectRow = (api, entityId: string, dataId?: string)=>{
+    api.deselectAll(); 
+    if (dataId) {
+      const node = getRowNodeByEntityId(api, entityId, dataId);
+      if (node) {
+        node.setSelected(true);
+        focus(api,'', node.rowIndex);
+        return;
+      }
+    } else {
+      const firstRowNode = api.getDisplayedRowAtIndex(0);
+      if (firstRowNode) {
+        firstRowNode.setSelected(true);
+        focus(api,'', 0);
+      }
+    }
+}
+
+const focus = (api: GridApi, colKey: string, rowIndex?: number)=>{
+if (!rowIndex) {
+      const row = api.getSelectedNodes();
+      if (row.length === 0) {
+        return;
+      }
+      rowIndex = row[0].rowIndex;
+    }
+    api.ensureIndexVisible(rowIndex);
+    api.setFocusedCell(rowIndex, colKey);
+}
+
+const getRowNodeByEntityId = (api: GridApi, entityId: string, entityIdName: string): RowNode=>{
+  let rowNode: RowNode = null;
+    api.forEachNode((node) => {
+      if (node.data?.[entityIdName] === entityId) {
+        rowNode = node;
+        return;
+      }
+    });
+    return rowNode;
+}
+
 const getContextMenuItems = params => {
   const { api, value, node } = params;
   const { data, rowIndex } = node;
-  console.log(params);
+  // console.log(params);
   const result = [
     {
       name: "Insert above",
@@ -57,7 +100,7 @@ const getContextMenuItems = params => {
         "Very long tooltip, did I mention that I am very long, well I am! Long!  Very Long!"
     },
     {
-      name: "Insert under",
+      name: "Insert below",
       action: function() {
         addRows(api, data, rowIndex + 1);
       },
