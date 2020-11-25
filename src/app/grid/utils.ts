@@ -64,6 +64,17 @@ const getRowNodeByEntityId = (api: GridApi, entityIdField: string, entityIdValue
   });
   return rowNode;
 }
+const getGroupRoute = (node: any)=> {
+  let array = [];
+  const getRoute = (parent: any) => {
+    if (parent.level > 0 && parent.parent) {
+      getRoute(parent.parent);
+    }
+    array.push(parent.key);
+  };
+  getRoute(node.parent);
+  return array;
+}
 
 const getContextMenuItems = params => {
   const { api, value, node } = params;
@@ -95,4 +106,4 @@ const getContextMenuItems = params => {
   return result;
 };
 
-export default { addRows, getContextMenuItems, selectRow, ...utils };
+export default { addRows, getContextMenuItems, getGroupRoute, selectRow, ...utils };

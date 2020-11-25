@@ -7,10 +7,16 @@ const buildColumns = rowData => [
     cellEditorParams: () => {
       const contries = rowData.map(e => e.country);
       return { values: Array.from(new Set(contries)).sort() };
-    }
+    },
+    rowGroup: true
   },
   { field: "year", filter: "agNumberColumnFilter", minWidth: 150 },
-  { field: "sport", filter: "agTextColumnFilter", minWidth: 150 },
+  {
+    field: "sport",
+    filter: "agTextColumnFilter",
+    minWidth: 150,
+    rowGroup: true
+  },
   {
     field: "athlete",
     filter: "agTextColumnFilter",
