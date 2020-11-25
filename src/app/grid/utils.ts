@@ -95,4 +95,4 @@ const getContextMenuItems = params => {
   return result;
 };
 
-export default { addRows, getContextMenuItems, ...utils };
+export default { addRows, getContextMenuItems, selectRow, ...utils };
