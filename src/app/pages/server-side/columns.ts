@@ -17,10 +17,15 @@ const buildColumns = rowData => [
     cellEditor: "ngSelectBoxEditor",
     minWidth: 150
   },
-  { field: "gold", filter: "agNumberColumnFilter" },
-  { field: "silver", filter: "agNumberColumnFilter" },
-  { field: "bronze", filter: "agNumberColumnFilter" },
-  { field: "total", filter: "agNumberColumnFilter", editable: false },
+  { field: "gold", filter: "agNumberColumnFilter", aggFunc: "sum" },
+  { field: "silver", filter: "agNumberColumnFilter", aggFunc: "sum" },
+  { field: "bronze", filter: "agNumberColumnFilter", aggFunc: "sum" },
+  {
+    field: "total",
+    filter: "agNumberColumnFilter",
+    aggFunc: "sum",
+    editable: false
+  },
   { field: "age", filter: "agNumberColumnFilter" },
   {
     field: "date",
