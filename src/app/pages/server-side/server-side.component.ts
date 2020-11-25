@@ -44,8 +44,8 @@ export class ServerSideComponent {
   constructor(private http: HttpClient) {}
 
   onCellValueChanged(event: CellValueChangedEvent) {
-    //console.log(event);
-    this.gridApi.purgeServerSideCache(utils.getGroupRoute(event.node));
+    console.log(event);
+    // this.gridApi.purgeServerSideCache(utils.getGroupRoute(event.node));
     // Save changes
   }
 

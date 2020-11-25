@@ -10,7 +10,7 @@ const buildColumns = rowData => [
     },
     rowGroup: true
   },
-  { field: "year", filter: "agNumberColumnFilter", minWidth: 150 },
+  { field: "year", filter: "agNumberColumnFilter", minWidth: 150,valueParser: ({ newValue }) => Number(newValue) },
   {
     field: "sport",
     filter: "agTextColumnFilter",
@@ -23,12 +23,28 @@ const buildColumns = rowData => [
     cellEditor: "ngSelectBoxEditor",
     minWidth: 150
   },
-  { field: "gold", filter: "agNumberColumnFilter", aggFunc: "sum" },
-  { field: "silver", filter: "agNumberColumnFilter", aggFunc: "sum" },
-  { field: "bronze", filter: "agNumberColumnFilter", aggFunc: "sum" },
   {
-    field: "total",
+    field: "gold",
     filter: "agNumberColumnFilter",
+    aggFunc: "sum",
+    valueParser: ({ newValue }) => Number(newValue)
+  },
+  {
+    field: "silver",
+    filter: "agNumberColumnFilter",
+    aggFunc: "sum",
+    valueParser: ({ newValue }) => Number(newValue)
+  },
+  {
+    field: "bronze",
+    filter: "agNumberColumnFilter",
+    aggFunc: "sum",
+    valueParser: ({ newValue }) => Number(newValue)
+  },
+  {
+    displayName: "total",
+    filter: "agNumberColumnFilter",
+    valueGetter: ({ data }) => data.gold + data.silver + data.bronze,
     aggFunc: "sum",
     editable: false
   },

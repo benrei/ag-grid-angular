@@ -13,13 +13,13 @@ export class GridDirective {
   onGridReady(event: AgGridEvent) {
     console.log(event.type);
     // Even this works!
-    this.agGrid.api.sizeColumnsToFit();
+    // this.agGrid.api.sizeColumnsToFit();
   }
 
   @HostListener("cellFocused", ["$event"])
   onCellFocusedd(event) {
     const { api, rowIndex } = event;
-    // api.getDisplayedRowAtIndex(rowIndex)?.setSelected(true);
+    api.getDisplayedRowAtIndex(rowIndex)?.setSelected(true);
   }
 
   @HostListener("cellValueChanged", ["$event"])

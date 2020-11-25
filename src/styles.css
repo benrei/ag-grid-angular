@@ -15,6 +15,8 @@
   margin-left: 8px;
 }
 
-.ag-row-selected .cell-not-editable {
-  background: rgb(222 222 222 / 1);
+.ag-row-selected .cell-not-editable,
+.ag-row-selected.ag-row-group {
+  background: rgb(222 222 222 / 1) !important;
 }
+/* .ag-row-group .ag-row-group-contracted */
