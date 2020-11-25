@@ -20,7 +20,7 @@ const gridOptions = {
     ]
   },
   // stopEditingWhenGridLosesFocus: true,
-  suppressRowClickSelection: true,
+  // suppressRowClickSelection: true,
   undoRedoCellEditing: true,
   onCellKeyPress: params => {
     utils.gridOptions.onCellKeyPress.enterToNextCell(params);

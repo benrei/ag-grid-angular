@@ -32,7 +32,8 @@ export class ServerSideComponent {
       ngSelectBoxEditor: NgSelectBoxEditor,
       selectBoxEditor: SelectBoxEditor,
       datepickerEditor: DatepickerEditor
-    }
+    },
+    suppressRowClickSelection: true
     // undoRedoCellEditing: true
   };
   defaultColDef = {
