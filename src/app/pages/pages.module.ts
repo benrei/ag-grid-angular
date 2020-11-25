@@ -17,7 +17,6 @@ import { ServerSideComponent } from "./server-side/server-side.component";
     RowGroupComponent,
     SizeColumnsToFitComponent,
     TimeRegistrationComponent,
-    ,
     ServerSideComponent
   ],
   exports: [
