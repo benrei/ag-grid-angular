@@ -73,13 +73,13 @@ export class ServerSideComponent {
       )
       .subscribe(data => {
         var fakeServer = FakeServer(data);
+        this.columnDefs = buildColumns(data);
         var datasource = ServerSideDatasource(fakeServer);
         params.api.setServerSideDatasource(datasource);
       });
   }
 }
 
-// this.columnDefs = buildColumns(data);
 function ServerSideDatasource(server) {
   return {
     getRows: function(params) {
