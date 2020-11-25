@@ -15,14 +15,13 @@ import { RowGroupComponent } from "./pages/row-group/row-group.component";
 import { SizeColumnsToFitComponent } from "./pages/size-columns-to-fit/size-columns-to-fit.component";
 import { MenuModule } from "./menu/menu.module";
 import { TimeRegistrationComponent } from "./pages/time-registration/time-registration.component";
-import { SpikeServerSideComponent } from "./pages/spike-server-side/spike-server-side.component";
 
 const appRoutes: Routes = [
   { path: "simple", component: SimpleComponent },
   { path: "time-registration", component: TimeRegistrationComponent },
   { path: "row-group", component: RowGroupComponent },
-  { path: "sizeColumnsToFit", component: SizeColumnsToFitComponent },
-  { path: "spikeServerSide", component: SpikeServerSideComponent }
+  { path: "sizeColumnsToFit", component: SizeColumnsToFitComponent }
+  // { path: "ServerSide", component: ServerSideComponent }
 ];
 
 @NgModule({
