@@ -43,7 +43,8 @@ export class ServerSideComponent {
     // Save changes
   }
 
-  addFn() {
+  addFn = () => {
+    console.log("addFn");
     var selectedRows = this.gridApi.getSelectedNodes();
     if (!selectedRows || selectedRows.length === 0) {
       return;
@@ -54,11 +55,11 @@ export class ServerSideComponent {
     });
     newItemCount++;
     this.gridApi.purgeServerSideCache();
-  }
-  editFn() {
+  };
+  editFn = () => {
     console.log("editFn");
-  }
-  deleteFn() {
+  };
+  deleteFn = () => {
     console.log("deleteFn");
     var selectedRows = this.gridApi.getSelectedNodes();
     if (!selectedRows || selectedRows.length === 0) {
@@ -67,10 +68,10 @@ export class ServerSideComponent {
     var selectedRow = selectedRows[0];
     window.rowDataServerSide.splice(selectedRow.rowIndex, 1);
     this.gridApi.purgeServerSideCache();
-  }
-  refreshFn() {
+  };
+  refreshFn = () => {
     console.log("refreshFn");
-  }
+  };
   setQuickfilterText(text) {
     this.gridApi.setQuickFilter(text);
   }
