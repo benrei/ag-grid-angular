@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { gridOptionsDefaults, colDefDefaults } from "../../grid/gridDefaults";
 import { PdfIconRenderer } from "../../grid/frameworkComponents/pdf-icon-renderer.component";
 import {
   CellValueChangedEvent,
@@ -13,6 +12,7 @@ import buildColumns from "./columns";
 import "ag-grid-enterprise";
 import { FakeServer } from "../../fakeServer";
 import utils from "../../grid/utils";
+import { colDefDefaults, gridOptions } from "../../grid/defaults";
 declare const window: any;
 
 @Component({
@@ -26,7 +26,7 @@ export class ServerSideComponent {
   rowData;
   columnDefs;
   gridOptions = {
-    ...gridOptionsDefaults,
+    ...gridOptions,
     frameworkComponents: {
       pdfIconRenderer: PdfIconRenderer,
       ngSelectBoxEditor: NgSelectBoxEditor,
