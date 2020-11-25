@@ -83,7 +83,8 @@ export class ServerSideComponent {
 function ServerSideDatasource(server) {
   return {
     getRows: function(params) {
-      console.log("[Datasource] - rows requested by grid: ", params.request);
+      console.log("Request");
+      console.log(params.request);
       var response = server.getData(params.request);
       setTimeout(function() {
         if (response.success) {
