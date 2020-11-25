@@ -8,6 +8,7 @@ import { DatepickerEditor } from "../../grid/editors/datepicker-editor/datepicke
 import { NgSelectBoxEditor } from "../../grid/editors/ng-select-box/ng-select-box-editor.component";
 import buildColumns from "./columns";
 import "ag-grid-enterprise";
+declare const window: any;
 
 @Component({
   selector: "app-server-side",
@@ -48,9 +49,9 @@ export class ServerSideComponent {
       return;
     }
     var selectedRow = selectedRows[0];
-    // window.rowDataServerSide.splice(selectedRow.rowIndex, 0, {
-    //   athlete: "New Item" + newItemCount
-    // });
+    window.rowDataServerSide.splice(selectedRow.rowIndex, 0, {
+      athlete: "New Item" + newItemCount
+    });
     newItemCount++;
     this.gridApi.purgeServerSideCache();
   }
@@ -64,7 +65,7 @@ export class ServerSideComponent {
       return;
     }
     var selectedRow = selectedRows[0];
-    // window.rowDataServerSide.splice(selectedRow.rowIndex, 1);
+    window.rowDataServerSide.splice(selectedRow.rowIndex, 1);
     this.gridApi.purgeServerSideCache();
   }
   refreshFn() {
@@ -94,14 +95,14 @@ export class ServerSideComponent {
 
 var newItemCount = 0;
 function createMyDataSource(data) {
-  // window.rowDataServerSide = data;
+  window.rowDataServerSide = data;
   function MyDatasource() {}
   MyDatasource.prototype.getRows = function(params) {
     var rowsThisPage = data.slice(
       params.request.startRow,
       params.request.endRow
     );
-    // params.successCallback(rowsThisPage, window.rowDataServerSide.length);
+    params.successCallback(rowsThisPage, window.rowDataServerSide.length);
   };
   return new MyDatasource();
 }
