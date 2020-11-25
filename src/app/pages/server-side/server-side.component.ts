@@ -7,6 +7,7 @@ import { SelectBoxEditor } from "../../grid/editors/select-box-editor/select-box
 import { DatepickerEditor } from "../../grid/editors/datepicker-editor/datepicker-editor.component";
 import { NgSelectBoxEditor } from "../../grid/editors/ng-select-box/ng-select-box-editor.component";
 import buildColumns from "./columns";
+import "ag-grid-enterprise";
 
 @Component({
   selector: "app-server-side",
