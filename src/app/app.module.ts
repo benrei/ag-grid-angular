@@ -22,7 +22,7 @@ const appRoutes: Routes = [
   { path: "time-registration", component: TimeRegistrationComponent },
   { path: "row-group", component: RowGroupComponent },
   { path: "sizeColumnsToFit", component: SizeColumnsToFitComponent },
-  { path: "ServerSide", component: ServerSideComponent }
+  { path: "serverSide", component: ServerSideComponent }
 ];
 
 @NgModule({
