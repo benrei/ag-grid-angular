@@ -23,8 +23,8 @@ function FakeServer(allData) {
   function executeQuery(request) {
     var sql = buildSql(request);
 
-    console.log("SQL query");
-    console.log(sql);
+    // console.log("SQL query");
+    // console.log(sql);
 
     return alasql(sql, [allData]);
   }
