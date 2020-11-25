@@ -86,8 +86,9 @@ export class ServerSideComponent {
       .get(
         "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinners.json"
       )
-      .subscribe(data => {
+      .subscribe((data: [any]) => {
         var datasource = createMyDataSource(data);
+        this.columnDefs = buildColumns(data);
         params.api.setServerSideDatasource(datasource);
       });
   }
