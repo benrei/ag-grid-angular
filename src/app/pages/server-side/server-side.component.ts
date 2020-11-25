@@ -43,13 +43,29 @@ export class ServerSideComponent {
   }
 
   addFn() {
-    console.log("addFn");
+    var selectedRows = this.gridApi.getSelectedNodes();
+    if (!selectedRows || selectedRows.length === 0) {
+      return;
+    }
+    var selectedRow = selectedRows[0];
+    // window.rowDataServerSide.splice(selectedRow.rowIndex, 0, {
+    //   athlete: "New Item" + newItemCount
+    // });
+    newItemCount++;
+    this.gridApi.purgeServerSideCache();
   }
   editFn() {
     console.log("editFn");
   }
   deleteFn() {
     console.log("deleteFn");
+    var selectedRows = this.gridApi.getSelectedNodes();
+    if (!selectedRows || selectedRows.length === 0) {
+      return;
+    }
+    var selectedRow = selectedRows[0];
+    // window.rowDataServerSide.splice(selectedRow.rowIndex, 1);
+    this.gridApi.purgeServerSideCache();
   }
   refreshFn() {
     console.log("refreshFn");
@@ -61,20 +77,31 @@ export class ServerSideComponent {
   resetFn = () => this.gridColumnApi.resetColumnState();
   fitColumnsFn = () => this.gridApi.sizeColumnsToFit();
 
-  getData() {
-    this.http
-      .get(
-        "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinnersSmall.json"
-      )
-      .subscribe(data => {
-        this.rowData = data;
-        this.columnDefs = buildColumns(this.rowData);
-      });
-  }
-
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.getData();
+
+    this.http
+      .get(
+        "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinners.json"
+      )
+      .subscribe(data => {
+        var datasource = createMyDataSource(data);
+        params.api.setServerSideDatasource(datasource);
+      });
   }
+}
+
+var newItemCount = 0;
+function createMyDataSource(data) {
+  // window.rowDataServerSide = data;
+  function MyDatasource() {}
+  MyDatasource.prototype.getRows = function(params) {
+    var rowsThisPage = data.slice(
+      params.request.startRow,
+      params.request.endRow
+    );
+    // params.successCallback(rowsThisPage, window.rowDataServerSide.length);
+  };
+  return new MyDatasource();
 }
