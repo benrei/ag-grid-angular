@@ -14,6 +14,7 @@ import { SelectBoxEditor } from "./editors/select-box-editor/select-box-editor.c
 import { DatepickerEditor } from "./editors/datepicker-editor/datepicker-editor.component";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { NgSelectBoxEditor } from "./editors/ng-select-box/ng-select-box-editor.component";
+import { DataService } from './data.service';
 
 @NgModule({
   imports: [CommonModule, AllMaterialModules, NgSelectModule],
@@ -43,6 +44,7 @@ import { NgSelectBoxEditor } from "./editors/ng-select-box/ng-select-box-editor.
     GridDirective,
     SelectBoxEditor,
     DatepickerEditor
-  ]
+  ],
+  providers: [DataService]
 })
 export class GridModule {}
