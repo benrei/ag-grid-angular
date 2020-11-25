@@ -9,11 +9,11 @@ import { NgSelectBoxEditor } from "../../grid/editors/ng-select-box/ng-select-bo
 import buildColumns from "./columns";
 
 @Component({
-  selector: 'app-server-side',
-  templateUrl: './server-side.component.html',
-  styleUrls: ['./server-side.component.css']
+  selector: "app-server-side",
+  templateUrl: "./server-side.component.html",
+  styleUrls: ["./server-side.component.css"]
 })
-export class ServerSideComponent{
+export class ServerSideComponent {
   gridApi;
   gridColumnApi;
   rowData;
@@ -25,7 +25,7 @@ export class ServerSideComponent{
       ngSelectBoxEditor: NgSelectBoxEditor,
       selectBoxEditor: SelectBoxEditor,
       datepickerEditor: DatepickerEditor
-    },
+    }
     // undoRedoCellEditing: true
   };
   defaultColDef = {
