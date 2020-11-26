@@ -10,7 +10,12 @@ const buildColumns = rowData => [
     },
     rowGroup: true
   },
-  { field: "year", filter: "agNumberColumnFilter", minWidth: 150,valueParser: ({ newValue }) => Number(newValue) },
+  {
+    field: "year",
+    filter: "agNumberColumnFilter",
+    minWidth: 150,
+    valueParser: ({ newValue }) => Number(newValue)
+  },
   {
     field: "sport",
     filter: "agTextColumnFilter",
