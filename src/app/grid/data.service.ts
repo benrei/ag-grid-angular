@@ -1,12 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable()
 export class DataService {
-
-  constructor() { }
-
-  create(){
-    
-  }
-
+  constructor() {}
+  getData() {}
+  create() {}
+  update() {}
+  delete() {}
 }
