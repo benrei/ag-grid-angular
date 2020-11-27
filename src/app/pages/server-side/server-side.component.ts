@@ -1,13 +1,11 @@
 import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { PdfIconRenderer } from "../../grid/frameworkComponents/pdf-icon-renderer.component";
 import {
   CellValueChangedEvent,
   IServerSideDatasource
 } from "ag-grid-community/main";
 import { SelectBoxEditor } from "../../grid/editors/select-box-editor/select-box-editor.component";
 import { DatepickerEditor } from "../../grid/editors/datepicker-editor/datepicker-editor.component";
-import { NgSelectBoxEditor } from "../../grid/editors/ng-select-box/ng-select-box-editor.component";
 import columns from "./columns";
 import "ag-grid-enterprise";
 import { FakeServer } from "../../fakeServer";
@@ -27,8 +25,6 @@ export class ServerSideComponent {
   gridOptions = {
     ...gridOptions,
     frameworkComponents: {
-      pdfIconRenderer: PdfIconRenderer,
-      ngSelectBoxEditor: NgSelectBoxEditor,
       selectBoxEditor: SelectBoxEditor,
       datepickerEditor: DatepickerEditor
     }
@@ -95,7 +91,7 @@ function ServerSideDatasource(server): IServerSideDatasource {
         } else {
           params.failCallback();
         }
-      }, 200);
+      }, 50);
     }
   };
 }
