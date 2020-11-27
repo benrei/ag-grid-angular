@@ -18,10 +18,10 @@ import { TimeRegistrationComponent } from "./pages/time-registration/time-regist
 import { ServerSideComponent } from "./pages/server-side/server-side.component";
 
 const appRoutes: Routes = [
-  { path: "simple", component: SimpleComponent },
   { path: "time-registration", component: TimeRegistrationComponent },
   { path: "row-group", component: RowGroupComponent },
   { path: "sizeColumnsToFit", component: SizeColumnsToFitComponent },
+  { path: "clientSide", component: SimpleComponent },
   { path: "serverSide", component: ServerSideComponent }
 ];
 

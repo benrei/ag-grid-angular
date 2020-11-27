@@ -8,10 +8,10 @@ import { Component, OnInit } from "@angular/core";
 export class MenuComponent implements OnInit {
   menuItems = [
     { title: "Home", path: "" },
-    { title: "Simple", path: "simple" },
     { title: "Time Registration", path: "time-registration" },
     { title: "Row group", path: "row-group" },
     { title: "sizeColumnsToFit", path: "sizeColumnsToFit" },
+    { title: "Client Side", path: "clientSide" },
     { title: "Server Side", path: "serverSide" }
   ];
 
