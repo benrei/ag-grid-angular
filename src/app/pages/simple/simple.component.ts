@@ -1,11 +1,9 @@
 import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { gridOptionsDefaults, colDefDefaults } from "../../grid/gridDefaults";
-import { PdfIconRenderer } from "../../grid/frameworkComponents/pdf-icon-renderer.component";
 import { CellValueChangedEvent } from "ag-grid-community/main";
 import { SelectBoxEditor } from "../../grid/editors/select-box-editor/select-box-editor.component";
 import { DatepickerEditor } from "../../grid/editors/datepicker-editor/datepicker-editor.component";
-import { NgSelectBoxEditor } from "../../grid/editors/ng-select-box/ng-select-box-editor.component";
 import columns from "./columns";
 
 @Component({
@@ -20,8 +18,6 @@ export class SimpleComponent {
   gridOptions = {
     ...gridOptionsDefaults,
     frameworkComponents: {
-      pdfIconRenderer: PdfIconRenderer,
-      ngSelectBoxEditor: NgSelectBoxEditor,
       selectBoxEditor: SelectBoxEditor,
       datepickerEditor: DatepickerEditor
     },
