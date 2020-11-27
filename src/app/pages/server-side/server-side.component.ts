@@ -23,7 +23,7 @@ export class ServerSideComponent {
   gridApi;
   gridColumnApi;
   rowData;
-  columnDefs;
+  columnDefs = columns;
   gridOptions = {
     ...gridOptions,
     frameworkComponents: {
@@ -70,7 +70,6 @@ export class ServerSideComponent {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.columnDefs = columns;
 
     this.http
       .get(
