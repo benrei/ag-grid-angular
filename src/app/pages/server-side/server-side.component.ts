@@ -8,7 +8,7 @@ import {
 import { SelectBoxEditor } from "../../grid/editors/select-box-editor/select-box-editor.component";
 import { DatepickerEditor } from "../../grid/editors/datepicker-editor/datepicker-editor.component";
 import { NgSelectBoxEditor } from "../../grid/editors/ng-select-box/ng-select-box-editor.component";
-import buildColumns from "./columns";
+import columns from "./columns";
 import "ag-grid-enterprise";
 import { FakeServer } from "../../fakeServer";
 import utils from "../../grid/utils";
@@ -71,6 +71,7 @@ export class ServerSideComponent {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+    this.columnDefs = columns;
 
     this.http
       .get(
@@ -78,7 +79,6 @@ export class ServerSideComponent {
       )
       .subscribe(data => {
         var fakeServer = FakeServer(data);
-        this.columnDefs = buildColumns(data);
         var datasource = ServerSideDatasource(fakeServer);
         params.api.setServerSideDatasource(datasource);
       });
