@@ -82,15 +82,15 @@ const getContextMenuItems = params => {
   // console.log(params);
   const result = [
     {
-      name: "Insert above",
+      name: "Insert empty",
       action: function() {
-        addRows(api, data, rowIndex > 0 ? rowIndex - 1 : rowIndex);
+        addRows(api, null, rowIndex > 0 ? rowIndex - 1 : rowIndex);
       },
       tooltip:
         "Very long tooltip, did I mention that I am very long, well I am! Long!  Very Long!"
     },
     {
-      name: "Insert below",
+      name: "Duplicate",
       action: function() {
         addRows(api, data, rowIndex + 1);
       },
