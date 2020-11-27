@@ -13,7 +13,6 @@ import "ag-grid-enterprise";
 import { FakeServer } from "../../fakeServer";
 import utils from "../../grid/utils";
 import { colDefDefaults, gridOptions } from "../../grid/defaults";
-declare const window: any;
 
 @Component({
   selector: "app-server-side",

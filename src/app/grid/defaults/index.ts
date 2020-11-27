@@ -1,4 +1,5 @@
 import utils from "../utils";
+
 const gridOptions = {
   autoGroupColumnDef: {
     minWidth: 150
@@ -8,7 +9,6 @@ const gridOptions = {
   enableRangeHandle: true,
   // enableFillHandle: true,
   // enterMovesDown: true,
-  // frameworkComponents: {},
   getContextMenuItems: utils.getContextMenuItems,
   navigateToNextCell: utils.gridOptions.navigateToNextCell.arrowKeysLeftRight,
   rowSelection: "single",
