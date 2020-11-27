@@ -37,18 +37,18 @@ export class SimpleComponent {
     // Save changes
   }
 
-  addFn() {
+  addFn = () => {
     console.log("addFn");
-  }
-  editFn() {
+  };
+  editFn = () => {
     console.log("editFn");
-  }
-  deleteFn() {
+  };
+  deleteFn = () => {
     console.log("deleteFn");
-  }
-  refreshFn() {
+  };
+  refreshFn = () => {
     console.log("refreshFn");
-  }
+  };
   setQuickfilterText(text) {
     this.gridApi.setQuickFilter(text);
   }
