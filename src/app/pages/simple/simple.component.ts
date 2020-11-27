@@ -6,6 +6,7 @@ import { CellValueChangedEvent } from "ag-grid-community/main";
 import { SelectBoxEditor } from "../../grid/editors/select-box-editor/select-box-editor.component";
 import { DatepickerEditor } from "../../grid/editors/datepicker-editor/datepicker-editor.component";
 import { NgSelectBoxEditor } from "../../grid/editors/ng-select-box/ng-select-box-editor.component";
+import columns from "./columns";
 
 @Component({
   selector: "app-simple",
@@ -31,49 +32,7 @@ export class SimpleComponent {
     onCellValueChanged: this.onCellValueChanged,
     editable: true
   };
-  columnDefs = [
-    // {
-    //   field: "country",
-    //   filter: "agTextColumnFilter",
-    //   cellEditor: "agSelectCellEditor",
-    //   cellEditorParams: () => {
-    //     const contries = this.rowData.map(e => e.country);
-    //     console.log(Array.from(new Set(contries)).sort());
-    //     return { values: Array.from(new Set(contries)).sort() };
-    //   },
-    //   minWidth: 150
-    // },
-    {
-      field: "country",
-      filter: "agTextColumnFilter",
-      minWidth: 150,
-      cellEditor: "selectBoxEditor",
-      cellEditorParams: () => {
-        const contries = this.rowData.map(e => e.country);
-        console.log(Array.from(new Set(contries)).sort());
-        return { values: Array.from(new Set(contries)).sort() };
-      }
-    },
-    { field: "year", filter: "agNumberColumnFilter", minWidth: 150 },
-    { field: "sport", filter: "agTextColumnFilter", minWidth: 150 },
-    {
-      field: "athlete",
-      filter: "agTextColumnFilter",
-      cellEditor: "ngSelectBoxEditor",
-      minWidth: 150
-    },
-    { field: "gold", filter: "agNumberColumnFilter" },
-    { field: "silver", filter: "agNumberColumnFilter" },
-    { field: "bronze", filter: "agNumberColumnFilter" },
-    { field: "total", filter: "agNumberColumnFilter", editable: false },
-    { field: "age", filter: "agNumberColumnFilter" },
-    {
-      field: "date",
-      filter: "agDateColumnFilter",
-      minWidth: 140,
-      cellEditor: "datepickerEditor"
-    }
-  ];
+  columnDefs = columns;
 
   constructor(private http: HttpClient) {}
 
