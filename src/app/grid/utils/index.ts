@@ -36,17 +36,6 @@ const utils = {
   }
 };
 
-const addRows = (api, data = [], rowIndex) => {
-  const res = api.applyTransaction({
-    add: [data],
-    addIndex: rowIndex
-  });
-  api.flashCells({
-    flashDelay: 1000,
-    rowNodes: res.add
-  });
-};
-
 const selectRow = (api, entityIdField?: string, entityIdValue?: string)=>{
   api.deselectAll(); 
   if (entityIdField && entityIdValue) {
@@ -94,4 +83,4 @@ const getContextMenuItems = params => {
   return menuItems;
 };
 
-export default { client, server, addRows, getContextMenuItems, getGroupRoute, selectRow, ...utils };
+export default { client, server, getContextMenuItems, getGroupRoute, selectRow, ...utils };
