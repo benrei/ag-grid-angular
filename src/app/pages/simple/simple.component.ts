@@ -22,6 +22,7 @@ export class SimpleComponent {
       selectBoxEditor: SelectBoxEditor,
       datepickerEditor: DatepickerEditor
     },
+    getContextMenuItems: utils.client.getContextMenuItems,
     undoRedoCellEditing: true
     // editType: "fullRow"
   };
