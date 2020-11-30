@@ -48,6 +48,14 @@ export class ServerSideComponent {
     console.log("addFn");
   };
   editFn = () => {
+    const { rowIndex } = this.gridApi.getFocusedCell();
+    const rowNode = this.gridApi.getDisplayedRowAtIndex(rowIndex);
+    console.log(rowNode);
+    let updated = JSON.parse(JSON.stringify(rowNode.data));
+    updated.gold += 1;
+    updated.silver += 2;
+    updated.bronze += 3;
+    rowNode.setData(updated);
     console.log("editFn");
   };
   deleteFn = () => {

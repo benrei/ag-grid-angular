@@ -1,9 +1,9 @@
 const client = {
-  addRow: () => {},
-  addRows: () => {},
-  editRow: () => {},
-  editRows: () => {},
-  removeRow: () => {},
-  removeRows: () => {}
+  addRow: (api, row) => {},
+  addRows: (api, rows = []) => {},
+  editRow: (api, row) => {},
+  editRows: (api, rows = []) => {},
+  removeRow: (api, row) => {},
+  removeRows: (api, rows) => {}
 };
 export default { ...client };
