@@ -96,7 +96,7 @@ const getContextMenuItems = params => {
       {
         name: "Duplicate",
         action: function() {
-          addRows(api, data, rowIndex + 1);
+          client.addRow(api, JSON.parse(JSON.stringify(data)), rowIndex + 1);
         },
         tooltip:
           "Very long tooltip, did I mention that I am very long, well I am! Long!  Very Long!"
