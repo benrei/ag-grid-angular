@@ -31,24 +31,21 @@ const columns = [
     field: "gold",
     filter: "agNumberColumnFilter",
     aggFunc: "sum",
-    valueParser: ({ newValue }) => Number(newValue)
   },
   {
     field: "silver",
     filter: "agNumberColumnFilter",
-    aggFunc: "sum",
-    valueParser: ({ newValue }) => Number(newValue)
+    aggFunc: "sum"
   },
   {
     field: "bronze",
     filter: "agNumberColumnFilter",
-    aggFunc: "sum",
-    valueParser: ({ newValue }) => Number(newValue)
+    aggFunc: "sum"
   },
   {
     displayName: "total",
     filter: "agNumberColumnFilter",
-    valueGetter: ({ data }) => data.gold + data.silver + data.bronze,
+    valueGetter: ({ data }) => Number(data.gold) + Number(data.silver) + Number(data.bronze),
     aggFunc: "sum",
     editable: false
   },
