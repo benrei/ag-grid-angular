@@ -104,6 +104,7 @@ const getContextMenuItems = params => {
   }
   menuItems.push(
     "copy",
+    "paste",
     "export",
     "separator",
     "chartRange"
