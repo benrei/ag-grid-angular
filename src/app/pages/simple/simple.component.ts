@@ -5,6 +5,7 @@ import { CellValueChangedEvent } from "ag-grid-community/main";
 import { SelectBoxEditor } from "../../grid/editors/select-box-editor/select-box-editor.component";
 import { DatepickerEditor } from "../../grid/editors/datepicker-editor/datepicker-editor.component";
 import columns from "./columns";
+import utils from "../../grid/utils";
 
 @Component({
   selector: "app-simple",
@@ -45,7 +46,7 @@ export class SimpleComponent {
     console.log("editFn");
   };
   deleteFn = () => {
-    console.log("deleteFn");
+    utils.client.removeRows(this.gridApi,rowNodes, )
   };
   refreshFn = () => {
     console.log("refreshFn");

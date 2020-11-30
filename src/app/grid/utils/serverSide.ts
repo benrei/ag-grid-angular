@@ -1,11 +1,11 @@
 const server = {
-  addRow: (api, row) => {
+  addRow: (api, data, rowIndex = 0) => {
     console.log("addRow");
   },
-  addRows: (api, rows = []) => {},
-  editRow: (api, row) => {},
-  editRows: (api, rows = []) => {},
-  removeRow: (api, row) => {},
-  removeRows: (api, rows) => {}
+  addRows: (api, data = [], rowIndex = 0) => {},
+  editRow: (api, data, rowIndex = 0) => {},
+  editRows: (api, data = [], rowIndex = 0) => {},
+  removeRow: (api, data, rowIndex = 0) => {},
+  removeRows: (api, data, rowIndex = 0) => {}
 };
-export default { server };
+export default { ...server };

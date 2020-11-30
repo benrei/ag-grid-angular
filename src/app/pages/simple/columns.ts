@@ -7,7 +7,7 @@ const columns = [
     cellEditorParams: () => {
       return { values: Array.from(new Set(countries)).sort() };
     },
-    rowGroup: true
+    // rowGroup: true
   },
   {
     field: "year",
@@ -19,7 +19,7 @@ const columns = [
     field: "sport",
     filter: "agTextColumnFilter",
     minWidth: 150,
-    rowGroup: true
+    // rowGroup: true
   },
   {
     field: "athlete",
