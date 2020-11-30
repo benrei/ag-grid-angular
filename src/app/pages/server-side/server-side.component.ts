@@ -51,11 +51,18 @@ export class ServerSideComponent {
     const { rowIndex } = this.gridApi.getFocusedCell();
     const rowNode = this.gridApi.getDisplayedRowAtIndex(rowIndex);
     console.log(rowNode);
+    console.log(this.gridApi.getSelectedNodes());
     let updated = JSON.parse(JSON.stringify(rowNode.data));
     updated.gold += 1;
     updated.silver += 2;
     updated.bronze += 3;
-    rowNode.setData(updated);
+    const res = rowNode.setData(updated);
+    console.log(res);
+    this.gridApi.refreshCells({ rowNodes: [rowNode], suppressFlash: false });
+    this.gridApi.flashCells({
+      rowNodes: [rowNode]
+      // flashDelay: 20000000
+    });
     console.log("editFn");
   };
   deleteFn = () => {

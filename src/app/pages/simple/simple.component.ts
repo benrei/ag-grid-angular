@@ -22,7 +22,7 @@ export class SimpleComponent {
       datepickerEditor: DatepickerEditor
     },
     undoRedoCellEditing: true,
-    editType: "fullRow"
+    // editType: "fullRow"
   };
   defaultColDef = {
     ...colDefDefaults,
