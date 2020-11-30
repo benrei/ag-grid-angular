@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { gridOptionsDefaults, colDefDefaults } from "../../grid/gridDefaults";
+import { gridOptions, colDefDefaults } from "../../grid/defaults";
 import assignments from "./assignments.json";
 import wageCodes from "./wagecodes.json";
 import utils from "../../grid/utils";
@@ -18,7 +18,7 @@ export class TimeRegistrationComponent {
   gridColumnApi;
   rowData: Array<any>;
   gridOptions = {
-    ...gridOptionsDefaults,
+    ...gridOptions,
     frameworkComponents: {
       numericEditor: SelectBoxEditor
     },

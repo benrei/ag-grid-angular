@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { gridOptionsDefaults, colDefDefaults } from "../../grid/gridDefaults";
+import { gridOptions, colDefDefaults } from "../../grid/defaults";
 import { CellValueChangedEvent } from "ag-grid-community/main";
 import { SelectBoxEditor } from "../../grid/editors/select-box-editor/select-box-editor.component";
 import { DatepickerEditor } from "../../grid/editors/datepicker-editor/datepicker-editor.component";
@@ -16,7 +16,7 @@ export class SimpleComponent {
   gridColumnApi;
   rowData;
   gridOptions = {
-    ...gridOptionsDefaults,
+    ...gridOptions,
     frameworkComponents: {
       selectBoxEditor: SelectBoxEditor,
       datepickerEditor: DatepickerEditor
