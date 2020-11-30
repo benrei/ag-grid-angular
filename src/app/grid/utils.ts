@@ -78,7 +78,7 @@ const getGroupRoute = (node: any)=> {
 
 const getContextMenuItems = params => {
   const { api, value, node } = params;
-  // console.log(params);
+  console.log(params);
   const menuItems = [];
   if(node){
     const { data, rowIndex } = node;

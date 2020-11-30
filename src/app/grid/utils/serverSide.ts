@@ -1,9 +1,11 @@
 const server = {
-  addRow: () => {},
-  addRows: () => {},
-  editRow: () => {},
-  editRows: () => {},
-  removeRow: () => {},
-  removeRows: () => {}
+  addRow: (api, row) => {
+    console.log("addRow");
+  },
+  addRows: (api, rows = []) => {},
+  editRow: (api, row) => {},
+  editRows: (api, rows = []) => {},
+  removeRow: (api, row) => {},
+  removeRows: (api, rows) => {}
 };
-export default { ...server };
+export default { server };
