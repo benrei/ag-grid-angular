@@ -85,6 +85,7 @@ function ServerSideDatasource(server): IServerSideDatasource {
       console.log("Request");
       console.log(params.request);
       var response = server.getData(params.request);
+      console.log(response);
       setTimeout(function() {
         if (response.success) {
           params.successCallback(response.rows, response.lastRow);
