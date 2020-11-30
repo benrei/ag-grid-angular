@@ -27,9 +27,15 @@ const utils = {
       enterToNextCell: params => {
         const { code, key, shiftKey } = params.event;
         if (shiftKey) {
-          if (code == "Enter" || key == "Enter") params.api.tabToPreviousCell();
+          if (code == "Enter" || key == "Enter"){
+            params.api.tabToPreviousCell();
+            params.api.stopEditing();
+          }
         } else {
-          if (code == "Enter" || key == "Enter") params.api.tabToNextCell();
+          if (code == "Enter" || key == "Enter"){
+            params.api.tabToNextCell();;
+            params.api.stopEditing();
+          } 
         }
       }
     }
