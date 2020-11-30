@@ -21,7 +21,7 @@ export class SimpleComponent {
       selectBoxEditor: SelectBoxEditor,
       datepickerEditor: DatepickerEditor
     },
-    undoRedoCellEditing: true,
+    undoRedoCellEditing: true
     // editType: "fullRow"
   };
   defaultColDef = {

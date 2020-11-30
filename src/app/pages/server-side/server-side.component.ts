@@ -59,10 +59,10 @@ export class ServerSideComponent {
     const res = rowNode.setData(updated);
     console.log(res);
     this.gridApi.refreshCells({ rowNodes: [rowNode], suppressFlash: false });
-    this.gridApi.flashCells({
-      rowNodes: [rowNode]
-      // flashDelay: 20000000
-    });
+    // this.gridApi.flashCells({
+    //   rowNodes: [rowNode]
+    //   // flashDelay: 20000000
+    // });
     console.log("editFn");
   };
   deleteFn = () => {

@@ -78,32 +78,37 @@ const getGroupRoute = (node: any)=> {
 
 const getContextMenuItems = params => {
   const { api, value, node } = params;
-  const { data, rowIndex } = node;
   // console.log(params);
-  const result = [
-    {
-      name: "Insert empty",
-      action: function() {
-        addRows(api, [{}], rowIndex > 0 ? rowIndex - 1 : rowIndex);
+  const menuItems = [];
+  if(node){
+    const { data, rowIndex } = node;
+    menuItems.push(
+      {
+        name: "Insert empty",
+        action: function() {
+          addRows(api, [{}], rowIndex > 0 ? rowIndex - 1 : rowIndex);
+        },
+        tooltip:
+          "Very long tooltip, did I mention that I am very long, well I am! Long!  Very Long!"
       },
-      tooltip:
-        "Very long tooltip, did I mention that I am very long, well I am! Long!  Very Long!"
-    },
-    {
-      name: "Duplicate",
-      action: function() {
-        addRows(api, data, rowIndex + 1);
+      {
+        name: "Duplicate",
+        action: function() {
+          addRows(api, data, rowIndex + 1);
+        },
+        tooltip:
+          "Very long tooltip, did I mention that I am very long, well I am! Long!  Very Long!"
       },
-      tooltip:
-        "Very long tooltip, did I mention that I am very long, well I am! Long!  Very Long!"
-    },
-    "separator",
+      "separator"
+    )
+  }
+  menuItems.push(
     "copy",
     "export",
     "separator",
     "chartRange"
-  ];
-  return result;
+  );
+  return menuItems;
 };
 
 export default { addRows, getContextMenuItems, getGroupRoute, selectRow, ...utils };
