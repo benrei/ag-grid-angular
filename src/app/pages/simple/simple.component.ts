@@ -46,7 +46,8 @@ export class SimpleComponent {
     console.log("editFn");
   };
   deleteFn = () => {
-    utils.client.removeRows(this.gridApi,rowNodes, )
+    const rowNodes = this.gridApi.getSelectedRows();
+    utils.client.removeRows(this.gridApi, rowNodes);
   };
   refreshFn = () => {
     console.log("refreshFn");

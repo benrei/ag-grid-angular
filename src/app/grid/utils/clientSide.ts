@@ -11,12 +11,12 @@ const client = {
   },
   addRows: (api, data = [], rowIndex = 0) => {},
   editRow: (api, data, rowIndex = 0) => {},
-  editRows: (api, data = [], rowIndex = 0) => {},
-  removeRow: (api, data) => {
-    api.applyTransaction({ remove: [data] });
+  editRows: (api, rowNodes = [], rowIndex = 0) => {},
+  removeRow: (api, rowNode) => {
+    api.applyTransaction({ remove: [rowNode] });
   },
-  removeRows: (api, data = []) => {
-    api.applyTransaction({ remove: data });
+  removeRows: (api, rowNodes = []) => {
+    api.applyTransaction({ remove: rowNodes });
   }
 };
 export default { ...client };
