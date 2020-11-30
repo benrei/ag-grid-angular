@@ -53,9 +53,9 @@ export class ServerSideComponent {
     console.log(rowNode);
     console.log(this.gridApi.getSelectedNodes());
     let updated = JSON.parse(JSON.stringify(rowNode.data));
-    updated.gold += 1;
-    updated.silver += 2;
-    updated.bronze += 3;
+    updated.gold = Math.floor(Math.random() * 10);
+    updated.silver = Math.floor(Math.random() * 10);
+    updated.bronze = Math.floor(Math.random() * 10);
     const res = rowNode.setData(updated);
     console.log(res);
     this.gridApi.refreshCells({ rowNodes: [rowNode], suppressFlash: false });
