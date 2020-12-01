@@ -81,33 +81,67 @@ export class ServerSideCwComponent {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-
-    this.http
-      .get(
-        "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinners.json"
-      )
-      .subscribe(data => {
-        var fakeServer = FakeServer(data);
-        var datasource = ServerSideDatasource(fakeServer);
-        params.api.setServerSideDatasource(datasource);
-      });
+    var fakeServer = createFakeServer();
+    var datasource = createServerSideDatasource(fakeServer);
+    console.log(datasource)
+    params.api.setServerSideDatasource(datasource);
   }
 }
 
-function ServerSideDatasource(server): IServerSideDatasource {
+function createServerSideDatasource(server) {
   return {
     getRows: function(params) {
-      console.log("Request");
-      console.log(params.request);
+      console.log("[Datasource] - rows requested by grid: ", params.request);
       var response = server.getData(params.request);
-      console.log(response);
       setTimeout(function() {
         if (response.success) {
           params.successCallback(response.rows, response.lastRow);
         } else {
           params.failCallback();
         }
-      }, 50);
+      }, 500);
+    }
+  };
+}
+function createFakeServer() {
+  const URL =
+    "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
+  const options = {
+    headers: {
+      Authorization: localStorage.token
+    }
+  };
+  return {
+    getData: async request => {
+      var result = await this.http.post(URL, request, options);
+      return {
+        success: true,
+        rows: result.data,
+        lastRow: result.lastRow
+      };
+    }
+  };
+}
+
+function ServerSideDatasource(): IServerSideDatasource {
+  return {
+    getRows: function(params) {
+      console.log("Request");
+      console.log(params.request);
+      const URL =
+        "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
+      const options = {
+        headers: {
+          Authorization: localStorage.token
+        }
+      };
+      this.http.post(URL, params.request, options).subscribe(response => {
+        if (response.success) {
+          params.successCallback(response.rows, response.lastRow);
+        } else {
+          params.failCallback();
+        }
+      });
     }
   };
 }
