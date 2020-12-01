@@ -1,0 +1,23 @@
+<app-grid-header (quickfilterTextOutput)="setQuickfilterText($event)">
+  <app-add-action [addFn]="addFn"></app-add-action>
+  <app-edit-action [gridApi]="gridApi" [editFn]="editFn"></app-edit-action>
+  <app-delete-action
+    [gridApi]="gridApi"
+    [deleteFn]="deleteFn"
+  ></app-delete-action>
+  <app-refresh-action [refreshFn]="refreshFn"></app-refresh-action>
+  <app-reset-columns-action [resetFn]="resetFn"></app-reset-columns-action>
+  <app-fit-columns-action
+    [fitColumnsFn]="fitColumnsFn"
+  ></app-fit-columns-action>
+</app-grid-header>
+<ag-grid-angular
+  #agGridSimple
+  class="ag-theme-alpine"
+  [defaultColDef]="defaultColDef"
+  [columnDefs]="columnDefs"
+  [gridOptions]="gridOptions"
+  rowModelType="serverSide"
+  (gridReady)="onGridReady($event)"
+>
+</ag-grid-angular>

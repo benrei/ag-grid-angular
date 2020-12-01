@@ -9,6 +9,7 @@ import { GridModule } from "../grid/grid.module";
 import { SizeColumnsToFitComponent } from "./size-columns-to-fit/size-columns-to-fit.component";
 import { TimeRegistrationComponent } from "./time-registration/time-registration.component";
 import { ServerSideComponent } from "./server-side/server-side.component";
+import { ServerSideCwComponent } from './server-side-cw/server-side-cw.component';
 
 @NgModule({
   imports: [CommonModule, AgGridModule.withComponents([]), GridModule],
@@ -17,7 +18,8 @@ import { ServerSideComponent } from "./server-side/server-side.component";
     RowGroupComponent,
     SizeColumnsToFitComponent,
     TimeRegistrationComponent,
-    ServerSideComponent
+    ServerSideComponent,
+    ServerSideCwComponent
   ],
   exports: [
     SimpleComponent,
