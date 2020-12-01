@@ -16,12 +16,14 @@ import { SizeColumnsToFitComponent } from "./pages/size-columns-to-fit/size-colu
 import { MenuModule } from "./menu/menu.module";
 import { TimeRegistrationComponent } from "./pages/time-registration/time-registration.component";
 import { ServerSideComponent } from "./pages/server-side/server-side.component";
+import { ServerSideCwComponent } from "./pages/server-side-cw/server-side-cw.component";
 
 const appRoutes: Routes = [
   { path: "time-registration", component: TimeRegistrationComponent },
   { path: "row-group", component: RowGroupComponent },
   { path: "sizeColumnsToFit", component: SizeColumnsToFitComponent },
   { path: "clientSide", component: SimpleComponent },
+  { path: "serverSideCw", component: ServerSideCwComponent },
   { path: "serverSide", component: ServerSideComponent }
 ];
 
