@@ -89,6 +89,7 @@ export class ServerSideComponent {
       .subscribe(data => {
         var fakeServer = FakeServer(data);
         var datasource = ServerSideDatasource(fakeServer);
+        console.log(datasource);
         params.api.setServerSideDatasource(datasource);
       });
   }

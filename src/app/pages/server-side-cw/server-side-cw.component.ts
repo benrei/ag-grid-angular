@@ -81,29 +81,35 @@ export class ServerSideCwComponent {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    var fakeServer = createFakeServer();
-    var datasource = createServerSideDatasource(fakeServer);
-    console.log(datasource)
+    var fakeServer = createFakeServer(this.http);
+    var datasource = createServerSideDatasource(this.http);
+    console.log(datasource);
     params.api.setServerSideDatasource(datasource);
   }
 }
 
-function createServerSideDatasource(server) {
+function createServerSideDatasource(http) {
   return {
     getRows: function(params) {
       console.log("[Datasource] - rows requested by grid: ", params.request);
-      var response = server.getData(params.request);
-      setTimeout(function() {
+      const URL =
+        "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
+      const options = {
+        headers: {
+          Authorization: localStorage.token
+        }
+      };
+      http.post(URL, params.request, options).subscribe(response => {
         if (response.success) {
           params.successCallback(response.rows, response.lastRow);
         } else {
           params.failCallback();
         }
-      }, 500);
+      });
     }
   };
 }
-function createFakeServer() {
+function createFakeServer(http) {
   const URL =
     "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
   const options = {
@@ -113,7 +119,7 @@ function createFakeServer() {
   };
   return {
     getData: async request => {
-      var result = await this.http.post(URL, request, options);
+      var result = await http.post(URL, request, options);
       return {
         success: true,
         rows: result.data,
