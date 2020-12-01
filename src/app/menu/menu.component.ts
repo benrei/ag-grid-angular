@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
     { title: "sizeColumnsToFit", path: "sizeColumnsToFit" },
     { title: "Client Side", path: "clientSide" },
     { title: "Server Side CW", path: "serverSideCw" },
+    { title: "Server Side Nested", path: "serverSideNested" },
     { title: "Server Side", path: "serverSide" }
   ];
 

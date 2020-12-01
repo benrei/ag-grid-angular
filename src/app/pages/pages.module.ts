@@ -10,6 +10,7 @@ import { SizeColumnsToFitComponent } from "./size-columns-to-fit/size-columns-to
 import { TimeRegistrationComponent } from "./time-registration/time-registration.component";
 import { ServerSideComponent } from "./server-side/server-side.component";
 import { ServerSideCwComponent } from './server-side-cw/server-side-cw.component';
+import { ServerSideNestedComponent } from './server-side-nested/server-side-nested.component';
 
 @NgModule({
   imports: [CommonModule, AgGridModule.withComponents([]), GridModule],
@@ -19,7 +20,8 @@ import { ServerSideCwComponent } from './server-side-cw/server-side-cw.component
     SizeColumnsToFitComponent,
     TimeRegistrationComponent,
     ServerSideComponent,
-    ServerSideCwComponent
+    ServerSideCwComponent,
+    ServerSideNestedComponent
   ],
   exports: [
     SimpleComponent,
