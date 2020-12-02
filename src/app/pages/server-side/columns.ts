@@ -28,13 +28,13 @@ const columns = [
   },
   {
     field: "gold",
-    filter: "agNumberColumnFilter"
-    // aggFunc: "sum"
+    filter: "agNumberColumnFilter",
+    aggFunc: "sum"
   },
   {
     field: "silver",
     filter: "agNumberColumnFilter",
-    // aggFunc: "sum",
+    aggFunc: "sum",
     hide: true
   },
   {
