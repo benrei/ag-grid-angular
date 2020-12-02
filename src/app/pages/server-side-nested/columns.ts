@@ -1,7 +1,7 @@
 export default [
   {
     field: "assignment.assignmentNumber",
-    colId: 'colID for: assignment.assignmentNumber',
+    colId: 'colID for assignment.assignmentNumber',
     filter: "agNumberColumnFilter",
     sort: "asc"
   },

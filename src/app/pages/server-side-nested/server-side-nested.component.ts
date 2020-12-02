@@ -68,6 +68,7 @@ function createDatasource(rows) {
     getRows: function(params: IServerSideGetRowsParams) {
       // get data for request from server
       console.log(params.request);
+      console.log(params.api.getColumnDefs());
       if (true) {
         // supply rows for requested block to grid
         params.successCallback(rows, -1);
