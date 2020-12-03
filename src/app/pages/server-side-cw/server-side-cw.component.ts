@@ -51,19 +51,10 @@ export class ServerSideCwComponent {
   editFn = () => {
     const { rowIndex } = this.gridApi.getFocusedCell();
     const rowNode = this.gridApi.getDisplayedRowAtIndex(rowIndex);
-    console.log(rowNode);
-    console.log(this.gridApi.getSelectedNodes());
     let updated = JSON.parse(JSON.stringify(rowNode.data));
-    updated.gold = Math.floor(Math.random() * 10);
-    updated.silver = Math.floor(Math.random() * 10);
-    updated.bronze = Math.floor(Math.random() * 10);
-    const res = rowNode.setData(updated);
-    console.log(res);
-    this.gridApi.refreshCells({ rowNodes: [rowNode] });
-    // this.gridApi.flashCells({
-    //   rowNodes: [rowNode]
-    //   // flashDelay: 20000000
-    // });
+    rowNode.setData(updated);
+    // this.gridApi.refreshCells({ rowNodes: [rowNode] });
+    this.gridApi.flashCells({ rowNodes: [rowNode] });
     console.log("editFn");
   };
   deleteFn = () => {
@@ -82,7 +73,7 @@ export class ServerSideCwComponent {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    var datasource = createServerSideDatasource(this.http, 'services');
+    var datasource = createServerSideDatasource(this.http, "services");
     console.log(datasource);
     params.api.setServerSideDatasource(datasource);
   }
