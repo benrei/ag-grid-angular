@@ -58,8 +58,7 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
     this.initValue = params.value;
     this.params = params;
     this.setInitialState(this.params);
-    this.http
-      .get(params.endpoint)
+    this.http.get(params.endpoint)
       .subscribe((data:any) => {
         this.options = data;
         this.filteredOptions = data;
