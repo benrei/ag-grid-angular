@@ -1,5 +1,17 @@
 import { Component, OnInit } from "@angular/core";
 
+const buildFlatRowData = count => {
+  let array = [];
+  for (let i = 0; i < count; i++) {
+    array.push({
+      make: "Foo " + i,
+      "customer.name": "Customer Name " + i,
+      model: "Bar " + i
+    });
+  }
+  return array;
+};
+
 @Component({
   selector: "app-size-columns-to-fit",
   templateUrl: "./size-columns-to-fit.component.html",
@@ -13,26 +25,11 @@ export class SizeColumnsToFitComponent {
     { headerName: "Model", field: "model" }
   ];
 
-  rowData = [
-    {
-      make: "Foo",
-      "customer.name": "Customer Name 1",
-      model: "Bar"
-    },
-    {
-      make: "Foo2",
-      "customer.name": "Customer Name 1",
-      model: "Baar2"
-    },
-    {
-      make: "Foo3",
-      "customer.name": "Customer Name 1",
-      model: "Bar3"
-    }
-  ];
+  rowData = covertArrayOfFlatObjectToDeep(buildFlatRowData(1000));
 
   gridReadyCallback(event) {
     this.gridApi = event.api;
+    console.log(this.rowData);
     // this.gridApi.sizeColumnsToFit();
   }
 
@@ -40,3 +37,35 @@ export class SizeColumnsToFitComponent {
     this.gridApi.sizeColumnsToFit();
   }
 }
+const addValueToObj = (obj: any, nestedKeys: Array<string>, value: string) => {
+  const lastKeyIndex = nestedKeys.length - 1;
+  for (let i = 0; i < lastKeyIndex; i++) {
+    const key = nestedKeys[i];
+    if (!(key in obj)) {
+      obj[key] = {};
+    }
+    obj = obj[key];
+  }
+  obj[nestedKeys[lastKeyIndex]] = value;
+};
+
+const convertArrayToObject = (arr: Array<any>): any => {
+  return arr.reduce((obj, currItem) => {
+    if (!(currItem.id === null || currItem.id === undefined)) {
+      const nestedKeys = currItem.id.split(".");
+      addValueToObj(obj, nestedKeys, currItem.value);
+    }
+    return obj;
+  }, {});
+};
+
+const convertFlatObjectToDeep = (obj: any): any => {
+  const array: Array<any> = [];
+  for (const key of Object.keys(obj)) {
+    array.push({ id: key, value: obj[key] });
+  }
+
+  return convertArrayToObject(array);
+};
+
+const covertArrayOfFlatObjectToDeep = objects => objects.map(obj => convertFlatObjectToDeep(obj));
