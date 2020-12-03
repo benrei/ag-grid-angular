@@ -7,7 +7,7 @@ const buildFlatRowData = count => {
     array.push({
       make: "Foo " + i,
       "customer.name": "Customer Name " + i,
-      "customer.0.name": "Customer Name " + i,
+      "customer.0.name": "Customer 0 Name " + i,
       model: "Bar " + i
     });
   }
@@ -24,6 +24,7 @@ export class SizeColumnsToFitComponent {
   columnDefs = [
     { headerName: "Make", field: "make" },
     { headerName: "Customer Name", field: "customer.name" },
+    { headerName: "Customer 0 Name", field: "customer.0.name" },
     { headerName: "Model", field: "model" }
   ];
 
