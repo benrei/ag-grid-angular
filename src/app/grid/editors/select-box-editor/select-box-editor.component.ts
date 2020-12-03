@@ -88,7 +88,7 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
     return this.value !== this.initValue ? this.value[this.params.valueField] : this.initValue;
   }
 
-  filter = () => {
+  filter = ()=> {
     if (this.value?.length > 1)
       this.filteredOptions = this.options.filter(o =>
         o[this.params.labelField].toLowerCase().includes(this.value)
