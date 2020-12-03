@@ -53,7 +53,6 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   @ViewChild("input", { read: ViewContainerRef }) public input: any;
 
   agInit(params: any): void {
-    console.log(params);
     this.gridApi = params.api;
     this.initValue = params.value;
     this.params = params;
@@ -85,7 +84,8 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   }
 
   getValue(): any {
-    return this.value[this.params.valueField];
+    console.log(this.value)
+    return this.value[this.params.valueField] ? this.value[this.params.valueField] : this.initValue;
   }
 
   onKeyUp(event: any): void {
