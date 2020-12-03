@@ -15,4 +15,4 @@ function unflatten(obj) {
   }
   return result;
 }
-export default { unflatten };
+export { unflatten };

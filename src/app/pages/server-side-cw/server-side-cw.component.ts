@@ -11,6 +11,7 @@ import "ag-grid-enterprise";
 import { FakeServer } from "../../fakeServer";
 import utils from "../../grid/utils";
 import { colDefDefaults, gridOptions } from "../../grid/defaults";
+import { unflatten } from "../../utils";
 
 @Component({
   selector: "app-server-side-cw",
@@ -81,7 +82,6 @@ export class ServerSideCwComponent {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    var fakeServer = createFakeServer(this.http);
     var datasource = createServerSideDatasource(this.http);
     console.log(datasource);
     params.api.setServerSideDatasource(datasource);
@@ -91,7 +91,14 @@ export class ServerSideCwComponent {
 function createServerSideDatasource(http) {
   return {
     getRows: function(params) {
-      console.log("[Datasource] - rows requested by grid: ", params.request);
+      // console.log("[Datasource] - rows requested by grid: ", params.request);
+      console.log(params);
+      const cols = params.columnApi
+        .getAllColumns()
+        .map(o => o.userProvidedColDef);
+      console.log(cols);
+      params.request.table = "services";
+      params.request.cols = cols;
       const URL =
         "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
       const options = {
@@ -100,50 +107,9 @@ function createServerSideDatasource(http) {
         }
       };
       http.post(URL, params.request, options).subscribe(response => {
-        if (response.success) {
-          params.successCallback(response.rows, response.lastRow);
-        } else {
-          params.failCallback();
-        }
-      });
-    }
-  };
-}
-function createFakeServer(http) {
-  const URL =
-    "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
-  const options = {
-    headers: {
-      Authorization: localStorage.token
-    }
-  };
-  return {
-    getData: async request => {
-      var result = await http.post(URL, request, options);
-      return {
-        success: true,
-        rows: result.data,
-        lastRow: result.lastRow
-      };
-    }
-  };
-}
-
-function ServerSideDatasource(): IServerSideDatasource {
-  return {
-    getRows: function(params) {
-      console.log("Request");
-      console.log(params.request);
-      const URL =
-        "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
-      const options = {
-        headers: {
-          Authorization: localStorage.token
-        }
-      };
-      this.http.post(URL, params.request, options).subscribe(response => {
-        if (response.success) {
-          params.successCallback(response.rows, response.lastRow);
+        if (response.data) {
+          const data = response.data.map(obj => unflatten(obj));
+          params.successCallback(data, response.lastRow);
         } else {
           params.failCallback();
         }

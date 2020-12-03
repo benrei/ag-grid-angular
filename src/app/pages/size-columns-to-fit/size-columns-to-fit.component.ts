@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import utils from "../../utils";
+import { unflatten } from "../../utils";
 
 const buildFlatRowData = count => {
   let array = [];
@@ -28,7 +28,7 @@ export class SizeColumnsToFitComponent {
     { headerName: "Model", field: "model" }
   ];
 
-  rowData = buildFlatRowData(1000).map(obj => utils.unflatten(obj));
+  rowData = buildFlatRowData(1000).map(obj => unflatten(obj));
   // rowData = [];
 
   gridReadyCallback(event) {
