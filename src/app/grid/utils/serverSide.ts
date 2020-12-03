@@ -34,8 +34,8 @@ const createDatasource = (
 ): IServerSideDatasource => {
   return {
     getRows: function(params: any) {
-      params.request.cols = getRequestCols(params.columnApi);
       params.request.table = table;
+      params.request.cols = getRequestCols(params.columnApi);
 
       const URL =
         "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
