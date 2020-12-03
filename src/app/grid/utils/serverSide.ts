@@ -18,15 +18,15 @@ const server = {
   removeRows: (api, data, rowIndex = 0) => {}
 };
 
-const getRequestCols = (columnApi: any) => {
-  return columnApi
+const getRequestCols = (columnApi: any) => 
+  columnApi
     .getAllColumns()
     .map(o => o.userProvidedColDef)
     .filter(o => o.field)
     .map(o => {
       return { field: o.field };
     });
-};
+
 
 const createDatasource = (
   http: HttpClient,
