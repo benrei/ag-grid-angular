@@ -1,4 +1,9 @@
 import { HttpClient } from "@angular/common/http";
+import {
+  ColDef,
+  IServerSideDatasource,
+  IServerSideGetRowsParams
+} from "ag-grid-community";
 import { unflatten } from "../../utils";
 
 const server = {
@@ -11,10 +16,13 @@ const server = {
   removeRow: (api, data, rowIndex = 0) => {},
   removeRows: (api, data, rowIndex = 0) => {}
 };
-const createDatasource = (http: HttpClient, table: string) => {
+
+const createDatasource = (
+  http: HttpClient,
+  table: string
+): IServerSideDatasource => {
   return {
-    getRows: function(params) {
-      // console.log("[Datasource] - rows requested by grid: ", params.request);
+    getRows: function(params: any) {
       const cols = params.columnApi
         .getAllColumns()
         .map(o => o.userProvidedColDef)
