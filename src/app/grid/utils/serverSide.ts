@@ -40,14 +40,17 @@ const createDatasource = (
           Authorization: localStorage.token
         }
       };
-      http.post(URL, params.request, options).subscribe((response: any) => {
-        if (response.data) {
-          const data = response.data.map(obj => unflatten(obj));
-          params.successCallback(data, response.lastRow);
-        } else {
-          params.failCallback();
-        }
-      });
+      http
+        .post(URL, params.request, options)
+        .toPromise()
+        .then((response: any) => {
+          if (response.data) {
+            const data = response.data.map(obj => unflatten(obj));
+            params.successCallback(data, response.lastRow);
+          } else {
+            params.failCallback();
+          }
+        });
     }
   };
 };
