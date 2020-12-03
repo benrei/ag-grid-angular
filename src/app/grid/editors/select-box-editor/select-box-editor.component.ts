@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import {
   AfterViewInit,
   Component,
@@ -47,6 +48,8 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   options: any[];
   filteredOptions: any[];
 
+  constructor(private http: HttpClient) {}
+
   @ViewChild("input", { read: ViewContainerRef }) public input: any;
 
   agInit(params: any): void {
@@ -55,8 +58,14 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
     this.initValue = params.value;
     this.params = params;
     this.setInitialState(this.params);
-    this.options = params.values;
-    this.filteredOptions = params.values;
+    this.http
+      .get(params.endpoint)
+      .subscribe((data:any) => {
+        const countries = data.map(o=>o.country)
+        const uniqueSorted = Array.from(new Set(countries)).sort()
+        this.options = uniqueSorted;
+        this.filteredOptions = uniqueSorted;
+      });
   }
 
   setInitialState(params: any) {
