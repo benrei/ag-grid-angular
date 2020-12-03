@@ -28,7 +28,7 @@ const KEY_TAB = 9;
     />
     <mat-autocomplete
       #auto="matAutocomplete"
-      [displayWith]="displayFn"
+      (displayWith)="displayFn"
       (optionSelected)="onOptionSelected($event)"
     >
       <mat-option *ngFor="let option of filteredOptions" [value]="option">
@@ -125,14 +125,13 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   }
 
   onOptionSelected(event) {
-    console.log(event);
     this.value = event.option.value;
     this.gridApi.tabToNextCell();
   }
 
   displayFn(obj: any): string {
-    return obj;
-    // return obj && obj.name ? obj.name : "";
+    console.log(obj)
+    return obj[this.params.labelField];
   }
 
   private _debounceFunction = (func, delay) => {
