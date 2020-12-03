@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { unflatten } from "../../utils";
 
 const buildFlatRowData = count => {
   let array = [];
@@ -6,6 +7,7 @@ const buildFlatRowData = count => {
     array.push({
       make: "Foo " + i,
       "customer.name": "Customer Name " + i,
+      "customer.0.name": "Customer Name " + i,
       model: "Bar " + i
     });
   }
@@ -25,48 +27,15 @@ export class SizeColumnsToFitComponent {
     { headerName: "Model", field: "model" }
   ];
 
-  rowData = covertArrayOfFlatObjectToDeep(buildFlatRowData(1000));
+  rowData = buildFlatRowData(1000).map(obj => unflatten(obj));
+  // rowData = [];
 
   gridReadyCallback(event) {
     this.gridApi = event.api;
     console.log(this.rowData);
-    // this.gridApi.sizeColumnsToFit();
   }
 
   onclickme(event) {
     this.gridApi.sizeColumnsToFit();
   }
 }
-const addValueToObj = (obj: any, nestedKeys: Array<string>, value: string) => {
-  const lastKeyIndex = nestedKeys.length - 1;
-  for (let i = 0; i < lastKeyIndex; i++) {
-    const key = nestedKeys[i];
-    if (!(key in obj)) {
-      obj[key] = {};
-    }
-    obj = obj[key];
-  }
-  obj[nestedKeys[lastKeyIndex]] = value;
-};
-
-const convertArrayToObject = (arr: Array<any>): any => {
-  return arr.reduce((obj, currItem) => {
-    if (!(currItem.id === null || currItem.id === undefined)) {
-      const nestedKeys = currItem.id.split(".");
-      addValueToObj(obj, nestedKeys, currItem.value);
-    }
-    return obj;
-  }, {});
-};
-
-const convertFlatObjectToDeep = (obj: any): any => {
-  const array: Array<any> = [];
-  for (const key of Object.keys(obj)) {
-    array.push({ id: key, value: obj[key] });
-  }
-
-  return convertArrayToObject(array);
-};
-
-const covertArrayOfFlatObjectToDeep = objects =>
-  objects.map(obj => convertFlatObjectToDeep(obj));
