@@ -68,41 +68,8 @@ export class ServerSideCwComponent {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    var datasource = createServerSideDatasource(this.http, "services");
-    console.log(datasource);
-    params.api.setServerSideDatasource(datasource);
+    // var datasource = createDatasource(this.http, "services");
+    // console.log(datasource);
+    // params.api.setServerSideDatasource(datasource);
   }
-}
-
-function createServerSideDatasource(http: HttpClient, table: string) {
-  return {
-    getRows: function(params) {
-      // console.log("[Datasource] - rows requested by grid: ", params.request);
-      const cols = params.columnApi
-        .getAllColumns()
-        .map(o => o.userProvidedColDef)
-        .filter(o => o.field)
-        .map(o => {
-          return { field: o.field };
-        });
-      params.request.cols = cols;
-      params.request.table = table;
-
-      const URL =
-        "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
-      const options = {
-        headers: {
-          Authorization: localStorage.token
-        }
-      };
-      http.post(URL, params.request, options).subscribe((response: any) => {
-        if (response.data) {
-          const data = response.data.map(obj => unflatten(obj));
-          params.successCallback(data, response.lastRow);
-        } else {
-          params.failCallback();
-        }
-      });
-    }
-  };
 }

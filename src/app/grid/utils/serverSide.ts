@@ -1,3 +1,6 @@
+import { HttpClient } from "@angular/common/http";
+import { unflatten } from "../../utils";
+
 const server = {
   addRow: (api, data, rowIndex = 0) => {
     console.log("addRow");
@@ -8,4 +11,36 @@ const server = {
   removeRow: (api, data, rowIndex = 0) => {},
   removeRows: (api, data, rowIndex = 0) => {}
 };
-export default { ...server };
+const createDatasource = (http: HttpClient, table: string) => {
+  return {
+    getRows: function(params) {
+      // console.log("[Datasource] - rows requested by grid: ", params.request);
+      const cols = params.columnApi
+        .getAllColumns()
+        .map(o => o.userProvidedColDef)
+        .filter(o => o.field)
+        .map(o => {
+          return { field: o.field };
+        });
+      params.request.cols = cols;
+      params.request.table = table;
+
+      const URL =
+        "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
+      const options = {
+        headers: {
+          Authorization: localStorage.token
+        }
+      };
+      http.post(URL, params.request, options).subscribe((response: any) => {
+        if (response.data) {
+          const data = response.data.map(obj => unflatten(obj));
+          params.successCallback(data, response.lastRow);
+        } else {
+          params.failCallback();
+        }
+      });
+    }
+  };
+};
+export default { ...server, createDatasource };
