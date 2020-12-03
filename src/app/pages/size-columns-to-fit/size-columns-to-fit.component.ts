@@ -9,36 +9,31 @@ export class SizeColumnsToFitComponent {
   gridApi;
   columnDefs = [
     { headerName: "Make", field: "make" },
-    { headerName: "Model", field: "model" },
-    { headerName: "Model", field: "model" },
-    { headerName: "Model", field: "model" },
-    { headerName: "Model", field: "model" },
-    { headerName: "Model", field: "model" },
-    { headerName: "Model", field: "model" },
-    { headerName: "Model", field: "model" },
-    { headerName: "Model", field: "model" },
-    { headerName: "Model", field: "model" },
+    { headerName: "Customer Name", field: "customer.name" },
     { headerName: "Model", field: "model" }
   ];
 
   rowData = [
     {
       make: "Foo",
+      "customer.name": "Customer Name 1",
       model: "Bar"
     },
     {
       make: "Foo2",
+      "customer.name": "Customer Name 1",
       model: "Baar2"
     },
     {
       make: "Foo3",
+      "customer.name": "Customer Name 1",
       model: "Bar3"
     }
   ];
 
   gridReadyCallback(event) {
     this.gridApi = event.api;
-    this.gridApi.sizeColumnsToFit();
+    // this.gridApi.sizeColumnsToFit();
   }
 
   onclickme(event) {

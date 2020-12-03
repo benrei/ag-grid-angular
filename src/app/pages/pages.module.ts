@@ -11,6 +11,7 @@ import { TimeRegistrationComponent } from "./time-registration/time-registration
 import { ServerSideComponent } from "./server-side/server-side.component";
 import { ServerSideCwComponent } from './server-side-cw/server-side-cw.component';
 import { ServerSideNestedComponent } from './server-side-nested/server-side-nested.component';
+import { ServerGroupMasterComponent } from './server-group-master/server-group-master.component';
 
 @NgModule({
   imports: [CommonModule, AgGridModule.withComponents([]), GridModule],
@@ -21,7 +22,8 @@ import { ServerSideNestedComponent } from './server-side-nested/server-side-nest
     TimeRegistrationComponent,
     ServerSideComponent,
     ServerSideCwComponent,
-    ServerSideNestedComponent
+    ServerSideNestedComponent,
+    ServerGroupMasterComponent
   ],
   exports: [
     SimpleComponent,
