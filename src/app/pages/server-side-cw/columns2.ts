@@ -4,8 +4,9 @@ const columns = [
     filter: "agTextColumnFilter",
     minWidth: 150,
     cellEditor: "selectBoxEditor",
-    cellEditorParams: () => {
-      return { values: Array.from(new Set(countries)).sort() };
+    cellEditorParams: {
+      endpoint:
+        "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinnersSmall.json"
     }
     // rowGroup: true
   },
