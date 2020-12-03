@@ -85,7 +85,7 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
 
   getValue(): any {
     console.log(this.value)
-    return this.value[this.params.valueField] ? this.value[this.params.valueField] : this.initValue;
+    return this.value !== this.initValue ? this.value[this.params.valueField] : this.initValue;
   }
 
   onKeyUp(event: any): void {
