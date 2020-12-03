@@ -88,19 +88,20 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
     return this.value !== this.initValue ? this.value[this.params.valueField] : this.initValue;
   }
 
+  filter = () => {
+    if (this.value?.length > 1)
+      this.filteredOptions = this.options.filter(o =>
+        o[this.params.labelField].toLowerCase().includes(this.value)
+      );
+    else this.filteredOptions = this.options;
+  }
+
   onKeyUp(event: any): void {
     const shouldReturn = this.customKeyHandler(event);
     if (shouldReturn) return;
   
     this.value = event.target.value;
-    const filter = () => {
-      if (this.value?.length > 1)
-        this.filteredOptions = this.options.filter(o =>
-          o[this.params.labelField].toLowerCase().includes(this.value)
-        );
-      else this.filteredOptions = this.options;
-    }
-    this._debounceFunction(filter, 250);
+    this._debounceFunction(this.filter, 250);
   }
 
   // dont use afterGuiAttached for post gui events - hook into ngAfterViewInit instead for this
