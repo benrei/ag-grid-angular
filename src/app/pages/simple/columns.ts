@@ -5,10 +5,10 @@ const columns = [
     minWidth: 150,
     cellEditor: "selectBoxEditor",
     cellEditorParams: {
-      valueField: "customerId",
-      labelField: "customerName",
+      valueField: "name",
+      labelField: "name",
       endpoint:
-        "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinnersSmall.json"
+        "https://raw.githubusercontent.com/benrei/data/main/countries.json"
     }
     // rowGroup: true
   },

@@ -32,7 +32,7 @@ const KEY_TAB = 9;
       (optionSelected)="onOptionSelected($event)"
     >
       <mat-option *ngFor="let option of filteredOptions" [value]="option">
-        {{ option }}
+        <option [value]="option[params.valueField]">{{ option[params.labelField] }}
       </mat-option>
     </mat-autocomplete>
   `
@@ -40,7 +40,7 @@ const KEY_TAB = 9;
 export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   gridApi;
   initValue: any;
-  private params: any;
+  params: any;
   timerId: number;
   value: any;
 
@@ -61,10 +61,8 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
     this.http
       .get(params.endpoint)
       .subscribe((data:any) => {
-        const countries = data.map(o=>o.country)
-        const uniqueSorted = Array.from(new Set(countries)).sort()
-        this.options = uniqueSorted;
-        this.filteredOptions = uniqueSorted;
+        this.options = data;
+        this.filteredOptions = data;
       });
   }
 
@@ -88,7 +86,7 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   }
 
   getValue(): any {
-    return this.value;
+    return this.value[this.params.valueField];
   }
 
   onKeyUp(event: any): void {
@@ -99,7 +97,7 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
     this._debounceFunction(() => {
       if (this.value?.length > 1)
         this.filteredOptions = this.options.filter(o =>
-          o.toLowerCase().includes(this.value)
+          o[this.params.labelField].toLowerCase().includes(this.value)
         );
       else this.filteredOptions = this.options;
     }, 250);
