@@ -85,8 +85,8 @@ function createServerSideDatasource(http: HttpClient, table: string) {
         .map(o => {
           return { field: o.field };
         });
-      params.request.table = table;
       params.request.cols = cols;
+      params.request.table = table;
 
       const URL =
         "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
