@@ -95,7 +95,11 @@ function createServerSideDatasource(http) {
       console.log(params);
       const cols = params.columnApi
         .getAllColumns()
-        .map(o => o.userProvidedColDef);
+        .map(o => o.userProvidedColDef)
+        .filter(o => o.field)
+        .map(o => {
+          return { field: o.field };
+        });
       console.log(cols);
       params.request.table = "services";
       params.request.cols = cols;
