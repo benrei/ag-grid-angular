@@ -66,8 +66,7 @@ export class ServerSideCwComponent {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    var datasource = utils.server.createDatasource(this.http, "services");
-    console.log(datasource);
+    const datasource = utils.server.createDatasource(this.http, "services");
     params.api.setServerSideDatasource(datasource);
   }
 }
