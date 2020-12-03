@@ -6,7 +6,7 @@ import { DatepickerEditor } from "../../grid/editors/datepicker-editor/datepicke
 import columns from "./columns";
 import "ag-grid-enterprise";
 import { colDefDefaults, gridOptions } from "../../grid/defaults";
-import { unflatten } from "../../utils";
+import utils from "../../grid/utils";
 
 @Component({
   selector: "app-server-side-cw",
@@ -36,21 +36,19 @@ export class ServerSideCwComponent {
 
   onCellValueChanged(event: CellValueChangedEvent) {
     console.log(event);
-    // this.gridApi.purgeServerSideCache(utils.getGroupRoute(event.node));
-    // Save changes
   }
 
   addFn = () => {
     console.log("addFn");
   };
   editFn = () => {
-    const { rowIndex } = this.gridApi.getFocusedCell();
-    const rowNode = this.gridApi.getDisplayedRowAtIndex(rowIndex);
-    let updated = JSON.parse(JSON.stringify(rowNode.data));
-    rowNode.setData(updated);
-    // this.gridApi.refreshCells({ rowNodes: [rowNode] });
-    this.gridApi.flashCells({ rowNodes: [rowNode] });
     console.log("editFn");
+    // const { rowIndex } = this.gridApi.getFocusedCell();
+    // const rowNode = this.gridApi.getDisplayedRowAtIndex(rowIndex);
+    // let updated = JSON.parse(JSON.stringify(rowNode.data));
+    // rowNode.setData(updated);
+    // // this.gridApi.refreshCells({ rowNodes: [rowNode] });
+    // this.gridApi.flashCells({ rowNodes: [rowNode] });
   };
   deleteFn = () => {
     console.log("deleteFn");
@@ -68,8 +66,8 @@ export class ServerSideCwComponent {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    // var datasource = createDatasource(this.http, "services");
-    // console.log(datasource);
-    // params.api.setServerSideDatasource(datasource);
+    var datasource = utils.server.createDatasource(this.http, "services");
+    console.log(datasource);
+    params.api.setServerSideDatasource(datasource);
   }
 }
