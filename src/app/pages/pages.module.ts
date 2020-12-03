@@ -9,9 +9,8 @@ import { GridModule } from "../grid/grid.module";
 import { SizeColumnsToFitComponent } from "./size-columns-to-fit/size-columns-to-fit.component";
 import { TimeRegistrationComponent } from "./time-registration/time-registration.component";
 import { ServerSideComponent } from "./server-side/server-side.component";
-import { ServerSideCwComponent } from './server-side-cw/server-side-cw.component';
-import { ServerSideNestedComponent } from './server-side-nested/server-side-nested.component';
-import { ServerGroupMasterComponent } from './server-group-master/server-group-master.component';
+import { ServerSideCwComponent } from "./server-side-cw/server-side-cw.component";
+import { ServerSideNestedComponent } from "./server-side-nested/server-side-nested.component";
 
 @NgModule({
   imports: [CommonModule, AgGridModule.withComponents([]), GridModule],
@@ -22,8 +21,7 @@ import { ServerGroupMasterComponent } from './server-group-master/server-group-m
     TimeRegistrationComponent,
     ServerSideComponent,
     ServerSideCwComponent,
-    ServerSideNestedComponent,
-    ServerGroupMasterComponent
+    ServerSideNestedComponent
   ],
   exports: [
     SimpleComponent,
