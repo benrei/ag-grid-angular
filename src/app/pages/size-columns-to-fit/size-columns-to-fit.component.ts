@@ -68,4 +68,5 @@ const convertFlatObjectToDeep = (obj: any): any => {
   return convertArrayToObject(array);
 };
 
-const covertArrayOfFlatObjectToDeep = objects => objects.map(obj => convertFlatObjectToDeep(obj));
+const covertArrayOfFlatObjectToDeep = objects =>
+  objects.map(obj => convertFlatObjectToDeep(obj));
