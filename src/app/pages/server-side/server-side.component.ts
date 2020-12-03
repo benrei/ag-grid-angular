@@ -87,6 +87,7 @@ export class ServerSideComponent {
         "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinners.json"
       )
       .subscribe(data => {
+        console.log("yey");
         var fakeServer = FakeServer(data);
         var datasource = ServerSideDatasource(fakeServer);
         console.log(datasource);
