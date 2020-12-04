@@ -59,11 +59,11 @@ export class NgSelectBoxEditor
 
   private loadPeople() {
     this.peopleLoading = true;
-    this.dataService.getPeople().subscribe(x => {
-      this.people = x;
-      this.peopleLoading = false;
-      console.log(this.people);
-    });
+    // this.dataService.getPeople().subscribe(x => {
+    //   this.people = x;
+    //   this.peopleLoading = false;
+    //   console.log(this.people);
+    // });
   }
 
   customSearchFn(term: string, item: Person) {

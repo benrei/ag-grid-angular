@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import {IServerSideDatasource} from "ag-grid-community";
+import { IServerSideDatasource } from "ag-grid-community";
 import { unflattenMany } from "../../utils";
 
 const server = {
