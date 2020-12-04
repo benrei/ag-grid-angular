@@ -14,8 +14,8 @@ export class DataService {
     return {
       getRows: function(params: any) {
         const { columnApi, request } = params;
-        console.log(request);
         request.table = table;
+
         // Only set cols if group fully expanded
         if (request.groupKeys.length === request.rowGroupCols.length) {
           console.log(columnApi.getAllColumns());
@@ -28,7 +28,9 @@ export class DataService {
               return { field: o.field };
             });
         }
-        console.log(r);
+
+        console.log(request);
+        console.log(params.request.cols);
 
         const URL =
           "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
