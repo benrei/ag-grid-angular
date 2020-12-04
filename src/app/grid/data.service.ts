@@ -18,7 +18,7 @@ export class DataService {
         params.request.cols = params.columnApi
           .getAllColumns()
           .map(o => o.userProvidedColDef)
-          .filter(o => o.field)
+          .filter(o => o.field && !o.aggFunc)
           .map(o => {
             return { field: o.field };
           });
