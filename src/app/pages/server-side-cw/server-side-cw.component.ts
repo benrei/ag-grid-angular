@@ -15,7 +15,6 @@ import { DataService } from "../../grid/data.service";
 export class ServerSideCwComponent {
   gridApi;
   gridColumnApi;
-  rowData;
   columnDefs = columns;
   gridOptions = {
     ...gridOptions,
