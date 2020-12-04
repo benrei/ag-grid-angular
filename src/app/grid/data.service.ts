@@ -9,21 +9,19 @@ import { IServerSideDatasource } from "ag-grid-community";
 export class DataService {
   constructor(private http: HttpClient) {}
 
-  getRequestCols = (columnApi: any) =>
-    columnApi
-      .getAllColumns()
-      .map(o => o.userProvidedColDef)
-      .filter(o => o.field)
-      .map(o => {
-        return { field: o.field };
-      });
-
-  createDatasource = (table: string): IServerSideDatasource => {
+  createDatasource(table: string): IServerSideDatasource {
+    const http = this.http;
     return {
       getRows: function(params: any) {
         console.log(params.request);
         params.request.table = table;
-        params.request.cols = this.getRequestCols(params.columnApi);
+        params.request.cols = params.columnApi
+          .getAllColumns()
+          .map(o => o.userProvidedColDef)
+          .filter(o => o.field)
+          .map(o => {
+            return { field: o.field };
+          });
 
         const URL =
           "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
@@ -32,7 +30,7 @@ export class DataService {
             Authorization: localStorage.token
           }
         };
-        this.http
+        http
           .post(URL, params.request, options)
           .toPromise()
           .then((response: any) => {
@@ -45,5 +43,5 @@ export class DataService {
           });
       }
     };
-  };
+  }
 }
