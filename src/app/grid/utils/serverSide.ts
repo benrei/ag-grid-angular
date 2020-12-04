@@ -5,7 +5,7 @@ import {
   IServerSideDatasource,
   IServerSideGetRowsParams
 } from "ag-grid-community";
-import { unflatten } from "../../utils";
+import { unflattenMany } from "../../utils";
 
 const server = {
   addRow: (api, data, rowIndex = 0) => {
@@ -18,7 +18,7 @@ const server = {
   removeRows: (api, data, rowIndex = 0) => {}
 };
 
-const getRequestCols = (columnApi: any) => 
+const getRequestCols = (columnApi: any) =>
   columnApi
     .getAllColumns()
     .map(o => o.userProvidedColDef)
@@ -26,7 +26,6 @@ const getRequestCols = (columnApi: any) =>
     .map(o => {
       return { field: o.field };
     });
-
 
 const createDatasource = (
   http: HttpClient,
@@ -49,7 +48,7 @@ const createDatasource = (
         .toPromise()
         .then((response: any) => {
           if (response.data) {
-            const data = response.data.map(obj => unflatten(obj));
+            const data = unflattenMany(response.data)
             params.successCallback(data, response.lastRow);
           } else {
             params.failCallback();

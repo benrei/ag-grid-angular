@@ -15,4 +15,5 @@ function unflatten(obj) {
   }
   return result;
 }
-export { unflatten };
+const unflattenMany = (data: [any]) => data.map(obj => unflatten(obj));
+export { unflatten, unflattenMany };
