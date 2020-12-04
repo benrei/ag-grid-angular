@@ -76,9 +76,16 @@ const getGroupRoute = (node: any)=> {
 const getContextMenuItems = params => {
   const { api, node } = params;
   console.log(params);
+  // .copySelectedRangeToClipboard()
   const menuItems = [];
+  const copySelectedRangeToClipboard = {
+    name: 'Copy selected cell(s)',
+    icon: '<span class="ag-icon ag-icon-copy"></span>',
+    action: ()=>api.copySelectedRangeToClipboard()
+  }
   if (node) {
     menuItems.push(
+      copySelectedRangeToClipboard,
       "copy",
       "paste",
       "separator",
