@@ -85,7 +85,7 @@ const getContextMenuItems = params => {
   }
   if (node) {
     menuItems.push(
-      copySelectedRangeToClipboard,
+      // copySelectedRangeToClipboard,
       "copy",
       "paste",
       "separator",

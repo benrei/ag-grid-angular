@@ -13,6 +13,8 @@ const gridOptions = {
   navigateToNextCell: utils.gridOptions.navigateToNextCell.arrowKeysLeftRight,
   rowSelection: "single",
   rowGroupPanelShow: "always",
+  suppressCopyRowsToClipboard: true,
+  // sendToClipboard: (params)=>params.api.copySelectedRangeToClipboard(),
   statusBar: {
     statusPanels: [
       { statusPanel: "agTotalAndFilteredRowCountComponent", align: "left" },
