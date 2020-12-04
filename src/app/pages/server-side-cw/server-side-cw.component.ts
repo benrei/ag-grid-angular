@@ -33,10 +33,21 @@ export class ServerSideCwComponent {
 
   constructor(private dataService: DataService) {}
 
+  onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+    // const datasource = utils.server.createDatasource(this.http, "services");
+    const datasource = this.dataService.createDatasource("services");
+    params.api.setServerSideDatasource(datasource);
+  }
+
   onCellValueChanged(event: CellValueChangedEvent) {
     console.log(event);
   }
 
+  setQuickfilterText(text) {
+    this.gridApi.setQuickFilter(text);
+  }
   addFn = () => {
     console.log("addFn");
   };
@@ -55,18 +66,6 @@ export class ServerSideCwComponent {
   refreshFn = () => {
     console.log("refreshFn");
   };
-  setQuickfilterText(text) {
-    this.gridApi.setQuickFilter(text);
-  }
-
   resetFn = () => this.gridColumnApi.resetColumnState();
   fitColumnsFn = () => this.gridApi.sizeColumnsToFit();
-
-  onGridReady(params) {
-    this.gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
-    // const datasource = utils.server.createDatasource(this.http, "services");
-    const datasource = this.dataService.createDatasource("services");
-    params.api.setServerSideDatasource(datasource);
-  }
 }
