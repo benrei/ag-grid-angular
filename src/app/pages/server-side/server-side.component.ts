@@ -28,6 +28,8 @@ export class ServerSideComponent {
       selectBoxEditor: SelectBoxEditor,
       datepickerEditor: DatepickerEditor
     }
+    // suppressDragLeaveHidesColumns: true,
+    // suppressMakeColumnVisibleAfterUnGroup: true
     // undoRedoCellEditing: true
   };
   defaultColDef = {

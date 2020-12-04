@@ -30,28 +30,28 @@ const columns = [
     minWidth: 150
   },
   {
-    field: "gold",
-    filter: "agNumberColumnFilter",
-    aggFunc: "sum"
-  },
-  {
-    field: "silver",
-    filter: "agNumberColumnFilter",
     aggFunc: "sum",
-    hide: true
+    field: "gold",
+    filter: "agNumberColumnFilter"
   },
   {
+    aggFunc: "sum",
+    field: "silver",
+    filter: "agNumberColumnFilter"
+    // hide: true
+  },
+  {
+    aggFunc: "sum",
     field: "bronze",
-    filter: "agNumberColumnFilter",
-    aggFunc: "sum"
+    filter: "agNumberColumnFilter"
   },
   {
+    aggFunc: "sum",
     displayName: "total",
+    editable: false,
     filter: "agNumberColumnFilter",
     valueGetter: ({ data }) =>
-      Number(data.gold) + Number(data.silver) + Number(data.bronze),
-    aggFunc: "sum",
-    editable: false
+      Number(data.gold) + Number(data.silver) + Number(data.bronze)
   },
   { field: "age", filter: "agNumberColumnFilter" },
   {

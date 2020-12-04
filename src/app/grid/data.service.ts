@@ -13,15 +13,22 @@ export class DataService {
     const http = this.http;
     return {
       getRows: function(params: any) {
-        console.log(params.request);
-        params.request.table = table;
-        params.request.cols = params.columnApi
-          .getAllColumns()
-          .map(o => o.userProvidedColDef)
-          .filter(o => o.field && !o.aggFunc)
-          .map(o => {
-            return { field: o.field };
-          });
+        const { columnApi, request } = params;
+        console.log(request);
+        request.table = table;
+        // Only set cols if group fully expanded
+        if (request.groupKeys.length === request.rowGroupCols.length) {
+          console.log(columnApi.getAllColumns());
+          params.request.cols = columnApi
+            .getAllColumns()
+            .filter(o => !o.rowGroupActive)
+            .map(o => o.colDef)
+            .filter(o => o.field && !o.aggFunc)
+            .map(o => {
+              return { field: o.field };
+            });
+        }
+        console.log(r);
 
         const URL =
           "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
