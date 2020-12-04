@@ -1,10 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import {
-  ColDef,
-  ColumnApi,
-  IServerSideDatasource,
-  IServerSideGetRowsParams
-} from "ag-grid-community";
+import {IServerSideDatasource} from "ag-grid-community";
 import { unflattenMany } from "../../utils";
 
 const server = {
@@ -33,6 +28,7 @@ const createDatasource = (
 ): IServerSideDatasource => {
   return {
     getRows: function(params: any) {
+      console.log(params.request);
       params.request.table = table;
       params.request.cols = getRequestCols(params.columnApi);
 
@@ -48,7 +44,7 @@ const createDatasource = (
         .toPromise()
         .then((response: any) => {
           if (response.data) {
-            const data = unflattenMany(response.data)
+            const data = unflattenMany(response.data);
             params.successCallback(data, response.lastRow);
           } else {
             params.failCallback();

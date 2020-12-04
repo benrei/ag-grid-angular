@@ -19,6 +19,7 @@ const columns = [
   {
     field: "costPrice",
     filter: "agNumberColumnFilter",
+    // aggFunc: "sum",
     type: "numericColumn"
   },
   {
