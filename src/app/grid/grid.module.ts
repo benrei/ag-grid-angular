@@ -14,18 +14,13 @@ import { SelectBoxEditor } from "./editors/select-box-editor/select-box-editor.c
 import { DatepickerEditor } from "./editors/datepicker-editor/datepicker-editor.component";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { NgSelectBoxEditor } from "./editors/ng-select-box/ng-select-box-editor.component";
-import { DataService } from './data.service';
+import { DataService } from "./data.service";
+import { ActionsModule } from "./actions/actions.module";
 
 @NgModule({
-  imports: [CommonModule, AllMaterialModules, NgSelectModule],
+  imports: [CommonModule, AllMaterialModules, NgSelectModule, ActionsModule],
   declarations: [
     GridHeaderComponent,
-    AddActionComponent,
-    EditActionComponent,
-    DeleteActionComponent,
-    RefreshActionComponent,
-    ResetColumnsActionComponent,
-    FitColumnsActionComponent,
     PdfIconRenderer,
     GridDirective,
     SelectBoxEditor,
