@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  HostBinding,
-  Output,
-  EventEmitter
-} from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-grid-header",
