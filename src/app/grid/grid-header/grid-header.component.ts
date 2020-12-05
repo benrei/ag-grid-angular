@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 
 @Component({
   selector: "app-grid-header",
@@ -7,13 +7,14 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 })
 export class GridHeaderComponent implements OnInit {
   @Output() quickfilterTextOutput = new EventEmitter<string>();
+  @Input() delay = 300;
   constructor() {}
   timer;
   onKeyup(event) {
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
       this.quickfilterTextOutput.emit(event.target.value);
-    }, 500);
+    }, this.delay);
   }
 
   ngOnInit() {}

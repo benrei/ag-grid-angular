@@ -1,4 +1,4 @@
-function unflatten(obj) {
+const unflatten = (obj: any) => {
   var result = {};
   for (const key in obj) {
     var keys = key.split(".");
@@ -14,6 +14,6 @@ function unflatten(obj) {
     }, result);
   }
   return result;
-}
+};
 const unflattenMany = (data: [any]) => data.map(obj => unflatten(obj));
 export { unflatten, unflattenMany };

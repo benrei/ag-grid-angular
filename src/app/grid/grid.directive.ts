@@ -1,7 +1,6 @@
 import { Directive, HostListener, Self } from "@angular/core";
 import { AgGridEvent, CellValueChangedEvent } from "ag-grid-community/main";
 import { AgGridAngular } from "ag-grid-angular";
-import utils from "./utils";
 
 @Directive({
   selector: "ag-grid-angular"

@@ -44,7 +44,6 @@ export class SelectBoxEditor implements ICellEditorAngularComp, AfterViewInit {
   timerId: number;
   value: any;
 
-  searchInput = new FormControl();
   options: any[];
   filteredOptions: any[];
 

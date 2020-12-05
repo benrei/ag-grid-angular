@@ -1,6 +1,6 @@
 import { GridApi, RowNode } from "ag-grid-community";
-import server from './serverSide';
-import client from './clientSide';
+import server from "./serverSide";
+import client from "./clientSide";
 
 const utils = {
   gridOptions: {
@@ -27,51 +27,20 @@ const utils = {
       enterToNextCell: params => {
         const { code, key, shiftKey } = params.event;
         if (shiftKey) {
-          if (code == "Enter" || key == "Enter"){
+          if (code == "Enter" || key == "Enter") {
             params.api.stopEditing();
             params.api.tabToPreviousCell();
           }
         } else {
-          if (code == "Enter" || key == "Enter"){
+          if (code == "Enter" || key == "Enter") {
             params.api.stopEditing();
             params.api.tabToNextCell();
-          } 
+          }
         }
       }
     }
   }
 };
-
-const selectRow = (api, entityIdField?: string, entityIdValue?: string)=>{
-  api.deselectAll(); 
-  if (entityIdField && entityIdValue) {
-    getRowNodeByEntityId(api, entityIdField, entityIdValue)?.setSelected(true);
-  } else {
-    api.getDisplayedRowAtIndex(0)?.setSelected(true);
-  }
-}
-
-const getRowNodeByEntityId = (api: GridApi, entityIdField: string, entityIdValue: string): RowNode=>{
-  let rowNode: RowNode = null;
-  api.forEachNode((node) => {
-    if (node.data?.[entityIdField] === entityIdValue) {
-      rowNode = node;
-      return;
-    }
-  });
-  return rowNode;
-}
-const getGroupRoute = (node: any)=> {
-  let array = [];
-  const getRoute = (parent: any) => {
-    if (parent.level > 0 && parent.parent) {
-      getRoute(parent.parent);
-    }
-    array.push(parent.key);
-  };
-  getRoute(node.parent);
-  return array;
-}
 
 const getContextMenuItems = params => {
   const { api, node } = params;
@@ -79,10 +48,10 @@ const getContextMenuItems = params => {
   // .copySelectedRangeToClipboard()
   const menuItems = [];
   const copySelectedRangeToClipboard = {
-    name: 'Copy selected cell(s)',
+    name: "Copy selected cell(s)",
     icon: '<span class="ag-icon ag-icon-copy"></span>',
-    action: ()=>api.copySelectedRangeToClipboard()
-  }
+    action: () => api.copySelectedRangeToClipboard()
+  };
   if (node) {
     menuItems.push(
       // copySelectedRangeToClipboard,
@@ -96,4 +65,4 @@ const getContextMenuItems = params => {
   return menuItems;
 };
 
-export default { client, server, getContextMenuItems, getGroupRoute, selectRow, ...utils };
+export default { client, server, getContextMenuItems, ...utils };

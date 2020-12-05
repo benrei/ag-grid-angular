@@ -23,11 +23,6 @@ import { ServerSideNestedComponent } from "./server-side-nested/server-side-nest
     ServerSideCwComponent,
     ServerSideNestedComponent
   ],
-  exports: [
-    SimpleComponent,
-    TimeRegistrationComponent,
-    SizeColumnsToFitComponent,
-    ServerSideComponent
-  ]
+  exports: []
 })
 export class PagesModule {}
