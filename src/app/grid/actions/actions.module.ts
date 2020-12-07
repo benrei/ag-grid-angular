@@ -4,7 +4,7 @@ import { AddActionComponent } from "./add-action.component";
 import { EditActionComponent } from "./edit-action.component";
 import { DeleteActionComponent } from "./delete-action.component";
 import { RefreshActionComponent } from "./refresh-action.component";
-import { ResetColumnsActionComponent } from "./reset-columns-action.component";
+import { ResetColsActionComponent } from "./reset-cols-action.component";
 import { FitColumnsActionComponent } from "./fit-columns.component";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
@@ -17,7 +17,7 @@ import { MatButtonModule } from "@angular/material/button";
     EditActionComponent,
     FitColumnsActionComponent,
     RefreshActionComponent,
-    ResetColumnsActionComponent
+    ResetColsActionComponent
   ],
   exports: [
     AddActionComponent,
@@ -25,7 +25,7 @@ import { MatButtonModule } from "@angular/material/button";
     EditActionComponent,
     FitColumnsActionComponent,
     RefreshActionComponent,
-    ResetColumnsActionComponent
+    ResetColsActionComponent
   ]
 })
 export class ActionsModule {}

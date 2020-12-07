@@ -9,7 +9,7 @@ function FakeServer(allData) {
   alasql.options.cache = false;
 
   return {
-    getData: function(request) {
+    getData: function (request) {
       var results = executeQuery(request);
 
       return {
@@ -49,7 +49,7 @@ function FakeServer(allData) {
       var rowGroupCol = rowGroupCols[groupKeys.length];
       var colsToSelect = [rowGroupCol.id];
 
-      valueCols.forEach(function(valueCol) {
+      valueCols.forEach(function (valueCol) {
         colsToSelect.push(
           valueCol.aggFunc + "(" + valueCol.id + ") AS " + valueCol.id
         );
@@ -67,7 +67,7 @@ function FakeServer(allData) {
     var whereParts = [];
 
     if (groupKeys) {
-      groupKeys.forEach(function(key, i) {
+      groupKeys.forEach(function (key, i) {
         var value = typeof key === "string" ? "'" + key + "'" : key;
 
         whereParts.push(rowGroups[i].id + " = " + value);
@@ -99,7 +99,7 @@ function FakeServer(allData) {
 
     if (sortModel.length === 0) return "";
 
-    var sorts = sortModel.map(function(s) {
+    var sorts = sortModel.map(function (s) {
       return s.colId + " " + s.sort.toUpperCase();
     });
 

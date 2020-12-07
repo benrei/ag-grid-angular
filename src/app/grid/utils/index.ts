@@ -1,11 +1,10 @@
-import { GridApi, RowNode } from "ag-grid-community";
 import server from "./serverSide";
 import client from "./clientSide";
 
 const utils = {
   gridOptions: {
     navigateToNextCell: {
-      arrowKeysLeftRight: params => {
+      arrowKeysLeftRight: (params) => {
         const { key, nextCellPosition, previousCellPosition } = params;
         if (!nextCellPosition) {
           const { column } = previousCellPosition;
@@ -24,7 +23,7 @@ const utils = {
       }
     },
     onCellKeyPress: {
-      enterToNextCell: params => {
+      enterToNextCell: (params) => {
         const { code, key, shiftKey } = params.event;
         if (shiftKey) {
           if (code == "Enter" || key == "Enter") {
@@ -42,7 +41,7 @@ const utils = {
   }
 };
 
-const getContextMenuItems = params => {
+const getContextMenuItems = (params) => {
   const { api, node } = params;
   console.log(params);
   // .copySelectedRangeToClipboard()
@@ -65,4 +64,30 @@ const getContextMenuItems = params => {
   return menuItems;
 };
 
-export default { client, server, getContextMenuItems, ...utils };
+const unflatten = (obj: any) => {
+  var result = {};
+  for (const key in obj) {
+    var keys = key.split(".");
+    keys.reduce(function (acc, curVal, i) {
+      return (
+        acc[curVal] ||
+        (acc[curVal] = isNaN(Number(keys[i + 1]))
+          ? keys.length - 1 == i
+            ? obj[key]
+            : {}
+          : [])
+      );
+    }, result);
+  }
+  return result;
+};
+const unflattenMany = (data: [any]) => data.map((obj) => unflatten(obj));
+
+export default {
+  client,
+  server,
+  getContextMenuItems,
+  unflatten,
+  unflattenMany,
+  ...utils
+};

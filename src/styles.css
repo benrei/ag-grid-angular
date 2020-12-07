@@ -1,11 +1,11 @@
-/* Add application styles & imports to this file! */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
 @import "ag-grid-community/dist/styles/ag-grid.css";
 @import "ag-grid-community/dist/styles/ag-theme-alpine.css";
-@import "ag-grid-community/dist/styles/ag-theme-balham.css";
 
-@import "~@ng-select/ng-select/themes/material.theme.css";
+html,
+body {
+  font-family: sans-serif;
+}
 
 .ag-theme-alpine .ag-header-cell,
 .ag-theme-alpine .ag-header-group-cell {
@@ -20,4 +20,3 @@
 .ag-row-selected.ag-row-group:not(.ag-cell-data-changed) {
   background: rgb(222 222 222 / 1) !important;
 }
-/* .ag-row-group .ag-row-group-contracted */

@@ -1,16 +1,18 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { IServerSideDatasource } from "ag-grid-community";
-import utils from "./utils";
+import utils from "../grid/utils";
 
 @Injectable({
   providedIn: "root"
 })
-export class DataService {
+export class DataCWService {
   constructor(private http: HttpClient) {}
 
   createDatasource(table: string): IServerSideDatasource {
     const http = this.http;
+    if (!localStorage.token)
+      console.warn(`localStorage.token: ${localStorage.token}`);
     return {
       getRows: function (params: any) {
         const { columnApi, request } = params;

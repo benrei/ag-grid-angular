@@ -8,8 +8,7 @@ import { MatDrawer } from "@angular/material/sidenav";
 })
 export class ToolbarComponent implements OnInit {
   @Input() drawer: MatDrawer;
-  constructor() // private sidenavService: SidenavService
-  {}
+  constructor() {} // private sidenavService: SidenavService
 
   // toggle() {
   //   this.sidenavService.sideNav.toggle();

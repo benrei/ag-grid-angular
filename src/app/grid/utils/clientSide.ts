@@ -20,7 +20,7 @@ const client = {
   }
 };
 
-const getContextMenuItems = params => {
+const getContextMenuItems = (params) => {
   const { api, node } = params;
   console.log(params);
   const menuItems = [];
@@ -29,7 +29,7 @@ const getContextMenuItems = params => {
     menuItems.push(
       {
         name: "Insert empty",
-        action: function() {
+        action: function () {
           client.addRow(api, {}, rowIndex > 0 ? rowIndex - 1 : rowIndex);
         },
         tooltip:
@@ -37,7 +37,7 @@ const getContextMenuItems = params => {
       },
       {
         name: "Duplicate",
-        action: function() {
+        action: function () {
           client.addRow(api, JSON.parse(JSON.stringify(data)), rowIndex + 1);
         },
         tooltip:

@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { IServerSideDatasource } from "ag-grid-community";
-import { unflattenMany } from "../../utils";
+import utils from ".";
 
 const server = {
   addRow: (api, data, rowIndex = 0) => {
@@ -16,9 +16,9 @@ const server = {
 const getRequestCols = (columnApi: any) =>
   columnApi
     .getAllColumns()
-    .map(o => o.userProvidedColDef)
-    .filter(o => o.field)
-    .map(o => {
+    .map((o) => o.userProvidedColDef)
+    .filter((o) => o.field)
+    .map((o) => {
       return { field: o.field };
     });
 
@@ -27,7 +27,7 @@ const createDatasource = (
   table: string
 ): IServerSideDatasource => {
   return {
-    getRows: function(params: any) {
+    getRows: function (params: any) {
       console.log(params.request);
       params.request.table = table;
       params.request.cols = getRequestCols(params.columnApi);
@@ -44,7 +44,7 @@ const createDatasource = (
         .toPromise()
         .then((response: any) => {
           if (response.data) {
-            const data = unflattenMany(response.data);
+            const data = utils.unflattenMany(response.data);
             params.successCallback(data, response.lastRow);
           } else {
             params.failCallback();
