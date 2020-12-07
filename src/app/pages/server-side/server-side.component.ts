@@ -8,10 +8,10 @@ import columns from "./columns";
 import "ag-grid-enterprise";
 import { FakeServer } from "../../fakeServer";
 import utils from "../../grid/utils";
-import { DatepickerEditor } from "src/app/grid/cellEditors/datepicker-editor/datepicker-editor.component";
-import { SelectBoxEditor } from "src/app/grid/cellEditors/select-box-editor/select-box-editor.component";
-import colDefDefaults from "src/app/grid/defaults/colDefDefaults";
-import gridOptions from "src/app/grid/defaults/gridOptions";
+import { DatepickerEditor } from "../../grid/cellEditors/datepicker-editor/datepicker-editor.component";
+import { SelectBoxEditor } from "../../grid/cellEditors/select-box-editor/select-box-editor.component";
+import colDefDefaults from "../../grid/defaults/colDefDefaults";
+import gridOptions from "../../grid/defaults/gridOptions";
 
 @Component({
   selector: "app-server-side",
@@ -89,7 +89,7 @@ export class ServerSideComponent {
       .get(
         "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinners.json"
       )
-      .subscribe((data) => {
+      .subscribe(data => {
         console.log("heye");
         var fakeServer = FakeServer(data);
         var datasource = ServerSideDatasource(fakeServer);
@@ -101,12 +101,12 @@ export class ServerSideComponent {
 
 function ServerSideDatasource(server): IServerSideDatasource {
   return {
-    getRows: function (params) {
+    getRows: function(params) {
       console.log("Request");
       console.log(params.request);
       var response = server.getData(params.request);
       console.log(response);
-      setTimeout(function () {
+      setTimeout(function() {
         if (response.success) {
           params.successCallback(response.rows, response.lastRow);
         } else {

@@ -29,6 +29,8 @@ export class DataCWService {
             .map((o) => {
               return { field: o.field };
             });
+        } else{
+          
         }
 
         console.log(request);

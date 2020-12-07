@@ -2,10 +2,10 @@ import { Component } from "@angular/core";
 import { CellValueChangedEvent } from "ag-grid-community/main";
 import columns from "./columns";
 import utils from "../../grid/utils";
-import { DatepickerEditor } from "src/app/grid/cellEditors/datepicker-editor/datepicker-editor.component";
-import { SelectBoxEditor } from "src/app/grid/cellEditors/select-box-editor/select-box-editor.component";
-import gridOptions from "src/app/grid/defaults/gridOptions";
-import colDefDefaults from "src/app/grid/defaults/colDefDefaults";
+import { DatepickerEditor } from "../../grid/cellEditors/datepicker-editor/datepicker-editor.component";
+import { SelectBoxEditor } from "../../grid/cellEditors/select-box-editor/select-box-editor.component";
+import gridOptions from "../../grid/defaults/gridOptions";
+import colDefDefaults from "../../grid/defaults/colDefDefaults";
 import { HttpClient } from "@angular/common/http";
 
 @Component({
@@ -61,7 +61,7 @@ export class ClientSideComponent {
       .get(
         "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinnersSmall.json"
       )
-      .subscribe((data) => {
+      .subscribe(data => {
         this.rowData = data;
       });
   }

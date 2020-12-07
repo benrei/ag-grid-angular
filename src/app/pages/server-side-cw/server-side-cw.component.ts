@@ -2,11 +2,11 @@ import { Component } from "@angular/core";
 import { CellValueChangedEvent } from "ag-grid-community/main";
 import columns from "./columns";
 import "ag-grid-enterprise";
-import { DatepickerEditor } from "src/app/grid/cellEditors/datepicker-editor/datepicker-editor.component";
-import { SelectBoxEditor } from "src/app/grid/cellEditors/select-box-editor/select-box-editor.component";
-import colDefDefaults from "src/app/grid/defaults/colDefDefaults";
-import gridOptions from "src/app/grid/defaults/gridOptions";
-import { DataCWService } from "src/app/services/dataCW.service";
+import { DatepickerEditor } from "../../grid/cellEditors/datepicker-editor/datepicker-editor.component";
+import { SelectBoxEditor } from "../../grid/cellEditors/select-box-editor/select-box-editor.component";
+import colDefDefaults from "../../grid/defaults/colDefDefaults";
+import gridOptions from "../../grid/defaults/gridOptions";
+import { DataCWService } from "../../services/dataCW.service";
 
 @Component({
   selector: "app-server-side-cw",
