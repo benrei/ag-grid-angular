@@ -12,19 +12,19 @@ export class DataService {
   createDatasource(table: string): IServerSideDatasource {
     const http = this.http;
     return {
-      getRows: function (params: any) {
+      getRows: function(params: any) {
         const { columnApi, request } = params;
         request.table = table;
 
-        // Only set cols if group fully expanded
+        // Only set cols if grouping is fully expanded
         if (request.groupKeys.length === request.rowGroupCols.length) {
           console.log(columnApi.getAllColumns());
           params.request.cols = columnApi
             .getAllColumns()
-            .filter((o) => !o.rowGroupActive)
-            .map((o) => o.colDef)
-            .filter((o) => o.field && !o.aggFunc)
-            .map((o) => {
+            .filter(o => !o.rowGroupActive)
+            .map(o => o.colDef)
+            .filter(o => o.field && !o.aggFunc)
+            .map(o => {
               return { field: o.field };
             });
         }
