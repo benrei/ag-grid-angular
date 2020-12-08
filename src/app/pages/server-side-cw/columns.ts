@@ -12,7 +12,7 @@ const columns = [
   },
   { field: "serviceComment", filter: "agTextColumnFilter" },
   {
-    // aggFunc: "sum",
+    aggFunc: "sum",
     field: "quantity",
     filter: "agNumberColumnFilter",
     type: "numericColumn"

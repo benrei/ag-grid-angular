@@ -9,6 +9,7 @@ const gridOptions = {
   enableRangeHandle: true,
   // enableFillHandle: true,
   // enterMovesDown: true,
+  allowContextMenuWithControlKey: true,
   getContextMenuItems: utils.getContextMenuItems,
   navigateToNextCell: utils.gridOptions.navigateToNextCell.arrowKeysLeftRight,
   rowSelection: "single",
@@ -24,7 +25,7 @@ const gridOptions = {
   // stopEditingWhenGridLosesFocus: true,
   // suppressRowClickSelection: true,
   undoRedoCellEditing: true,
-  onCellKeyPress: (params) => {
+  onCellKeyPress: params => {
     utils.gridOptions.onCellKeyPress.enterToNextCell(params);
   }
 };
