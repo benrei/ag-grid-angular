@@ -9,7 +9,7 @@ const gridOptions = {
   enableRangeHandle: true,
   // enableFillHandle: true,
   // enterMovesDown: true,
-  allowContextMenuWithControlKey: true,
+  // allowContextMenuWithControlKey: true,
   getContextMenuItems: utils.getContextMenuItems,
   navigateToNextCell: utils.gridOptions.navigateToNextCell.arrowKeysLeftRight,
   rowSelection: "single",
