@@ -5,7 +5,6 @@ import { GridDirective } from "./grid.directive";
 import { ActionsModule } from "./actions/actions.module";
 import { CellEditorsModule } from "./cellEditors/cellEditors.module";
 import { CellRenderersModule } from "./cellRenderers/cellRenderers.module";
-// import { DataService } from "./data.service";
 import { MatToolbarModule } from "@angular/material/toolbar";
 
 @NgModule({
@@ -18,8 +17,6 @@ import { MatToolbarModule } from "@angular/material/toolbar";
   ],
   declarations: [GridHeaderComponent, GridDirective],
   exports: [GridHeaderComponent, ActionsModule, GridDirective],
-  providers: [
-    // DataService
-  ]
+  providers: []
 })
 export class GridModule {}
