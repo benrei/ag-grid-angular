@@ -1,6 +1,6 @@
-ul:first-of-type {
+/* ul:first-of-type {
   padding: 0;
-}
+} */
 ul {
   /* width: 200px; */
   padding: 0;
@@ -8,16 +8,13 @@ ul {
 .box {
   width: 20px;
 }
-li {
+.test li {
   list-style: none;
   display: flex;
   justify-content: space-between;
+  /* align-items: center; */
 }
-.float-left {
-  /* text-align: right; */
-  /* float: left; */
-}
-.float-right {
-  text-align: right;
-  /* float: right; */
-}
+/* div {
+  margin-left: 5px;
+  margin-right: 5px;
+} */
