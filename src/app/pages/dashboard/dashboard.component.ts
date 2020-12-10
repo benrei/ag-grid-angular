@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
         { field: "Service", value: 6809.44 },
         { field: "Products", value: 2432.11 },
         { field: "Other", value: 0.0 },
-        [{ field: "Of which subcontractors", value: 0.0 }]
+        [{ field: "Of which subcontractors asdasd adasasd", value: 0.0 }]
       ]
     ],
     [
@@ -26,11 +26,9 @@ export class DashboardComponent implements OnInit {
       { field: "Gross margin", value: -3574.95 },
       { field: "Per hour (NOK)", value: 2432.11 },
       { field: "Products", value: 2432.11 }
-    ],
+    ]
   ];
-  budget = [
-    {field: 'Budget'}
-  ]
+  budget = [{ field: "Budget" }];
   constructor() {}
 
   ngOnInit() {}

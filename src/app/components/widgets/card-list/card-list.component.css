@@ -36,6 +36,7 @@ div.main > ul:first-of-type > li > div.field {
   font-weight: 400;
 }
 .value {
+  margin-left: 20px;
   font-weight: 600;
 }
 hr {
