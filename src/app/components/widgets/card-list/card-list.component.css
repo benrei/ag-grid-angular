@@ -1,23 +1,19 @@
-/* ul:first-of-type {
-  padding: 0;
-} */
 ul {
-  /* width: 200px; */
   width: 100%;
   padding: 0;
 }
-.box {
+.spacer {
   width: 20px;
 }
 .test li {
   list-style: none;
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
+  align-items: center;
 }
 app-card-list {
   width: 100%;
 }
-app-card-list ~ hr {
-  display: none;
+app-card-list + hr {
+  /* display: none; */
 }

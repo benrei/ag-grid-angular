@@ -12,9 +12,9 @@
 
 <ul *ngFor="let item of items; index as i">
 	<li class="test" *ngIf="isArray(item)">
-		<div class="box"></div>
+		<div class="spacer"></div>
 		<app-card-list [items]="item"></app-card-list>
-		<hr *ngIf="i < item.length">
+		<hr *ngIf="i < item.length && i < items.length-1">
 	</li>
 	<li class="2" *ngIf="!isArray(item) && isObject(item)">
 		<div>{{item.field}}</div>
