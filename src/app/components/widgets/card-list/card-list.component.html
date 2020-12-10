@@ -6,8 +6,8 @@
 			<hr *ngIf="i < items.length-1 && i !== item.length">
 		</li>
 		<li *ngIf="!isArray(item) && isObject(item)">
-			<div>{{item.field}}</div>
-			<div>{{item.value}}</div>
+			<div class="field">{{item.field}}</div>
+			<div class="value">{{item.value}}</div>
 		</li>
 	</ul>
 </div>
