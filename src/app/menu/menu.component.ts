@@ -9,6 +9,7 @@ export class MenuComponent implements OnInit {
   menuItems = [
     { title: "Home", path: "" },
     { title: "Client Side", path: "clientSide" },
+    { title: "Dashboard", path: "dashboard" },
     // { title: "Time Registration", path: "time-registration" },
     // { title: "Row group", path: "row-group" },
     // { title: "sizeColumnsToFit", path: "sizeColumnsToFit" },
