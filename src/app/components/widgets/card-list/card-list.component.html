@@ -14,9 +14,9 @@
 	<li class="test" *ngIf="isArray(item)">
 		<div class="box"></div>
 		<app-card-list [items]="item"></app-card-list>
-		<hr *ngIf="i < item.length && i === 1">
+		<hr *ngIf="i < item.length">
 	</li>
-	<li *ngIf="!isArray(item) && isObject(item)">
+	<li class="2" *ngIf="!isArray(item) && isObject(item)">
 		<div>{{item.field}}</div>
 		<div>{{item.value}}</div>
 	</li>
