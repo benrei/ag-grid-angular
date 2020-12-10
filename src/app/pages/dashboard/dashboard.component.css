@@ -1,0 +1,11 @@
+.card-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.card-list app-card-list-widget {
+  padding-top: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
