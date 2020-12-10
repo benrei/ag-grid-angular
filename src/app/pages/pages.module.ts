@@ -8,6 +8,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ServerSideComponent } from "./server-side/server-side.component";
 import { DataCWService } from "../services/dataCW.service";
 import { ServerSideCwComponent } from "./server-side-cw/server-side-cw.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { ServerSideCwComponent } from "./server-side-cw/server-side-cw.component
     // SizeColumnsToFitComponent,
     // TimeRegistrationComponent,
     ServerSideComponent,
-    ServerSideCwComponent
+    ServerSideCwComponent,
+    DashboardComponent
     // ServerSideNestedComponent
   ],
   exports: [],
