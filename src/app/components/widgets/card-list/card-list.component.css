@@ -17,7 +17,7 @@ ul {
   margin: 0;
   list-style: none;
 }
-div.main > ul:first-of-type ul:first-of-type > li > div.field,
+div.main ul:first-of-type ul:first-of-type li div.field,
 div.main > ul:first-of-type > li > div.field {
   margin-bottom: 12px;
   font-weight: 600;
