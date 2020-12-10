@@ -1,3 +1,11 @@
+.main {
+  background: #252526;
+  /* padding: 5px; */
+  color: #fff;
+}
+.margin {
+  margin: 5px;
+}
 ul {
   width: 100%;
   padding: 0;
@@ -13,7 +21,4 @@ ul {
 }
 app-card-list {
   width: 100%;
-}
-app-card-list + hr {
-  /* display: none; */
 }
