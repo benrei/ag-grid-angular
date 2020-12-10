@@ -1,6 +1,6 @@
 <mat-list-item role="listitem" *ngFor="let item of items; index as i;">
 	<div *ngIf="isArray(item)">
-		<app-list-card-widget [items]="item"></app-list-card-widget>
+		<app-card-list [items]="item"></app-card-list>
 		<mat-divider></mat-divider>
 	</div>
 	<div *ngIf="!isArray(item) && isObject(item)">
