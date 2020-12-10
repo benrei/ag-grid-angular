@@ -14,5 +14,8 @@
 	<li [attr.data-index]="i" *ngIf="isArray(item)">
 		<app-card-list [items]="item"></app-card-list>
 	</li>
-	<li [attr.data-index]="i" *ngIf="!isArray(item) && isObject(item)">{{item.field}} | {{item.value}}</li>
+	<li [attr.data-index]="i" *ngIf="!isArray(item) && isObject(item)">
+		<div>{{item.field}}</div>
+		<div>{{item.value}}</div>
+	</li>
 </ul>

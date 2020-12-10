@@ -1,0 +1,8 @@
+ul:first-of-type {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  flex: 1;
+}
