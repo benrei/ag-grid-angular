@@ -9,13 +9,15 @@ import { ServerSideComponent } from "./server-side/server-side.component";
 import { DataCWService } from "../services/dataCW.service";
 import { ServerSideCwComponent } from "./server-side-cw/server-side-cw.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { WidgetsModule } from "../components/widgets/widgets.module";
 
 @NgModule({
   imports: [
     CommonModule,
     AgGridModule.withComponents([]),
     HttpClientModule,
-    GridModule
+    GridModule,
+    WidgetsModule
   ],
   declarations: [
     ClientSideComponent,
