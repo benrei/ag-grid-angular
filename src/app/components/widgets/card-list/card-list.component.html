@@ -1,13 +1,18 @@
-<mat-list-item role="listitem" *ngFor="let item of items; index as i;">
-	<div *ngIf="isArray(item)">
-		<mat-list role="list">
-			<app-card-list [items]="item"></app-card-list>
-		</mat-list>
-		<mat-divider></mat-divider>
-	</div>
-	<div *ngIf="!isArray(item) && isObject(item)">
-		<mat-list-item role="listitem">
-			{{item.field}} | {{item.value}}
-		</mat-list-item>
-	</div>
-</mat-list-item>
+<!-- <mat-list-item role="listitem" *ngFor="let item of items; index as i;">
+
+	<mat-list role="list" *ngIf="isArray(item)">
+		<app-card-list [items]="item"></app-card-list>
+	</mat-list>
+	<mat-divider></mat-divider>
+
+	<mat-list-item role="listitem" *ngIf="!isArray(item) && isObject(item)">
+		{{item.field}} | {{item.value}}
+	</mat-list-item>
+</mat-list-item> -->
+
+<ul *ngFor="let item of items; index as i">
+	<li [attr.data-index]="i" *ngIf="isArray(item)">
+		<app-card-list [items]="item"></app-card-list>
+	</li>
+	<li [attr.data-index]="i" *ngIf="!isArray(item) && isObject(item)">{{item.field}} | {{item.value}}</li>
+</ul>
