@@ -10,7 +10,6 @@ import { DataCWService } from "../services/dataCW.service";
 import { ServerSideCwComponent } from "./server-side-cw/server-side-cw.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { WidgetsModule } from "../components/widgets/widgets.module";
-import { MatListModule } from "@angular/material/list";
 
 @NgModule({
   imports: [
@@ -18,7 +17,6 @@ import { MatListModule } from "@angular/material/list";
     AgGridModule.withComponents([]),
     HttpClientModule,
     GridModule,
-    MatListModule,
     WidgetsModule
   ],
   declarations: [
