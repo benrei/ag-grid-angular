@@ -1,8 +1,23 @@
 ul:first-of-type {
   padding: 0;
 }
-
+ul {
+  /* width: 200px; */
+  padding: 0;
+}
+.box {
+  width: 20px;
+}
 li {
   list-style: none;
-  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.float-left {
+  /* text-align: right; */
+  /* float: left; */
+}
+.float-right {
+  text-align: right;
+  /* float: right; */
 }
