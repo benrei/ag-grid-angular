@@ -1,10 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: []s
+  imports: [CommonModule],
+  declarations: []
 })
-export class WidgetsModule { }
+export class WidgetsModule {}
