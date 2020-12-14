@@ -3,7 +3,7 @@
 		<li class="recursive" *ngIf="isArray(item)">
 			<div class="spacer"></div>
 			<app-card-list [items]="item" [isRecursive]="true"></app-card-list>
-			<hr *ngIf="i < items.length-1 && i !== item.length">
+			<hr *ngIf="i < items.length-1">
 		</li>
 		<li *ngIf="!isArray(item) && isObject(item)">
 			<div class="field">{{item.field}}</div>

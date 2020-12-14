@@ -23,7 +23,4 @@ export class CardListComponent implements OnInit {
   isObject(val) {
     return typeof val === "object" && val !== null;
   }
-  printVal(val) {
-    console.log(val);
-  }
 }
