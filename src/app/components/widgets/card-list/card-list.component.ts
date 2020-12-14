@@ -17,6 +17,9 @@ export class CardListComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+  isEndOfSection(items, index) {
+    return index < items.length - 1;
+  }
   isArray(val) {
     return Array.isArray(val);
   }
