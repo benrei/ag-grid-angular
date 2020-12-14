@@ -1,8 +1,7 @@
 <div [ngClass]="{'main': !isRecursive}">
 	<ul *ngFor=" let item of items; index as i; let first = first;">
 		<li class="recursive" *ngIf="isArray(item)">
-			<div class="spacer"></div>
-			<app-card-list [items]="item" [isRecursive]="true"></app-card-list>
+			<app-card-list class="spacer" [items]="item" [isRecursive]="true"></app-card-list>
 			<hr *ngIf="isSection(item)">
 		</li>
 		<li *ngIf="!isArray(item) && isObject(item)">

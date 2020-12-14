@@ -24,7 +24,7 @@ div.main > ul:first-of-type > li > div.field {
   text-transform: uppercase;
 }
 .spacer {
-  width: 20px;
+  margin-left: 20px;
 }
 .recursive li {
   list-style: none;
