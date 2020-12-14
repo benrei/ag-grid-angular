@@ -17,8 +17,8 @@ export class CardListComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-  isSection(item, itemIsRecursive) {
-    return this.isArray(item) && !itemIsRecursive;
+  isSection(item) {
+    return this.isArray(item) && !this.isRecursive;
   }
   isArray(val) {
     return Array.isArray(val);
