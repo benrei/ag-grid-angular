@@ -1,9 +1,15 @@
-import { Component, Input, OnInit } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from "@angular/core";
 
 @Component({
   selector: "app-card-list",
   templateUrl: "./card-list.component.html",
-  styleUrls: ["./card-list.component.css"]
+  styleUrls: ["./card-list.component.css"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardListComponent implements OnInit {
   @Input() items;
