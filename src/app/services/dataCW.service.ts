@@ -30,6 +30,7 @@ export class DataCWService {
             });
         } else {
         }
+        console.log(request);
 
         const URL =
           "https://contracting-test-clientapi-aggrid.azurewebsites.net/client/a-anonymisert/Rows/GetRows";
