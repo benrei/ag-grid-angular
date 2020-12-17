@@ -35,12 +35,12 @@ export class ClientSideComponent {
   };
   columnDefs = columns;
   constructor(private http: HttpClient) {}
+
   onCellValueChanged(event: CellValueChangedEvent) {
     console.log(event);
     // Save changes
   }
   addFn = () => {
-    console.log("addFn");
     utils.client.addRow(this.gridApi, {}, 0);
   };
   editFn = () => {
