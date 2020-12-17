@@ -15,6 +15,7 @@ const gridOptions = {
   navigateToNextCell: utils.gridOptions.navigateToNextCell.arrowKeysLeftRight,
   rowSelection: "single",
   rowGroupPanelShow: "always",
+  sideBar: true,
   suppressCopyRowsToClipboard: true,
   // sendToClipboard: (params)=>params.api.copySelectedRangeToClipboard(),
   statusBar: {
