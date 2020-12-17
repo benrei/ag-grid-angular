@@ -11,7 +11,7 @@ import utils from "../../grid/utils";
 import { DatepickerEditor } from "../../grid/cellEditors/datepicker-editor/datepicker-editor.component";
 import { SelectBoxEditor } from "../../grid/cellEditors/select-box-editor/select-box-editor.component";
 import colDefDefaults from "../../grid/defaults/colDefDefaults";
-import gridOptions from "../../grid/defaults/gridOptions";
+import gridOptions from "../../grid/gridOptions";
 
 @Component({
   selector: "app-server-side",
