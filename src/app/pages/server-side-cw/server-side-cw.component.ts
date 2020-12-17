@@ -4,7 +4,7 @@ import columns from "./columns";
 import "ag-grid-enterprise";
 import { DatepickerEditor } from "../../grid/cellEditors/datepicker-editor/datepicker-editor.component";
 import { SelectBoxEditor } from "../../grid/cellEditors/select-box-editor/select-box-editor.component";
-import colDefDefaults from "../../grid/defaults/colDefDefaults";
+import colDefDefaults from "../../grid/gridOptions/colDefDefaults";
 import gridOptions from "../../grid/gridOptions";
 import { DataCWService } from "../../services/dataCW.service";
 
