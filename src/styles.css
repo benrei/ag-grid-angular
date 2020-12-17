@@ -50,3 +50,7 @@ body {
 .ag-row-odd:not(.ag-row-hover):not(.ag-row-focus):not(.ag-row-selected) {
   background-color: #f7f7f7;
 }
+
+.mat-toolbar.mat-primary {
+  background: #2f3b42 !important;
+}
