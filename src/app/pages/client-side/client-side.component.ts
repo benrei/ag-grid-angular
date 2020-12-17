@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { CellValueChangedEvent } from "ag-grid-community/main";
 import columns from "./columns";
+import contextMenu from "../../grid/gridOptions/getContextMenuItems";
 import utils from "../../grid/utils";
 import { DatepickerEditor } from "../../grid/cellEditors/datepicker-editor/datepicker-editor.component";
 import { SelectBoxEditor } from "../../grid/cellEditors/select-box-editor/select-box-editor.component";
@@ -23,7 +24,7 @@ export class ClientSideComponent {
       selectBoxEditor: SelectBoxEditor,
       datepickerEditor: DatepickerEditor
     },
-    getContextMenuItems: utils.client.getContextMenuItems,
+    getContextMenuItems: contextMenu.standard,
     undoRedoCellEditing: true
     // editType: "fullRow"
   };
