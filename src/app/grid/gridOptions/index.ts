@@ -14,8 +14,10 @@ const gridOptions = {
   getContextMenuItems: contextMenu.standard,
   navigateToNextCell: utils.gridOptions.navigateToNextCell.arrowKeysLeftRight,
   rowSelection: "single",
-  rowGroupPanelShow: "always",
-  sideBar: true,
+  // rowGroupPanelShow: "always",
+  sideBar: {
+    toolPanels: ["columns", "filters"]
+  },
   suppressCopyRowsToClipboard: true,
   // sendToClipboard: (params)=>params.api.copySelectedRangeToClipboard(),
   statusBar: {
