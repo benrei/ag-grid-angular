@@ -41,6 +41,7 @@ export class ClientSideComponent {
   }
   addFn = () => {
     console.log("addFn");
+    utils.client.addRow(this.gridApi, {}, 0);
   };
   editFn = () => {
     console.log("editFn");
