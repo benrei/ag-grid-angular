@@ -4,7 +4,7 @@ import client from "./clientSide";
 const utils = {
   gridOptions: {
     navigateToNextCell: {
-      arrowKeysLeftRight: (params) => {
+      arrowKeysLeftRight: params => {
         const { key, nextCellPosition, previousCellPosition } = params;
         if (!nextCellPosition) {
           const { column } = previousCellPosition;
@@ -23,7 +23,7 @@ const utils = {
       }
     },
     onCellKeyPress: {
-      enterToNextCell: (params) => {
+      enterToNextCell: params => {
         const { code, key, shiftKey } = params.event;
         if (shiftKey) {
           if (code == "Enter" || key == "Enter") {
@@ -41,34 +41,11 @@ const utils = {
   }
 };
 
-const getContextMenuItems = (params) => {
-  const { api, node } = params;
-  console.log(params);
-  // .copySelectedRangeToClipboard()
-  const menuItems = [];
-  const copySelectedRangeToClipboard = {
-    name: "Copy selected cell(s)",
-    icon: '<span class="ag-icon ag-icon-copy"></span>',
-    action: () => api.copySelectedRangeToClipboard()
-  };
-  if (node) {
-    menuItems.push(
-      // copySelectedRangeToClipboard,
-      "copy",
-      "paste",
-      "separator",
-      "chartRange"
-    );
-  }
-  menuItems.push("export");
-  return menuItems;
-};
-
 const unflatten = (obj: any) => {
   var result = {};
   for (const key in obj) {
     var keys = key.split(".");
-    keys.reduce(function (acc, curVal, i) {
+    keys.reduce(function(acc, curVal, i) {
       return (
         acc[curVal] ||
         (acc[curVal] = isNaN(Number(keys[i + 1]))
@@ -81,12 +58,11 @@ const unflatten = (obj: any) => {
   }
   return result;
 };
-const unflattenMany = (data: [any]) => data.map((obj) => unflatten(obj));
+const unflattenMany = (data: [any]) => data.map(obj => unflatten(obj));
 
 export default {
   client,
   server,
-  getContextMenuItems,
   unflatten,
   unflattenMany,
   ...utils

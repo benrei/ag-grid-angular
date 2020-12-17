@@ -1,4 +1,5 @@
 import utils from "../utils";
+import contextMenu from "./getContextMenuItems";
 
 const gridOptions = {
   autoGroupColumnDef: {
@@ -10,7 +11,7 @@ const gridOptions = {
   // enableFillHandle: true,
   // enterMovesDown: true,
   // allowContextMenuWithControlKey: true,
-  getContextMenuItems: utils.getContextMenuItems,
+  getContextMenuItems: contextMenu.standard,
   navigateToNextCell: utils.gridOptions.navigateToNextCell.arrowKeysLeftRight,
   rowSelection: "single",
   rowGroupPanelShow: "always",
