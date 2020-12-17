@@ -24,7 +24,7 @@ export class ClientSideComponent {
       selectBoxEditor: SelectBoxEditor,
       datepickerEditor: DatepickerEditor
     },
-    getContextMenuItems: contextMenu.standard,
+    getContextMenuItems: contextMenu.client,
     undoRedoCellEditing: true
     // editType: "fullRow"
   };
