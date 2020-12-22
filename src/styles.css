@@ -17,15 +17,15 @@ body {
   margin-left: 8px;
 }
 
+/* CW styles */
+.mat-toolbar.mat-primary {
+  background: #2f3b42 !important;
+}
 .ag-row-selected .cell-not-editable:not(.ag-cell-data-changed),
 .ag-row-selected.ag-row-group:not(.ag-cell-data-changed) {
   background: rgb(222 222 222 / 1);
 }
 
-/* CW styles */
-.mat-toolbar.mat-primary {
-  background: #2f3b42 !important;
-}
 .ag-row-odd:not(.ag-row-hover):not(.ag-row-focus):not(.ag-row-selected) {
   background-color: #f7f7f7;
 }
