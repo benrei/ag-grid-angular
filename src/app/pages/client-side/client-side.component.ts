@@ -8,6 +8,7 @@ import { SelectBoxEditor } from "../../grid/cellEditors/select-box-editor/select
 import gridOptions from "../../grid/gridOptions";
 import colDefDefaults from "../../grid/gridOptions/colDefDefaults";
 import { HttpClient } from "@angular/common/http";
+import { ErrorRenderer } from "../../grid/cellRenderers/error-renderer.component";
 
 @Component({
   selector: "app-simple",
@@ -22,7 +23,8 @@ export class ClientSideComponent {
     ...gridOptions,
     frameworkComponents: {
       selectBoxEditor: SelectBoxEditor,
-      datepickerEditor: DatepickerEditor
+      datepickerEditor: DatepickerEditor,
+      errorRenderer: ErrorRenderer
     },
     getContextMenuItems: contextMenu.client,
     undoRedoCellEditing: true

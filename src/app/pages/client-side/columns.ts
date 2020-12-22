@@ -36,6 +36,8 @@ const columns = [
   },
   {
     field: "silver",
+    cellRendererSelector: ({ data }) =>
+      data.silver === 0 ? { component: "errorRenderer" } : null,
     filter: "agNumberColumnFilter",
     aggFunc: "sum"
   },
