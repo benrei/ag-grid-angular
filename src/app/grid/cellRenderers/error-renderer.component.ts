@@ -4,7 +4,7 @@ import { ICellRendererAngularComp } from "ag-grid-angular";
 @Component({
   selector: "error-cell",
   template: `
-    <div style="color: rgb(255 0 0 / 0.2);" [matTooltip]="text">
+    <div style="color: rgb(255 0 0 / 1);" [matTooltip]="text">
       {{ value }}
     </div>
   `
