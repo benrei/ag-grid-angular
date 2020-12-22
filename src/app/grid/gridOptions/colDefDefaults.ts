@@ -2,8 +2,8 @@ const colDefDefaults = {
   cellClassRules: {
     "cell-not-editable": params => !params.colDef.editable
   },
-  cellStyle: params =>
-    typeof params.value === "number" ? { textAlign: "right" } : null,
+  cellStyle: ({ value }) =>
+    typeof value === "number" ? { textAlign: "right" } : null,
   enableCellChangeFlash: true,
   enableRowGroup: true,
   floatingFilter: true,
