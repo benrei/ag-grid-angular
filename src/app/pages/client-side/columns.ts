@@ -58,7 +58,11 @@ const columns = [
     aggFunc: "sum",
     editable: false
   },
-  { field: "age", filter: "agNumberColumnFilter" },
+  {
+    field: "age",
+    filter: "agNumberColumnFilter",
+    valueParser: valueParser.number
+  },
   {
     field: "date",
     filter: "agDateColumnFilter",
