@@ -4,10 +4,18 @@ import { ICellRendererAngularComp } from "ag-grid-angular";
 @Component({
   selector: "error-cell",
   template: `
-    <div style="color: rgb(255 0 0 / 1);" [matTooltip]="text">
+    <div [matTooltip]="text">
       {{ value }}
     </div>
-  `
+  `,
+  styles: [
+    `
+      div {
+        // color: rgb(255 0 0 / 1);
+        background: rgb(255 0 0 / 0.1);
+      }
+    `
+  ]
 })
 export class ErrorRenderer implements ICellRendererAngularComp {
   public params;
