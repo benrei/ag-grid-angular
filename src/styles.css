@@ -2,7 +2,7 @@
 @import "ag-grid-community/dist/styles/ag-grid.css";
 @import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 @import "ag-grid-community/dist/styles/ag-theme-balham.css";
-@import "./app/grid/style.css";
+@import "./app/grid/styles/cw.css";
 
 html,
 body {
