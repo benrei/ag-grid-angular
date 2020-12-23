@@ -15,11 +15,11 @@ export class ErrorRenderer implements ICellRendererAngularComp {
   public text;
 
   agInit(params: any): void {
+    const { api, colDef, data, value } = params;
     this.params = params;
-    this.value = params.value;
-    this.text = `${params.data.country} only has ${
-      params.value
-    } silver medals!`;
+    this.value = value;
+    this.text = `${data.country} only has ${value} ${colDef.headerName ||
+      colDef.field} medals!`;
   }
 
   refresh(): boolean {

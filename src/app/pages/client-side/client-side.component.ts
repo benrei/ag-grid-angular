@@ -32,6 +32,8 @@ export class ClientSideComponent {
   };
   defaultColDef = {
     ...colDefDefaults,
+    cellRendererSelector: ({ data, value }) =>
+      value === 0 ? { component: "errorRenderer" } : null,
     onCellValueChanged: this.onCellValueChanged,
     editable: true
   };
