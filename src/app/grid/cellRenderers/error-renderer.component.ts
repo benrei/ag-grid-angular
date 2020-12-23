@@ -30,7 +30,7 @@ export class ErrorRenderer implements ICellRendererAngularComp {
     const { api, colDef, data, value } = params;
     this.params = params;
     this.value = value;
-    this.text = `${data.country} only has ${value} ${colDef.headerName ||
+    this.text = `${data.athlete} got ${value} ${colDef.headerName ||
       colDef.field} medals!`;
   }
 
