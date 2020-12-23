@@ -2,6 +2,7 @@
 @import "ag-grid-community/dist/styles/ag-grid.css";
 @import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 @import "ag-grid-community/dist/styles/ag-theme-balham.css";
+@import "./app/grid/style.css";
 
 html,
 body {
@@ -16,71 +17,3 @@ body {
 .ag-theme-alpine .ag-ltr .ag-floating-filter-button {
   margin-left: 8px;
 }
-
-/* CW styles */
-.mat-toolbar.mat-primary {
-  background: #2f3b42 !important;
-}
-.ag-theme-balham {
-  /* font-family: Open Sans, sans-serif; */
-}
-
-.ag-row-selected .cell-not-editable:not(.ag-cell-data-changed),
-.ag-row-selected.ag-row-group:not(.ag-cell-data-changed) {
-  background: rgb(222 222 222 / 1);
-}
-
-.ag-row-odd:not(.ag-row-hover):not(.ag-row-focus):not(.ag-row-selected) {
-  background-color: #f7f7f7;
-}
-
-.ag-theme-balham .ag-fill-handle,
-.ag-theme-balham .ag-range-handle {
-  background-color: #fda34a;
-}
-
-.ag-theme-balham .ag-row-selected {
-  background-color: #fedebe;
-}
-.ag-theme-balham .ag-cell-range-selected-1:not(.ag-cell-focus),
-.ag-theme-balham
-  .ag-body-viewport:not(.ag-has-focus)
-  .ag-cell-range-selected-1:not(.ag-cell-inline-editing) {
-  background-color: rgba(250, 225, 200, 0.4);
-}
-
-/* Grid border style */
-.ag-theme-balham
-  .ag-ltr
-  .ag-has-focus
-  .ag-cell-focus:not(.ag-cell-range-selected),
-.ag-theme-balham .ag-ltr .ag-cell-range-single-cell,
-.ag-theme-balham .ag-ltr .ag-cell-range-single-cell.ag-cell-range-handle,
-.ag-theme-balham
-  .ag-rtl
-  .ag-has-focus
-  .ag-cell-focus:not(.ag-cell-range-selected),
-.ag-theme-balham .ag-rtl .ag-cell-range-single-cell,
-.ag-theme-balham .ag-rtl .ag-cell-range-single-cell.ag-cell-range-handle {
-  border-color: #fda34a;
-}
-.ag-theme-balham
-  .ag-cell.ag-cell-range-selected:not(.ag-cell-range-single-cell).ag-cell-range-top {
-  border-top-color: #fda34a;
-}
-.ag-theme-balham
-  .ag-cell.ag-cell-range-selected:not(.ag-cell-range-single-cell).ag-cell-range-right {
-  border-right-color: #fda34a;
-}
-.ag-theme-balham
-  .ag-cell.ag-cell-range-selected:not(.ag-cell-range-single-cell).ag-cell-range-bottom {
-  border-bottom-color: #fda34a;
-}
-.ag-theme-balham
-  .ag-cell.ag-cell-range-selected:not(.ag-cell-range-single-cell).ag-cell-range-left {
-  border-left-color: #fda34a;
-}
-.ag-theme-balham .ag-cell-focus.ag-cell-range-single-cell {
-  border-color: #fda34a;
-}
-/* Grid border style END */
