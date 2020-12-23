@@ -8,6 +8,9 @@ html,
 body {
   font-family: sans-serif;
 }
+.mat-toolbar.mat-primary {
+  background: #2f3b42 !important;
+}
 
 .ag-theme-alpine .ag-header-cell,
 .ag-theme-alpine .ag-header-group-cell {
