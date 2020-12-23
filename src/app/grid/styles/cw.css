@@ -1,8 +1,4 @@
 /* CW styles */
-.mat-toolbar.mat-primary {
-  background: #2f3b42 !important;
-}
-
 /* Scroll bar */
 ::-webkit-scrollbar {
   width: 8px;
