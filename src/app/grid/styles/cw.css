@@ -2,6 +2,24 @@
 .mat-toolbar.mat-primary {
   background: #2f3b42 !important;
 }
+
+/* Scroll bar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(252, 143, 35, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: #fc8f23;
+}
+* {
+  scrollbar-color: #fc8f23 rgba(252, 143, 35, 0.2);
+  scrollbar-width: thin;
+}
+/* Scroll bar END */
+
 .ag-theme-balham {
   /* font-family: Open Sans, sans-serif; */
 }
