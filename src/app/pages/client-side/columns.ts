@@ -52,13 +52,9 @@ const columns = [
     displayName: "total",
     filter: "agNumberColumnFilter",
     valueGetter: ({ data }) =>
-      data.gold
-        ? Number(data.gold)
-        : 0 + data.silver
-        ? Number(data.silver)
-        : 0 + data.bronze
-        ? Number(data.bronze)
-        : null,
+      (data.gold ? Number(data.gold) : 0) +
+      (data.silver ? Number(data.silver) : 0) +
+      (data.bronze ? Number(data.bronze) : 0),
     aggFunc: "sum",
     editable: false
   },
