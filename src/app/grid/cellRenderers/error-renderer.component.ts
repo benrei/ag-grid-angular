@@ -13,6 +13,10 @@ import { ICellRendererAngularComp } from "ag-grid-angular";
       div {
         // color: rgb(255 0 0 / 1);
         background: rgb(255 0 0 / 0.1);
+        margin-left: -11px;
+        margin-right: -11px;
+        padding-left: 11px;
+        padding-right: 11px;
       }
     `
   ]
