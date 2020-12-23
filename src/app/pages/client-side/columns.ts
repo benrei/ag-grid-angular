@@ -1,3 +1,4 @@
+import valueParser from "../../grid/gridOptions/valueParser";
 const columns = [
   {
     field: "country",
@@ -32,25 +33,32 @@ const columns = [
   {
     field: "gold",
     filter: "agNumberColumnFilter",
+    valueParser: valueParser.number,
     aggFunc: "sum"
   },
   {
     field: "silver",
-    cellRendererSelector: ({ data }) =>
-      data.silver === 0 ? { component: "errorRenderer" } : null,
     filter: "agNumberColumnFilter",
+    valueParser: valueParser.number,
     aggFunc: "sum"
   },
   {
     field: "bronze",
     filter: "agNumberColumnFilter",
+    valueParser: valueParser.number,
     aggFunc: "sum"
   },
   {
     displayName: "total",
     filter: "agNumberColumnFilter",
     valueGetter: ({ data }) =>
-      Number(data.gold) + Number(data.silver) + Number(data.bronze),
+      data.gold
+        ? Number(data.gold)
+        : 0 + data.silver
+        ? Number(data.silver)
+        : 0 + data.bronze
+        ? Number(data.bronze)
+        : null,
     aggFunc: "sum",
     editable: false
   },
