@@ -7,6 +7,16 @@ const colDefDefaults = {
   enableCellChangeFlash: true,
   enableRowGroup: true,
   floatingFilter: true,
+  keyCreator: ({ value }) => {
+    switch (value) {
+      case null:
+        return "NULL";
+      case undefined:
+        return "undefined";
+      default:
+        return value;
+    }
+  },
   resizable: true,
   sortable: true,
   suppressKeyboardEvent: ({ event }) => ["Enter"].includes(event.key),
