@@ -7,7 +7,9 @@ const colDefDefaults = {
   enableCellChangeFlash: true,
   enableRowGroup: true,
   floatingFilter: true,
+  // keyCreator only works client side
   keyCreator: ({ value }) => {
+    console.log(value);
     switch (value) {
       case null:
         return "NULL";
