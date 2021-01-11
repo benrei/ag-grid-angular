@@ -1,0 +1,19 @@
+<div [ngClass]="{ main: !isRecursive }" *ngIf="items.length > 0">
+  <ul *ngFor="let item of items; index as i">
+    <!-- <li *ngIf="!isArray(item) && isObject(item)"> -->
+    <li>
+      <div class="field">{{ item[fieldKey] }}</div>
+      <div class="value">{{ item[valueKey] }}</div>
+    </li>
+    <!-- <li class="recursive" *ngIf="isArray(item)"> -->
+    <li class="recursive" *ngIf="item.items">
+      <app-card-list-widget
+        class="spacer"
+        [items]="item.items"
+        [isRecursive]="true"
+      ></app-card-list-widget>
+      <!-- <hr *ngIf="isSection(item)" /> -->
+      <hr *ngIf="!isRecursive && item.items" />
+    </li>
+  </ul>
+</div>
