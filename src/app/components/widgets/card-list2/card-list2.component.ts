@@ -1,4 +1,3 @@
-import { ChangeDetectionStrategy } from "@angular/compiler/src/core";
 import { Component, Input } from "@angular/core";
 
 @Component({
