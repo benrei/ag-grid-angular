@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy } from "@angular/compiler/src/core";
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
   selector: "app-card-list2",
