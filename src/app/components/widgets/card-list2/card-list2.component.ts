@@ -7,6 +7,7 @@ import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardList2Component {
+  @Input() title;
   @Input() items;
   @Input() isRecursive = false;
   @Input() fieldKey = "name";

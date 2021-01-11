@@ -1,4 +1,5 @@
 <div [ngClass]="{ main: !isRecursive }" *ngIf="items.length > 0">
+	<p>{{title}}</p>
 	<ul *ngFor="let item of items; index as i">
 		<!-- <li *ngIf="!isArray(item) && isObject(item)"> -->
 		<li>
