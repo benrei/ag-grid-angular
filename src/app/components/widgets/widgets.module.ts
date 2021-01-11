@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { CardListComponent } from "./card-list/card-list.component";
-import { CardList2Component } from "./card-list-2/card-list-2.component";
+import { CardList2Component } from "./card-list-2/card-list2.component";
 
 @NgModule({
   imports: [CommonModule],
