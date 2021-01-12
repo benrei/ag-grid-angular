@@ -20,7 +20,7 @@ ul {
 .spacer {
   margin-left: 20px;
 }
-.recursive li {
+li {
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -36,6 +36,6 @@ ul {
 hr {
   margin-bottom: 12px;
 }
-app-card-list {
+app-card-list2 {
   width: 100%;
 }
