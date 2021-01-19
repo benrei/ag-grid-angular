@@ -1,10 +1,11 @@
 /* CW styles
 Usage: 
-<ag-grid-angular 
-  class="ag-theme-balham ag-theme-cw"
-  ...
-></ag-grid-angular>
+  <ag-grid-angular 
+    class="ag-theme-balham ag-theme-cw"
+    ...
+  ></ag-grid-angular>
 */
+
 /* Scroll bar */
 ::-webkit-scrollbar {
   width: 8px;
