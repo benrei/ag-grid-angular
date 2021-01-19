@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { ICellRendererAngularComp } from "ag-grid-angular";
 
 @Component({
-  selector: "currency-cell",
+  selector: "pdf-cell",
   template: `
     <a *ngIf="url" href="{{ url }}" target="_blank">
       <mat-icon>picture_as_pdf</mat-icon>
