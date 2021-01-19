@@ -11,8 +11,7 @@ const client = params => {
         action: function() {
           utils.client.addRow(api, {}, rowIndex > 0 ? rowIndex - 1 : rowIndex);
         },
-        tooltip:
-          "Very long tooltip, did I mention that I am very long, well I am! Long!  Very Long!"
+        tooltip: "Insert empty row"
       },
       {
         name: "Duplicate",
@@ -23,8 +22,7 @@ const client = params => {
             rowIndex + 1
           );
         },
-        tooltip:
-          "Very long tooltip, did I mention that I am very long, well I am! Long!  Very Long!"
+        tooltip: "Duplicate row"
       },
       "separator",
       "copy",
