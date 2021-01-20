@@ -2,11 +2,10 @@ import { Component } from "@angular/core";
 import { CellValueChangedEvent } from "ag-grid-community/main";
 import columns from "./columns";
 import "ag-grid-enterprise";
-import { DatepickerEditor } from "../../grid/cellEditors/datepicker-editor/datepicker-editor.component";
-import { SelectBoxEditor } from "../../grid/cellEditors/select-box-editor/select-box-editor.component";
-import colDefDefaults from "../../grid/gridOptions/colDefDefaults";
-import gridOptions from "../../grid/gridOptions";
-import { DataCWService } from "../../services/dataCW.service";
+import { SelectBoxEditor } from "../../ag-grid-extention/components/cell-editors/select-box-editor/select-box-editor.component";
+import gridOptions from "../../ag-grid-extention/gridOptions";
+import colDefDefaults from "../../ag-grid-extention/gridOptions/colDefDefaults";
+import { DatasourceCWService } from "../../ag-grid-extention/services/datasource-cw.service";
 
 @Component({
   selector: "app-server-side-cw",
@@ -20,8 +19,7 @@ export class ServerSideCwComponent {
   gridOptions = {
     ...gridOptions,
     frameworkComponents: {
-      selectBoxEditor: SelectBoxEditor,
-      datepickerEditor: DatepickerEditor
+      selectBoxEditor: SelectBoxEditor
     }
     // undoRedoCellEditing: true
   };
@@ -31,7 +29,7 @@ export class ServerSideCwComponent {
     editable: true
   };
 
-  constructor(private dataService: DataCWService) {}
+  constructor(private dataService: DatasourceCWService) {}
 
   onGridReady(params) {
     this.gridApi = params.api;

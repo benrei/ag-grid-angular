@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { MatDrawer } from "@angular/material/sidenav";
+import pkg from "../../../package.json";
 
 @Component({
   selector: "app-toolbar",
@@ -8,11 +9,8 @@ import { MatDrawer } from "@angular/material/sidenav";
 })
 export class ToolbarComponent implements OnInit {
   @Input() drawer: MatDrawer;
-  constructor() {} // private sidenavService: SidenavService
-
-  // toggle() {
-  //   this.sidenavService.sideNav.toggle();
-  // }
+  title = `${pkg.name}`;
+  constructor() {}
 
   ngOnInit() {}
 }

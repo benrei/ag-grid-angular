@@ -1,17 +1,17 @@
-import { Component } from "@angular/core";
-import { CellValueChangedEvent } from "ag-grid-community/main";
-import columns from "./columns";
-import contextMenu from "../../grid/gridOptions/getContextMenuItems";
-import utils from "../../grid/utils";
-import { DatepickerEditor } from "../../grid/cellEditors/datepicker-editor/datepicker-editor.component";
-import { SelectBoxEditor } from "../../grid/cellEditors/select-box-editor/select-box-editor.component";
-import gridOptions from "../../grid/gridOptions";
-import colDefDefaults from "../../grid/gridOptions/colDefDefaults";
 import { HttpClient } from "@angular/common/http";
-import { ErrorRenderer } from "../../grid/cellRenderers/error-renderer.component";
+import { Component } from "@angular/core";
+import "ag-grid-enterprise";
+import { CellValueChangedEvent } from "ag-grid-community";
+import { SelectBoxEditor } from "../../ag-grid-extention/components/cell-editors/select-box-editor/select-box-editor.component";
+import { ErrorRenderer } from "../../ag-grid-extention/components/cell-renderers/error-renderer.component";
+import contextMenu from "../../ag-grid-extention/contextMenus";
+import gridOptions from "../../ag-grid-extention/gridOptions";
+import colDefDefaults from "../../ag-grid-extention/gridOptions/colDefDefaults";
+import utils from "../../ag-grid-extention/utils";
+import columns from "./columns";
 
 @Component({
-  selector: "app-simple",
+  selector: "app-client-side",
   templateUrl: "./client-side.component.html",
   styleUrls: ["./client-side.component.css"]
 })
@@ -23,17 +23,16 @@ export class ClientSideComponent {
     ...gridOptions,
     frameworkComponents: {
       selectBoxEditor: SelectBoxEditor,
-      datepickerEditor: DatepickerEditor,
       errorRenderer: ErrorRenderer
     },
-    getContextMenuItems: contextMenu.client,
+    getContextMenuItems: contextMenu,
     undoRedoCellEditing: true
     // editType: "fullRow"
   };
   defaultColDef = {
     ...colDefDefaults,
-    // cellRendererSelector: ({ data, value }) =>
-    //   value === 0 ? { component: "errorRenderer" } : null,
+    cellRendererSelector: ({ data, value }) =>
+      value === 0 ? { component: "errorRenderer" } : null,
     onCellValueChanged: this.onCellValueChanged,
     editable: true
   };
@@ -45,14 +44,14 @@ export class ClientSideComponent {
     // Save changes
   }
   addFn = () => {
-    utils.client.addRow(this.gridApi, {}, 0);
+    utils.addRow(this.gridApi, {}, 0);
   };
   editFn = () => {
     console.log("editFn");
   };
   deleteFn = () => {
     const rowNodes = this.gridApi.getSelectedRows();
-    utils.client.removeRows(this.gridApi, rowNodes);
+    utils.removeRows(this.gridApi, rowNodes);
   };
   refreshFn = () => {
     console.log("refreshFn");

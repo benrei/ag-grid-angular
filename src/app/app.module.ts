@@ -1,28 +1,27 @@
+import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
-import { ToolbarModule } from "./toolbar/toolbar.module";
-import { MenuModule } from "./menu/menu.module";
-import { HttpClientModule } from "@angular/common/http";
-import { PagesModule } from "./pages/pages.module";
 import { AppRoutingModule } from "./app-routing.module";
+import { MenuModule } from "./menu/menu.module";
+import { ToolbarModule } from "./toolbar/toolbar.module";
+import { PagesModule } from "./pages/pages.module";
 import { MatSidenavModule } from "@angular/material/sidenav";
 
 @NgModule({
-  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     MatSidenavModule,
-    ToolbarModule,
     MenuModule,
-    PagesModule
+    PagesModule,
+    ToolbarModule
   ],
-  providers: [],
+  declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

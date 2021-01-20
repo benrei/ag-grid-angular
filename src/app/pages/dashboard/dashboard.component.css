@@ -1,9 +1,0 @@
-.card-list {
-  display: flex;
-  flex-direction: row;
-}
-.card-list app-card-list,
-.card-list app-card-list2 {
-  width: 100%;
-  padding: 8px;
-}

@@ -1,4 +1,4 @@
-<app-grid-header (quickfilterTextOutput)="setQuickfilterText($event)">
+<app-grid-toolbar (quickfilterTextOutput)="setQuickfilterText($event)">
   <app-add-action [addFn]="addFn"></app-add-action>
   <app-edit-action [gridApi]="gridApi" [editFn]="editFn"></app-edit-action>
   <app-delete-action
@@ -10,7 +10,7 @@
   <app-fit-columns-action
     [fitColumnsFn]="fitColumnsFn"
   ></app-fit-columns-action>
-</app-grid-header>
+</app-grid-toolbar>
 <ag-grid-angular
   #agGridSimple
   class="ag-theme-balham ag-theme-cw"

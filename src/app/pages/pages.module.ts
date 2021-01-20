@@ -1,35 +1,21 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-// ag-grid
 import { AgGridModule } from "ag-grid-angular";
-import { GridModule } from "../grid/grid.module";
-import { ClientSideComponent } from "./client-side/client-side.component";
 import { HttpClientModule } from "@angular/common/http";
-import { ServerSideComponent } from "./server-side/server-side.component";
-import { DataCWService } from "../services/dataCW.service";
+import { ClientSideComponent } from "./client-side/client-side.component";
+import { AgGridExtentionModule } from "../ag-grid-extention/ag-grid-extention.module";
 import { ServerSideCwComponent } from "./server-side-cw/server-side-cw.component";
-import { DashboardComponent } from "./dashboard/dashboard.component";
-import { WidgetsModule } from "../components/widgets/widgets.module";
+import { GridExtentionModule } from "../grid-extention/grid-extention.module";
+import { ServerSideComponent } from './server-side/server-side.component';
 
 @NgModule({
   imports: [
     CommonModule,
     AgGridModule.withComponents([]),
     HttpClientModule,
-    GridModule,
-    WidgetsModule
+    AgGridExtentionModule,
+    GridExtentionModule
   ],
-  declarations: [
-    ClientSideComponent,
-    // RowGroupComponent,
-    // SizeColumnsToFitComponent,
-    // TimeRegistrationComponent,
-    ServerSideComponent,
-    ServerSideCwComponent,
-    DashboardComponent
-    // ServerSideNestedComponent
-  ],
-  exports: [WidgetsModule],
-  providers: [DataCWService]
+  declarations: [ClientSideComponent, ServerSideCwComponent, ServerSideComponent]
 })
 export class PagesModule {}

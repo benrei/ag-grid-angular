@@ -6,12 +6,11 @@ import {
 } from "ag-grid-community/main";
 import columns from "./columns";
 import "ag-grid-enterprise";
-import { FakeServer } from "../../fakeServer";
-import utils from "../../grid/utils";
-import { DatepickerEditor } from "../../grid/cellEditors/datepicker-editor/datepicker-editor.component";
-import { SelectBoxEditor } from "../../grid/cellEditors/select-box-editor/select-box-editor.component";
-import colDefDefaults from "../../grid/gridOptions/colDefDefaults";
-import gridOptions from "../../grid/gridOptions";
+import { SelectBoxEditor } from "../../ag-grid-extention/components/cell-editors/select-box-editor/select-box-editor.component";
+import gridOptions from "../../ag-grid-extention/gridOptions";
+import colDefDefaults from "../../ag-grid-extention/gridOptions/colDefDefaults";
+import { DatasourceDummyService } from "../../ag-grid-extention/services/datasource-dummy.service";
+import { FakeServer } from "../../ag-grid-extention/utils/fakeServer";
 
 @Component({
   selector: "app-server-side",
@@ -26,8 +25,7 @@ export class ServerSideComponent {
   gridOptions = {
     ...gridOptions,
     frameworkComponents: {
-      selectBoxEditor: SelectBoxEditor,
-      datepickerEditor: DatepickerEditor
+      selectBoxEditor: SelectBoxEditor
     }
     // suppressDragLeaveHidesColumns: true,
     // suppressMakeColumnVisibleAfterUnGroup: true
@@ -39,7 +37,10 @@ export class ServerSideComponent {
     editable: true
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private dummyDatasource: DatasourceDummyService
+  ) {}
 
   onCellValueChanged(event: CellValueChangedEvent) {
     console.log(event);
@@ -90,29 +91,9 @@ export class ServerSideComponent {
         "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinners.json"
       )
       .subscribe(data => {
-        console.log("heye");
         var fakeServer = FakeServer(data);
-        var datasource = ServerSideDatasource(fakeServer);
-        console.log(datasource);
+        var datasource = this.dummyDatasource.createDatasource(fakeServer);
         params.api.setServerSideDatasource(datasource);
       });
   }
-}
-
-function ServerSideDatasource(server): IServerSideDatasource {
-  return {
-    getRows: function(params) {
-      console.log("Request");
-      console.log(params.request);
-      var response = server.getData(params.request);
-      console.log(response);
-      setTimeout(function() {
-        if (response.success) {
-          params.successCallback(response.rows, response.lastRow);
-        } else {
-          params.failCallback();
-        }
-      }, 50);
-    }
-  };
 }

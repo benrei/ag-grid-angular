@@ -1,22 +1,9 @@
+/* Add application styles & imports to this file! */
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 @import "ag-grid-community/dist/styles/ag-grid.css";
-@import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 @import "ag-grid-community/dist/styles/ag-theme-balham.css";
-@import "./app/grid/styles/cw.css";
+@import "./app/ag-grid-extention/styles/cw.css";
 
-html,
-body {
-  font-family: sans-serif;
-}
 .mat-toolbar.mat-primary {
   background: #2f3b42 !important;
-}
-
-.ag-theme-alpine .ag-header-cell,
-.ag-theme-alpine .ag-header-group-cell {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-.ag-theme-alpine .ag-ltr .ag-floating-filter-button {
-  margin-left: 8px;
 }

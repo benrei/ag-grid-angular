@@ -1,4 +1,4 @@
-import valueParser from "../../grid/gridOptions/valueParser";
+import valueParser from "../../ag-grid-extention/columnDef/valueParser";
 const columns = [
   {
     field: "country",
@@ -66,8 +66,7 @@ const columns = [
   {
     field: "date",
     filter: "agDateColumnFilter",
-    minWidth: 140,
-    cellEditor: "datepickerEditor"
+    minWidth: 140
   }
 ];
 export default columns;
